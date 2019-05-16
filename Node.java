@@ -1,37 +1,37 @@
-public class Node {
-  private E data;
-  private Node next;
-  private Node prev;
-  public Node (E newData, Node newNext, Node newPrev) {
+class Node {
+  E data;
+  Node next;
+  Node prev;
+  Node(E newData, Node newNext, Node newPrev) {
     data = newData;
     next = newNext;
     prev = newPrev;
   }
-  public E getData() {
+  E getData() {
     return data;
   }
-  public Node next() {
+  Node next() {
     return next;
   }
-  public Node prev() {
+  Node prev() {
     return prev;
   }
-  public E setData(E i) {
+  E setData(E i) {
     E K = data;
     data = i;
     return K;
   }
-  public void setNext(Node other) {
+  void setNext(Node other) {
     next = other;
   }
-  public void setPrev(Node other) {
+  void setPrev(Node other) {
     prev = other;
   }
-  public String toString() {
+  String toString() {
     String K = "" + data;
     return K;
   }
-  public boolean hasNext() {
+  boolean hasNext() {
     if (next == null) {
       return false;
     }
