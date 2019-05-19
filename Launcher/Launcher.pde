@@ -27,7 +27,8 @@ void setup() {
   while (inf.hasNextLine()) {
     String line = inf.nextLine();
     for (int i = 0; i < line.length(); i = i + 1) {
-      
+      if (line.charAt(i) != ' ') {
+        
   } catch (FileNotFoundException e) {
   }
 
