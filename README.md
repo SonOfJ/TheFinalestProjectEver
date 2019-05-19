@@ -13,6 +13,8 @@ This game attempts to recreate the classic arcade Pac-Man game. The user uses ar
 ### May 16, 2019
 **Christy**
 - During this in class work period, I created the PacMan file and wrote the skeleton for the methods to be completed. I also created the outline for the README file so that we can easily update it later.
+**Jason**
+- During this work period, I copied over the node class from last semester and started work on the Maze class.
 
 
 
