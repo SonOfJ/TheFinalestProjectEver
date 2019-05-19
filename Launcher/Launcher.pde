@@ -13,7 +13,7 @@ void setup() {
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
   try {
-    File text = new File("Map");
+    File text = new File("Map.txt");
     Scanner inf = new Scanner(text);
     int height = 0;
     int length = 0;
