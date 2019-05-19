@@ -6,7 +6,19 @@ This game attempts to recreate the classic arcade Pac-Man game. The user uses ar
 
 ## How to Run Program
 
+**1. The Map File**
+The blueprint of the map that will be used in the game will be located in a text file titled "Map.txt". The file will contain letters that symbolizes what should be created.
+P: Pac-Man
+N: Nodes (spots where Pac-Man can move on)
+D: Dots that can be consumed by Pac-Man to generate points for the player
+G: Ghosts
 
+**2. Controls**
+The player will be controlling Pac-Man. The player will be able to move him in four different directions.
+W: Up
+S: Down
+A: Left
+D: Right
 
 ## Development Log
 
