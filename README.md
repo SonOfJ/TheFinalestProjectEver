@@ -6,7 +6,21 @@ This game attempts to recreate the classic arcade Pac-Man game. The user uses ar
 
 ## How to Run Program
 
+**1. The Map File**
 
+The blueprint of the map that will be used in the game will be located in a text file titled "Map.txt". The file will contain letters that symbolizes what should be created.
+P: Pac-Man
+N: Nodes (spots where Pac-Man can move on)
+D: Dots that can be consumed by Pac-Man to generate points for the player
+G: Ghosts
+
+**2. Controls**
+
+The player will be controlling Pac-Man. The player will be able to move him in four different directions.
+W: Up
+S: Down
+A: Left
+D: Right
 
 ## Development Log
 
@@ -21,3 +35,9 @@ This game attempts to recreate the classic arcade Pac-Man game. The user uses ar
 ### May 18, 2019
 **Christy**
 - I worked on the PacMan and Ghost classes. I wrote the methods to load the images in and display the images, but I will need to update it later once we move from Java files to Processing. I also found PNG files for PacMan and the four ghosts. Lastly, I worked a little bit on the Maze class and wrote the constructor and the method to add a Node in each of the four directions.
+
+
+
+### May 19, 2019
+**Jason**
+- I created the Dot class and also a launcher which will start up the game. I used scanner to attempt to create a map that can be displayed in processing. I created a test text file with special letters that symbolize what should be at the respective locations. I also started to work on the directions, specifically adding what each letter in the text file map symbolizes.
