@@ -12,25 +12,10 @@ void setup() {
   size(1000, 800);
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
-  try {
-    File text = new File("Map.txt");
-    Scanner inf = new Scanner(text);
-    int height = 0;
-    int length = 0;
-    while (inf.hasNextLine()) {
-    String line = inf.nextLine();
-    length = line.length();
-    height = height + 1;
-  }
-  inf = new Scanner(text);
-  int row = 0;
-  while (inf.hasNextLine()) {
-    String line = inf.nextLine();
-    for (int i = 0; i < line.length(); i = i + 1) {
-      if (line.charAt(i) != ' ') {
-        
-  } catch (FileNotFoundException e) {
-  }
-
+  String[] lines = loadStrings("Map.txt");
+  for (int i = 0; i < lines.length; i = i + 1) {
+    for (int j = 0; j < lines[i].length; j = j + 1) {
+      if (lines[i].charAt(j) != ' ') {
+        Node
 }
   
