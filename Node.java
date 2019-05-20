@@ -5,6 +5,7 @@ class Node {
   Node left;
   Node right;
   boolean hasDot;
+  boolean pacmanHere;
   Node(E newData, Node newUp, Node newDown, Node newLeft, Node newRight) {
     data = newData;
     up = newUp;
@@ -12,6 +13,7 @@ class Node {
     left = newLeft;
     right = newRight;
     hasDot = true;
+    pacmanHere = false;
   }
   E getData() {
     return data;
@@ -45,6 +47,15 @@ class Node {
   }
   Node right() {
     return right;
+  }
+  boolean pacmanHere(){
+    return pacmanHere;
+  }
+  void addPacman(){
+    pacmanHere = true;
+  }
+  void removePacman(){
+    pacmanHere = false;
   }
   E setData(E i) {
     E K = data;
