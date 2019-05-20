@@ -23,24 +23,32 @@ public class Pacman{
   }
 
   public void move(String direction){
-    if(direction.equals("up")){//move up
-      if(currentNode.hasUp()){//check if there is Node there
-        currentNode = currentNode.up();//set currentNode to the new Node
+    if(direction.equals("up")){
+      if(currentNode.hasUp()){
+        currentNode.removePacman();
+        currentNode = currentNode.up();
+        currentNode.addPacman();
       }
     }
-    if(direction.equals("down")){//move down
-      if(currentNode.hasDown()){//check if there is Node there
-        currentNode = currentNode.down();//set currentNode to the newNode
+    if(direction.equals("down")){
+      if(currentNode.hasDown()){
+        currentNode.removePacman();
+        currentNode = currentNode.down();
+        currentNode.addPacman();
       }
     }
-    if(direction.equals("left")){//move left
-      if(currentNode.hasLeft()){//check if there is Node there
-        currentNode = currentNode.left();//set currentNode to the newNode
+    if(direction.equals("left")){
+      if(currentNode.hasLeft()){
+        currentNode.removePacman();
+        currentNode = currentNode.left();
+        currentNode.addPacman();
       }
     }
-    if(direction.equals("right")){//move right
-      if(currentNode.hasRight()){//check if there is Node there
-        currentNode = currentNode.right();//set currentNode to the newNode
+    if(direction.equals("right")){
+      if(currentNode.hasRight()){
+        currentNode.removePacman();
+        currentNode = currentNode.right();
+        currentNode.addPacman();
       }
     }
   }
