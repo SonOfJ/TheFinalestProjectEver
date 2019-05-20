@@ -14,6 +14,18 @@ class Node {
   E getData() {
     return data;
   }
+  boolean hasUp() {
+    return up != null;
+  }
+  boolean hasDown() {
+    return down != null;
+  }
+  boolean hasLeft() {
+    return left != null;
+  }
+  boolean hasRight() {
+    return right != null;
+  }
   Node up() {
     return up;
   }
