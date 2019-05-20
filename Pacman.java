@@ -46,6 +46,8 @@ public class Pacman{
   }
 
   public void eat(){
-
+    if(currentNode.hasDot()){//if there is a Dot at the node
+      currentNode.removeDot();//remove the Dot
+    }
   }
 }
