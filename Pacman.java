@@ -22,8 +22,27 @@ public class Pacman{
 
   }
 
-  public void move(){
-
+  public void move(String direction){
+    if(direction.equals("up")){
+      if(currentNode.hasUp()){
+        currentNode = currentNode.up();
+      }
+    }
+    if(direction.equals("down")){
+      if(currentNode.hasDown()){
+        currentNode = currentNode.down();
+      }
+    }
+    if(direction.equals("left")){
+      if(currentNode.hasLeft()){
+        currentNode = currentNode.left();
+      }
+    }
+    if(direction.equals("right")){
+      if(currentNode.hasRight()){
+        currentNode = currentNode.right();
+      }
+    }
   }
 
   public void eat(){
