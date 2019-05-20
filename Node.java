@@ -4,15 +4,23 @@ class Node {
   Node down;
   Node left;
   Node right;
+  boolean hasDot;
   Node(E newData, Node newUp, Node newDown, Node newLeft, Node newRight) {
     data = newData;
     up = newUp;
     down = newDown;
     left = newLeft;
     right = newRight;
+    hasDot = true;
   }
   E getData() {
     return data;
+  }
+  boolean hasDot(){
+    return hasDot;
+  }
+  void removeDot(){
+    hasDot = false;
   }
   boolean hasUp() {
     return up != null;
