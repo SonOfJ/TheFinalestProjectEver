@@ -1,40 +1,50 @@
 class Node {
   E data;
-  Node next;
-  Node prev;
-  Node(E newData, Node newNext, Node newPrev) {
+  Node up;
+  Node down;
+  Node left;
+  Node right;
+  Node(E newData, Node newUp, Node newDown, Node newLeft, Node newRight) {
     data = newData;
-    next = newNext;
-    prev = newPrev;
+    up = newUp;
+    down = newDown;
+    left = newLeft;
+    right = newRight;
   }
   E getData() {
     return data;
   }
-  Node next() {
-    return next;
+  Node up() {
+    return up;
   }
-  Node prev() {
-    return prev;
+  Node down() {
+    return down;
+  }
+  Node left() {
+    return left;
+  }
+  Node right() {
+    return right;
   }
   E setData(E i) {
     E K = data;
     data = i;
     return K;
   }
-  void setNext(Node other) {
-    next = other;
+  void setUp(Node other) {
+    up = other;
   }
-  void setPrev(Node other) {
-    prev = other;
+  void setDown(Node other) {
+    down = other;
+  }
+  void setLeft(Node other) {
+    left = other;
+  }
+  void setRight(Node other) {
+    right = other;
   }
   String toString() {
     String K = "" + data;
     return K;
-  }
-  boolean hasNext() {
-    if (next == null) {
-      return false;
-    }
-    return true;
   }
 }
