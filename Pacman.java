@@ -23,24 +23,24 @@ public class Pacman{
   }
 
   public void move(String direction){
-    if(direction.equals("up")){
-      if(currentNode.hasUp()){
-        currentNode = currentNode.up();
+    if(direction.equals("up")){//move up
+      if(currentNode.hasUp()){//check if there is Node there
+        currentNode = currentNode.up();//set currentNode to the new Node
       }
     }
-    if(direction.equals("down")){
-      if(currentNode.hasDown()){
-        currentNode = currentNode.down();
+    if(direction.equals("down")){//move down
+      if(currentNode.hasDown()){//check if there is Node there
+        currentNode = currentNode.down();//set currentNode to the newNode
       }
     }
-    if(direction.equals("left")){
-      if(currentNode.hasLeft()){
-        currentNode = currentNode.left();
+    if(direction.equals("left")){//move left
+      if(currentNode.hasLeft()){//check if there is Node there
+        currentNode = currentNode.left();//set currentNode to the newNode
       }
     }
-    if(direction.equals("right")){
-      if(currentNode.hasRight()){
-        currentNode = currentNode.right();
+    if(direction.equals("right")){//move right
+      if(currentNode.hasRight()){//check if there is Node there
+        currentNode = currentNode.right();//set currentNode to the newNode
       }
     }
   }
