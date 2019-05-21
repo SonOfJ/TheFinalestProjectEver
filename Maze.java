@@ -11,7 +11,7 @@ class Maze {
       String line = inf.nextLine();
       height = height + 1;
     }
-    inf = new Scanner("Map.txt");
+    inf = new Scanner(text);
     for (int i = 0; i < height; i = i + 1) {
       String line = inf.nextLine();
       for (int j = 0; j < line.length(); j = j + 1) {
@@ -44,5 +44,16 @@ class Maze {
             left = n;
           }
         }
+        if (line.charAt(j) != 'P' && line.charAt(j) != ' ') {
+          Dot d = new Dot(n);
+        }
+        if (line.charAt(j) == 'P') {
+          Pacman p = new Pacman(n);
+        }
+        if (line.charAt(j) == 'G') {
+          Ghost g = new Ghost(n, "ghost" + ((int)Math.random(4) + 1) + ".png");
+        }
       }
     }
+  }
+}
