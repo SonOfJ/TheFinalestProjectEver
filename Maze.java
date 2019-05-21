@@ -1,8 +1,7 @@
+import java.util.*;
+import java.io.*;
 class Maze {
-  Node upNode;
-  Node downNode;
-  Node leftNode;
-  Node rightNode;
+  Node start;
 
   Maze(Node newUp, Node newDown, Node newLeft, Node newRight) {
     upNode = newUp;
@@ -27,6 +26,6 @@ class Maze {
     if(direction.equals("right")){
       rightNode = newNode;
     }
-    
+
   }
 }
