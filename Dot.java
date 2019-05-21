@@ -1,9 +1,15 @@
 class Dot {
   Node currentNode;
-  boolean eaten;
-  Dot(Node newCurrent, boolean newState) {
+  boolean there;
+  Dot(Node newCurrent) {
     currentNode = newCurrent;
-    eaten = newState;
+    there = true;
+  }
+  void eat() {
+    there = false;
+  }
+  boolean getState() {
+    return there;
   }
   display(int x, int y) {
     fill(255, 255, 0); //Set to yellow.
