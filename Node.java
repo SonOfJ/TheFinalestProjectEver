@@ -1,12 +1,12 @@
 class Node {
-  E data;
   Node up;
   Node down;
   Node left;
   Node right;
   boolean hasDot;
   boolean pacmanHere;
-  Node(E newData, Node newUp, Node newDown, Node newLeft, Node newRight) {
+  boolean ghostHere;
+  Node(Node newUp, Node newDown, Node newLeft, Node newRight) {
     data = newData;
     up = newUp;
     down = newDown;
@@ -14,9 +14,7 @@ class Node {
     right = newRight;
     hasDot = true;
     pacmanHere = false;
-  }
-  E getData() {
-    return data;
+    ghostHere = false;
   }
   boolean hasDot(){
     return hasDot;
@@ -57,10 +55,14 @@ class Node {
   void removePacman(){
     pacmanHere = false;
   }
-  E setData(E i) {
-    E K = data;
-    data = i;
-    return K;
+  boolean ghostHere() {
+    return ghostHere;
+  }
+  void addGhost() {
+    ghostHere = true;
+  }
+  void removeGhost() {
+    ghostHere = false;
   }
   void setUp(Node other) {
     up = other;
@@ -73,9 +75,5 @@ class Node {
   }
   void setRight(Node other) {
     right = other;
-  }
-  String toString() {
-    String K = "" + data;
-    return K;
   }
 }
