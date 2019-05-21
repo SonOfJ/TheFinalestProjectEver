@@ -61,4 +61,7 @@ public class Pacman{
   void damage() {
     lives = lives - 1;
   }
+  int lives() {
+    return lives;
+  }
 }
