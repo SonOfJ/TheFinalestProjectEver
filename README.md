@@ -51,3 +51,7 @@ The player will be controlling Pac-Man. The player will be able to move him in f
 
 **Jason**
 - In class, after looking up how to handle files in processing, I switched out the scanner in the launcher class for the loadString function to avoid dealing with exceptions. I also updated the Node class so that each node gets four links (up, down, left, and right) instead of just two (previous and next). At home, I finished reading and laying out the nodes, dots, Pacman, and ghosts. Still need to work on connecting them.
+
+
+
+### May 21, 2019
