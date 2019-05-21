@@ -2,9 +2,9 @@ public class Pacman{
   Node currentNode;
   int lives;
 
-  public Pacman(Node newCurrent, int numLives){
+  public Pacman(Node newCurrent){
     currentNode = newCurrent;
-    lives = numLives;
+    lives = 3;
   }
 
 
@@ -57,5 +57,8 @@ public class Pacman{
     if(currentNode.hasDot()){//if there is a Dot at the node
       currentNode.removeDot();//remove the Dot
     }
+  }
+  void damage() {
+    lives = lives - 1;
   }
 }
