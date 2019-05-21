@@ -3,15 +3,17 @@ class Node {
   Node down;
   Node left;
   Node right;
+  boolean path;
   boolean hasDot;
   boolean pacmanHere;
   boolean ghostHere;
-  Node(Node newUp, Node newDown, Node newLeft, Node newRight) {
+  Node(Node newUp, Node newDown, Node newLeft, Node newRight, boolean patState) {
     data = newData;
     up = newUp;
     down = newDown;
     left = newLeft;
     right = newRight;
+    path = patState;
     hasDot = true;
     pacmanHere = false;
     ghostHere = false;
