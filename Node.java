@@ -78,4 +78,7 @@ class Node {
   void setRight(Node other) {
     right = other;
   }
+  boolean canWalk() {
+    return path;
+  }
 }
