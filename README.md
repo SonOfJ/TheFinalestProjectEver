@@ -55,3 +55,5 @@ The player will be controlling Pac-Man. The player will be able to move him in f
 
 
 ### May 21, 2019
+**Christy**
+- During class time, I worked on methods for Ghost movement. I got the random movement of the Ghost, but I will need to work on writing a method where the Ghost chases PacMan once it is close enough.
