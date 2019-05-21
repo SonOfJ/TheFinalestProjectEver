@@ -9,10 +9,10 @@ This game attempts to recreate the classic arcade Pac-Man game. The user uses ar
 **1. The Map File**
 
 The blueprint of the map that will be used in the game will be located in a text file titled "Map.txt". The file will contain letters that symbolizes what should be created.
-P: Pac-Man
-N: Nodes (spots where Pac-Man can move on)
-D: Dots that can be consumed by Pac-Man to generate points for the player
-G: Ghosts
+- P: Pac-Man
+- N: Nodes (spots where Pac-Man can move on)
+- D: Dots that can be consumed by Pac-Man to generate points for the player
+- G: Ghosts
 
 **2. Controls**
 
@@ -42,6 +42,8 @@ The player will be controlling Pac-Man. The player will be able to move him in f
 ### May 19, 2019
 **Jason**
 - I created the Dot class and also a launcher which will start up the game. I used scanner to attempt to create a map that can be displayed in processing. I created a test text file with special letters that symbolize what should be at the respective locations. I also started to work on the directions, specifically adding what each letter in the text file map symbolizes.
+
+
 
 ### May 20, 2019
 **Christy**
