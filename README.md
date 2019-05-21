@@ -48,3 +48,6 @@ The player will be controlling Pac-Man. The player will be able to move him in f
 ### May 20, 2019
 **Christy**
 - In class, I wrote the move and eat methods for Pacman and I also had to add extra methods to the Node class for this to work. I had a lot of trouble with merging branches, so I spent most of the class time trying to resolve the problems. I was unable to fix it, so at home, I had to delete the branch I was working in and rewrite the methods I was working on. 
+
+**Jason**
+- In class, after looking up how to handle files in processing, I switched out the scanner in the launcher class for the loadString function to avoid dealing with exceptions. I also updated the Node class so that each node gets four links (up, down, left, and right) instead of just two (previous and next). At home, I finished reading and laying out the nodes, dots, Pacman, and ghosts. Still need to work on connecting them.
