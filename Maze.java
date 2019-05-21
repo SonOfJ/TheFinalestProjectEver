@@ -25,10 +25,14 @@ class Maze {
             Node n = new Node(null, null, null, null, walk);
             up = n;
             left = n;
-          } else {
+          } else if (j != line.length() - 1) {
             Node n = new Node(null, null, left, null, walk);
             left.setRight(n);
             left = n;
+          } else {
+            Node n = new Node(null, null, left, null, walk);
+            left.setRight(n);
+            left = null;
           }
         } else {
           if (j == 0) {
@@ -36,12 +40,22 @@ class Maze {
             up.setDown(n);
             up = up.right();
             left = n;
-          } else {
+          } else if (j != line.length() - 1) {
             Node n = new Node(up, null, left, null, walk);
             up.setDown(n);
             left.setRight(n);
             up = up.right();
             left = n;
+          } else {
+            Node n = new Node(up, null, left, null, walk);
+            up.setDown(n);
+            left.setRight(n);
+            Node search = n.left();
+            while (search.hasLeft()) {
+              search = search.left();
+            }
+            up = search;
+            left = null;
           }
         }
         if (line.charAt(j) != 'P' && line.charAt(j) != ' ') {
