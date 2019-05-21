@@ -16,18 +16,33 @@ class Maze {
       String line = inf.nextLine();
       for (int j = 0; j < line.length(); j = j + 1) {
         if (line.charAt(j) != ' ') {
-          if (i == 0) {
-            if (j == 0) {
-              Node n = new Node(null, null, null, null);
-              up = n;
-              left = n;
-            } else if (j != line.length() - 1) {
-              Node n = new Node(null, null, left, null);
-              left = n;
-            } else {
-              Node n = new Node(null, null, left, null);
-            }
-          } else if 
+          boolean walk = true;
+        } else {
+          boolean walk = false;
+        }
+        if (i == 0) {
+          if (j == 0) {
+            Node n = new Node(null, null, null, null, walk);
+            up = n;
+            left = n;
+          } else {
+            Node n = new Node(null, null, left, null, walk);
+            left.setRight(n);
+            left = n;
+          }
+        } else {
+          if (j == 0) {
+            Node n = new Node(up, null, null, null, walk);
+            up.setDown(n);
+            up = up.right();
+            left = n;
+          } else {
+            Node n = new Node(up, null, left, null, walk);
+            up.setDown(n);
+            left.setRight(n);
+            up = up.right();
+            left = n;
+          }
         }
       }
     }
