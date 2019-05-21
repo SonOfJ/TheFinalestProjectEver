@@ -17,10 +17,10 @@ G: Ghosts
 **2. Controls**
 
 The player will be controlling Pac-Man. The player will be able to move him in four different directions.
-W: Up
-S: Down
-A: Left
-D: Right
+- W: Up
+- S: Down
+- A: Left
+- D: Right
 
 ## Development Log
 
