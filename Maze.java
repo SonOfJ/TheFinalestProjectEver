@@ -23,9 +23,11 @@ class Maze {
               left = n;
             } else if (j != line.length() - 1) {
               Node n = new Node(null, null, left, null);
-              left = 
-
-          }
+              left = n;
+            } else {
+              Node n = new Node(null, null, left, null);
+            }
+          } else if 
         }
       }
     }
