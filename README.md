@@ -27,6 +27,7 @@ D: Right
 ### May 16, 2019
 **Christy**
 - During this in class work period, I created the PacMan file and wrote the skeleton for the methods to be completed. I also created the outline for the README file so that we can easily update it later.
+
 **Jason**
 - During this work period, I copied over the node class from last semester and started work on the Maze class.
 
@@ -41,3 +42,7 @@ D: Right
 ### May 19, 2019
 **Jason**
 - I created the Dot class and also a launcher which will start up the game. I used scanner to attempt to create a map that can be displayed in processing. I created a test text file with special letters that symbolize what should be at the respective locations. I also started to work on the directions, specifically adding what each letter in the text file map symbolizes.
+
+### May 20, 2019
+**Christy**
+- In class, I wrote the move and eat methods for Pacman and I also had to add extra methods to the Node class for this to work. I had a lot of trouble with merging branches, so I spent most of the class time trying to resolve the problems. I was unable to fix it, so at home, I had to delete the branch I was working in and rewrite the methods I was working on. 
