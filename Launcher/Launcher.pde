@@ -27,11 +27,13 @@ void setup() {
           Ghost g = new Ghost(n, "ghost" + (int)random(5) + ".png");
         }
       }
+      count = count + 1;
     }
   }
   for (int i = 0; i < lines.length; i = i + 1) {
     for (int j = 0; j < lines[i].length; j = j + 1) {
       if (lines[i].charAt(j) != ' ') {
-        if 
+        if (j != 0) {
+          n.set
 }
   
