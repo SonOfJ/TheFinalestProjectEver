@@ -25,7 +25,6 @@ class Node {
     return hasDot;
   }
   void removeDot(){
-    dot = null;
     hasDot = false;
   }
   boolean hasUp() {
