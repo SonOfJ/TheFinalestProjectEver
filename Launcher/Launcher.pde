@@ -9,6 +9,7 @@ interface Moveable {
 ArrayList<Displayable> thingsToDisplay;
 ArrayList<Moveable> thingsToMove;
 void setup() {
+  loadImgs();
   size(1000, 800);
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
@@ -36,4 +37,19 @@ void setup() {
         if (j != 0) {
           n.set
 }
+
+
+void loadImgs(){
+  pacImgs = loadImage("pacman.png");
+  ghost1img = loadImage("ghost1.png");
+  ghost2img = loadImage("ghost1.png");
+  ghost3img = loadImage("ghost1.png");
+  ghost4img = loadImage("ghost1.png");
+}
+
+
+void draw(){
+  
+}
+
   
