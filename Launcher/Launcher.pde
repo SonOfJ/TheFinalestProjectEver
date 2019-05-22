@@ -39,7 +39,7 @@ void setup() {
     index = begin;
   }
 }
-void loadImgs(){
+/*void loadImgs(){
   pacImgs = loadImage("pacman.png");
   ghost1img = loadImage("ghost1.png");
   ghost2img = loadImage("ghost1.png");
@@ -50,6 +50,6 @@ void loadImgs(){
 
 void draw(){
   
-}
+}*/
 
   
