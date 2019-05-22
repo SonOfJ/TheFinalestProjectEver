@@ -9,7 +9,6 @@ interface Moveable {
 ArrayList<Displayable> thingsToDisplay;
 ArrayList<Moveable> thingsToMove;
 void setup() {
-  loadImgs();
   size(1200, 900);
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
