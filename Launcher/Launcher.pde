@@ -9,7 +9,8 @@ interface Moveable {
 ArrayList<Displayable> thingsToDisplay;
 ArrayList<Moveable> thingsToMove;
 void setup() {
-  size(1200, 900);
+  size(1600, 900);
+  /*
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
   Maze m = new Maze();
@@ -37,6 +38,7 @@ void setup() {
     }
     index = begin;
   }
+  */
 }
 /*void loadImgs(){
   pacImgs = loadImage("pacman.png");
