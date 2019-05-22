@@ -1,18 +1,5 @@
-import java.util.*;
-import java.io.*;
-interface Displayable {
-  void display();
-}
-interface Moveable {
-  void move();
-}
-ArrayList<Displayable> thingsToDisplay;
-ArrayList<Moveable> thingsToMove;
 void setup() {
   size(1600, 900);
-  /*
-  thingsToDisplay = new ArrayList<Displayable>();
-  thingsToMove = new ArrayList<Moveable>();
   Maze m = new Maze();
   Node index = m.start();
   Node begin = m.start();
@@ -22,23 +9,22 @@ void setup() {
     if (index.hasUp()) {
       index = index.down();
       begin = begin.down();
-      y = y + 15;
+      y = y + 50;
     }
     if (index.canWalk()) {
       fill(0);
-      rect(x, y, 15, 15);
+      rect(x, y, 50, 50);
     }
     while (index.hasRight()) {
       index = index.right();
-      x = x + 15;
+      x = x + 50;
       if (index.canWalk()) {
         fill(0);
-        rect(x, y, 15, 15);
+        rect(x, y, 50, 50);
       }
     }
-    index = begin;
+    //FIX THIS.
   }
-  */
 }
 /*void loadImgs(){
   pacImgs = loadImage("pacman.png");
