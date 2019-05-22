@@ -11,7 +11,7 @@ class Dot {
   boolean getState() {
     return there;
   }
-  display(int x, int y) {
+  void display(int x, int y) {
     fill(255, 255, 0); //Set to yellow.
     circle(x, y, 10);
   }
