@@ -1,3 +1,9 @@
+void setup(){
+ size(600,600); 
+}
+
+
+
 class Node {
   Node up;
   Node down;
@@ -9,7 +15,7 @@ class Node {
   boolean ghostHere;
   Dot dot;
   Node(Node newUp, Node newDown, Node newLeft, Node newRight, boolean patState) {
-    data = newData;
+    //data = newData;
     up = newUp;
     down = newDown;
     left = newLeft;
@@ -87,5 +93,24 @@ class Node {
   }
   boolean canWalk() {
     return path;
+  }
+}
+
+class Dot {
+  Node currentNode;
+  boolean there;
+  Dot(Node newCurrent) {
+    currentNode = newCurrent;
+    there = true;
+  }
+  void eat() {
+    there = false;
+  }
+  boolean getState() {
+    return there;
+  }
+  void display(int x, int y) {
+    fill(255, 255, 0); //Set to yellow.
+    ellipse(x, y, 10, 10);
   }
 }
