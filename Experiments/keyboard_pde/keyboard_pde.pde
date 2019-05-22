@@ -17,10 +17,10 @@ void keyPressed() {
   if (keyCode == 'W') {
     circleY -= 10;
   }
-  else if (keyCode == 'A') {
+  else if (keyCode == 'S') {
     circleY += 10;
   }
-  else if (keyCode == 'S') {
+  else if (keyCode == 'A') {
     circleX -= 10;
   }
   else if (keyCode == 'D') {
