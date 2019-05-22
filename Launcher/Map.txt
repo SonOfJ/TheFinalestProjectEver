@@ -1,8 +1,15 @@
-PNNNNNNNNN
-N        N
-N        N
-N        N
-N        N
-N        N
-N        N
-NNNNNNNNNN
+NNNNNNNNNNNNNNNNNNNN
+N                  N
+N                  N
+N                  N
+N                  N
+N                  N
+N                  N
+N                  N
+N                  N 
+N                  N
+N                  N
+N                  N
+N                  N
+N                  N
+NNNNNNNNNNNNNNNNNNNN
