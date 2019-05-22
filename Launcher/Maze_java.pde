@@ -61,7 +61,7 @@ class Maze {
           Pacman p = new Pacman(n);
         }
         if (lines[i].charAt(j) == 'G') {
-          Ghost g = new Ghost(n, "ghost" + ((int)Math.random(4) + 1) + ".png");
+          Ghost g = new Ghost(n, "ghost" + ((int)random(4) + 1) + ".png");
         }
       }
     }
