@@ -14,16 +14,16 @@ void draw() {
 }
 
 void keyPressed() {
-  if (keyCode == UP) {
+  if (keyCode == 'W') {
     circleY -= 10;
   }
-  else if (keyCode == DOWN) {
+  else if (keyCode == 'A') {
     circleY += 10;
   }
-  else if (keyCode == LEFT) {
+  else if (keyCode == 'S') {
     circleX -= 10;
   }
-  else if (keyCode == RIGHT) {
+  else if (keyCode == 'D') {
     circleX += 10;
   }
 }
