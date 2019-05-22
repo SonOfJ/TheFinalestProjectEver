@@ -57,3 +57,6 @@ The player will be controlling Pac-Man. The player will be able to move him in f
 ### May 21, 2019
 **Christy**
 - During class time, I worked on methods for Ghost movement. I got the random movement of the Ghost, but I will need to work on writing a method where the Ghost chases PacMan once it is close enough.
+
+**Jason**
+- During the day, I made some changes to the constructors of all the classes. I also finished drafting the code for the layout of the map, dots, and entities. I should probably begin testing now that all the classes are in processing format and inside the "Launcher" directory.
