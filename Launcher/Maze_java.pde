@@ -1,6 +1,7 @@
 import java.util.*;
 import java.io.*;
 class Maze {
+  Node start; 
   Node up;
   Node left;
   Maze() throws FileNotFoundException {
@@ -23,6 +24,7 @@ class Maze {
         if (i == 0) {
           if (j == 0) {
             Node n = new Node(null, null, null, null, walk);
+            start = n;
             up = n;
             left = n;
           } else if (j != line.length() - 1) {

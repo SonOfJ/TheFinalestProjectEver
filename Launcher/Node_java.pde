@@ -15,7 +15,11 @@ class Node {
     left = newLeft;
     right = newRight;
     path = patState;
-    hasDot = true;
+    if (patState) {
+      hasDot = true;
+    } else {
+      hasDot = false;
+    }
     pacmanHere = false;
     ghostHere = false;
     dot = new Dot(this);
