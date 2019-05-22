@@ -10,35 +10,35 @@ ArrayList<Displayable> thingsToDisplay;
 ArrayList<Moveable> thingsToMove;
 void setup() {
   loadImgs();
-  size(1000, 800);
+  size(1200, 900);
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
-  String[] lines = loadStrings("Map.txt");
-  int count = 1; 
-  for (int i = 0; i < lines.length; i = i + 1) {
-    for (int j = 0; j < lines[i].length; j = j + 1) {
-      if (lines[i].charAt(j) != ' ') {
-        Node n = new Node(count, null, null, null, null);
-        if (lines[i].charAt(j) == 'P') {
-          Pacman p = new Pacman(n, 3);
-        } else {
-          Dot d = new Dot(n, true);
-        }
-        if (lines[i].charAt(j) == 'G') {
-          Ghost g = new Ghost(n, "ghost" + (int)random(5) + ".png");
-        }
-      }
-      count = count + 1;
+  Maze m = new Maze();
+  Node index = m.start();
+  Node begin = m.start();
+  int x = 0;
+  int y = 0;
+  while (index.hasDown()) {
+    if (index.hasUp()) {
+      index = index.down();
+      begin = begin.down();
+      y = y + 15;
     }
+    if (index.canWalk()) {
+      fill(0);
+      rect(x, y, 15, 15);
+    }
+    while (index.hasRight()) {
+      index = index.right();
+      x = x + 15;
+      if (index.canWalk()) {
+        fill(0);
+        rect(x, y, 15, 15);
+      }
+    }
+    index = begin;
   }
-  for (int i = 0; i < lines.length; i = i + 1) {
-    for (int j = 0; j < lines[i].length; j = j + 1) {
-      if (lines[i].charAt(j) != ' ') {
-        if (j != 0) {
-          n.set
 }
-
-
 void loadImgs(){
   pacImgs = loadImage("pacman.png");
   ghost1img = loadImage("ghost1.png");
