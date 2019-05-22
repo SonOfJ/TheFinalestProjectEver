@@ -7,9 +7,7 @@ class Node {
   boolean hasDot;
   boolean pacmanHere;
   boolean ghostHere;
-  Dot dot;
   Node(Node newUp, Node newDown, Node newLeft, Node newRight, boolean patState) {
-    data = newData;
     up = newUp;
     down = newDown;
     left = newLeft;
@@ -22,13 +20,11 @@ class Node {
     }
     pacmanHere = false;
     ghostHere = false;
-    dot = new Dot(this);
   }
   boolean hasDot(){
     return hasDot;
   }
   void removeDot(){
-    dot = null;
     hasDot = false;
   }
   boolean hasUp() {

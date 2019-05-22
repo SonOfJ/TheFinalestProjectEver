@@ -8,7 +8,7 @@ public class Pacman{
   }
 
 
-  public void setup(){
+/*  public void setup(){
     img = loadImage("pacman.png");//load image into
 
   }
@@ -17,7 +17,7 @@ public class Pacman{
     image(img, 0, height/2, img.width/8, img.height/8);//displays image at point (0, height/2) at 1/8 of its size
     //will need to resize and reposition later
   }
-
+*/
   public void display(){
 
   }

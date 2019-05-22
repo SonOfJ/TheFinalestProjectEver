@@ -8,40 +8,42 @@ class Maze {
     String[] lines = loadStrings("Map.txt");
     for (int i = 0; i < lines.length; i = i + 1) {
       for (int j = 0; j < lines[i].length(); j = j + 1) {
+        boolean walk;
         if (lines[i].charAt(j) != ' ') {
-          boolean walk = true;
+          walk = true;
         } else {
-          boolean walk = false;
+          walk = false;
         }
+        Node n;
         if (i == 0) {
           if (j == 0) {
-            Node n = new Node(null, null, null, null, walk);
+            n = new Node(null, null, null, null, walk);
             start = n;
             up = n;
             left = n;
           } else if (j != lines[i].length() - 1) {
-            Node n = new Node(null, null, left, null, walk);
+            n = new Node(null, null, left, null, walk);
             left.setRight(n);
             left = n;
           } else {
-            Node n = new Node(null, null, left, null, walk);
+            n = new Node(null, null, left, null, walk);
             left.setRight(n);
             left = null;
           }
         } else {
           if (j == 0) {
-            Node n = new Node(up, null, null, null, walk);
+            n = new Node(up, null, null, null, walk);
             up.setDown(n);
             up = up.right();
             left = n;
           } else if (j != lines[i].length() - 1) {
-            Node n = new Node(up, null, left, null, walk);
+            n = new Node(up, null, left, null, walk);
             up.setDown(n);
             left.setRight(n);
             up = up.right();
             left = n;
           } else {
-            Node n = new Node(up, null, left, null, walk);
+            n = new Node(up, null, left, null, walk);
             up.setDown(n);
             left.setRight(n);
             Node search = n.left();
@@ -59,7 +61,7 @@ class Maze {
           Pacman p = new Pacman(n);
         }
         if (lines[i].charAt(j) == 'G') {
-          Ghost g = new Ghost(n, "ghost" + ((int)Math.random(4) + 1) + ".png");
+          Ghost g = new Ghost(n, "ghost" + ((int)random(4) + 1) + ".png");
         }
       }
     }
