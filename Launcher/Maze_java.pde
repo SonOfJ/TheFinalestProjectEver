@@ -72,4 +72,7 @@ class Maze {
       }
     }
   }
+  Node start() {
+    return start;
+  }
 }
