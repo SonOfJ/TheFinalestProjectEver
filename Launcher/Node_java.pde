@@ -13,11 +13,7 @@ class Node {
     left = newLeft;
     right = newRight;
     path = patState;
-    if (patState) {
-      hasDot = true;
-    } else {
-      hasDot = false;
-    }
+    hasDot = true;
     pacmanHere = false;
     ghostHere = false;
   }
@@ -55,6 +51,7 @@ class Node {
     return pacmanHere;
   }
   void addPacman(){
+    removeDot();
     pacmanHere = true;
   }
   void removePacman(){
