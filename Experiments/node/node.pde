@@ -9,12 +9,39 @@ void draw(){
   Node node1 = new Node();
   //node1.display();
   Node node2 = new Node();
+  Node node3 = new Node();
+  Node node4 = new Node();
+  Node node5 = new Node();
+  Node node6 = new Node();
   node1.setRight(node2);
-  node1.display(xcor, ycor);
-  if(node1.hasRight()){
-    node1.right().display(xcor + 200, ycor + 200);
+  node2.setRight(node3);
+  node3.setDown(node4);
+  node4.setDown(node5);
+  node5.setDown(node6);
+  //node1.display(xcor, ycor);
+  //if(node1.hasRight()){
+  //  node1.right().display(xcor + 200, ycor + 200);
+  //}
+  Node current = node1;
+  while(current.hasUp() || current.hasDown() || current.hasLeft() || current.hasRight()){
+    if(current.hasUp()){
+      current = current.up();
+      ycor -= 100;
+      current.display(xcor, ycor);
+    } else if(current.hasDown()){
+      current = current.down();
+      ycor += 100;
+      current.display(xcor, ycor);
+    } else if(current.hasRight()){
+      current = current.right();
+      xcor += 100;
+      current.display(xcor, ycor);
+    } else if(current.hasDown()){
+      current = current.down();
+      xcor -= 100;
+      current.display(xcor, ycor);
+    }
   }
-  //Node current = node1;
 }
 
 
