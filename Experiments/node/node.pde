@@ -1,5 +1,6 @@
 void setup(){
  size(1000,1000); 
+ noLoop();
 }
 
 int xcor = 100;
@@ -52,25 +53,28 @@ void draw(){
       current.display(xcor, ycor);
       fill(255,255,0);
       current.dot.display(xcor + 50, ycor + 50);
-      fill(0,0,0);
+      fill(255,255,255);
     } else if(current.hasDown()){
       current = current.down();
       ycor += 100;
       current.display(xcor, ycor);
       fill(255,255,0);
       current.dot.display(xcor + 50, ycor + 50);
+      fill(255,255,255);
     } else if(current.hasRight()){
       current = current.right();
       xcor += 100;
       current.display(xcor, ycor);
       fill(255,255,0);
       current.dot.display(xcor + 50, ycor + 50);
+      fill(255,255,255);
     } else if(current.hasDown()){
       current = current.down();
       xcor -= 100;
       current.display(xcor, ycor);
       fill(255,255,0);
       current.dot.display(xcor + 50, ycor + 50);
+      fill(255,255,255);
     }
   }
 }
