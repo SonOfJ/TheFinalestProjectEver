@@ -13,7 +13,10 @@ void setup() {
       if (index.canWalk()) {
         fill(0);
         rect(x, y, 50, 50);
-        if (
+        if (index.hasDot()) {
+          fill(255, 255, 0);
+          ellipse(x + 25, y + 25, 15, 15);
+        }
       }
       if (index.hasRight()) {
         index = index.right();
