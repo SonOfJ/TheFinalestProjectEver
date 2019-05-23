@@ -7,7 +7,7 @@ class Maze {
     for (int i = 0; i < 18; i = i + 1) {
       for (int j = 0; j < 32; j = j + 1) {
         boolean walk;
-        if (lines[i].charAt(j) != ' ') {
+        if (lines[i].length() > j && lines[i].charAt(j) != ' ') {
           walk = true;
         } else {
           walk = false;
@@ -50,13 +50,13 @@ class Maze {
             up = search;
           }
         }
-        if (lines[i].charAt(j) != 'P' && lines[i].charAt(j) != ' ') {
+        if (lines[i].length() > j && lines[i].charAt(j) != 'P' && lines[i].charAt(j) != ' ') {
           Dot d = new Dot(n);
         }
-        if (lines[i].charAt(j) == 'P') {
+        if (lines[i].length() > j && lines[i].charAt(j) == 'P') {
           Pacman p = new Pacman(n);
         }
-        if (lines[i].charAt(j) == 'G') {
+        if (lines[i].length() > j && lines[i].charAt(j) == 'G') {
           Ghost g = new Ghost(n, "ghost" + ((int)random(4) + 1) + ".png");
         }
       }
