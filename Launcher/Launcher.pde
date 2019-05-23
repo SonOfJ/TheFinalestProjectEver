@@ -1,5 +1,6 @@
 void setup() {
   size(1600, 900);
+  background(0, 0, 150);
   Maze m = new Maze();
   Node index = m.start();
   Node begin = m.start();
