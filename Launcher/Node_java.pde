@@ -1,4 +1,4 @@
-class Node implements Displayable{
+class Node implements Displayable {
   Node up;
   Node down;
   Node left;
@@ -7,6 +7,9 @@ class Node implements Displayable{
   boolean hasDot;
   boolean pacmanHere;
   boolean ghostHere;
+  int x;
+  int y;
+  Dot d;
   Node(Node newUp, Node newDown, Node newLeft, Node newRight, boolean patState) {
     up = newUp;
     down = newDown;
@@ -84,4 +87,23 @@ class Node implements Displayable{
   void display() {
     fill(0);
     rect(x, y, 50, 50);
+  }
+  void setX(int newX) {
+    x = newX;
+  }
+  void setY(int newY) {
+    y = newY;
+  }
+  int getX() {
+    return x;
+  }
+  int getY() {
+    return y;
+  }
+  void makeDot(int newX, int newY) {
+    d = new Dot(newX, newY);
+  }
+  Dot getDot() {
+    return d;
+  }
 }
