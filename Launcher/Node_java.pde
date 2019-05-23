@@ -1,4 +1,4 @@
-class Node {
+class Node implements Displayable{
   Node up;
   Node down;
   Node left;
@@ -81,4 +81,7 @@ class Node {
   boolean canWalk() {
     return path;
   }
+  void display() {
+    fill(0);
+    rect(x, y, 50, 50);
 }
