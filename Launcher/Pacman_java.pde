@@ -5,9 +5,12 @@ class Pacman implements Displayable, Moveable {
   int x;
   int y;
   String direction;
-  Pacman(Node newCurrent) {
+  Pacman(Node newCurrent, int newX, int newY) {
     currentNode = newCurrent;
     lives = 3;
+    direction = "RIGHT";
+    x = newX;
+    y = newY;
   }
 
 

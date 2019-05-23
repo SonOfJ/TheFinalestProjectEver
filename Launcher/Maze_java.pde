@@ -71,7 +71,7 @@ class Maze {
           n.makeDot(n.getX() + 25, n.getY() + 25);
         }
         if (lines.length > i && lines[i].length() > j && lines[i].charAt(j) == 'P') {
-          Pacman p = new Pacman(n);
+          n.addPacman(n, n.getX(), n.getY());
         }
         if (lines.length > i && lines[i].length() > j && lines[i].charAt(j) == 'G') {
           Ghost g = new Ghost(n, "ghost" + ((int)random(4) + 1) + ".png");

@@ -54,9 +54,10 @@ class Node implements Displayable {
   boolean pacmanHere(){
     return pacmanHere;
   }
-  void addPacman(){
+  void addPacman(Node n, int x, int y){
     removeDot();
     pacmanHere = true;
+    p = new Pacman(n, x, y);
   }
   void removePacman(){
     pacmanHere = false;
