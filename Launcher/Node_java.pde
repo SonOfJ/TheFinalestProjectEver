@@ -10,6 +10,7 @@ class Node implements Displayable {
   int x;
   int y;
   Dot d;
+  Pacman p;
   Node(Node newUp, Node newDown, Node newLeft, Node newRight, boolean patState) {
     up = newUp;
     down = newDown;

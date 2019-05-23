@@ -12,6 +12,9 @@ void setup() {
         if (index.hasDot()) {
           index.getDot().display();
         }
+        if (index.pacmanHere()) {
+          index.getPac().display();
+        }
       }
       if (index.hasRight()) {
         index = index.right();
