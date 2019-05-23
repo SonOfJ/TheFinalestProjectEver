@@ -1,8 +1,11 @@
-public class Pacman{
+class Pacman implements Displayable, Moveable {
+  PImage img;
   Node currentNode;
   int lives;
-
-  public Pacman(Node newCurrent){
+  int x;
+  int y;
+  String direction;
+  Pacman(Node newCurrent) {
     currentNode = newCurrent;
     lives = 3;
   }
@@ -18,11 +21,10 @@ public class Pacman{
     //will need to resize and reposition later
   }
 */
-  public void display(){
-
+  void display() {
+    image(img, x, y, 50, 50); 
   }
-
-  public void move(String direction){
+  void move() {
     if(direction.equals("up")){
       if(currentNode.hasUp()){
         currentNode.removePacman();
