@@ -5,28 +5,27 @@ void setup() {
   Node begin = m.start();
   int x = 0;
   int y = 0;
-  while (index.hasDown()) {
-    if (index.hasUp()) {
-      index = index.down();
-      begin = begin.down();
-      y = y + 50;
-    }
-    if (index.canWalk()) {
-      fill(0);
-      rect(x, y, 50, 50);
-    }
-    while (index.hasRight()) {
-      index = index.right();
-      x = x + 50;
+  for (int i = 0; i < 18; i = i + 1) {
+    index = begin;
+    x = 0;
+    for (int j = 0; j < 32; j = j + 1) {
       if (index.canWalk()) {
         fill(0);
         rect(x, y, 50, 50);
       }
+      if (index.hasRight()) {
+        index = index.right();
+        x = x + 50;
+      }
     }
-    //FIX THIS.
+    if (begin.hasDown()) {
+      begin = begin.down();
+      y = y + 50;
+    }
   }
 }
-/*void loadImgs(){
+/*
+void loadImgs(){
   pacImgs = loadImage("pacman.png");
   ghost1img = loadImage("ghost1.png");
   ghost2img = loadImage("ghost1.png");
@@ -37,6 +36,7 @@ void setup() {
 
 void draw(){
   
-}*/
+}
+*/
 
   

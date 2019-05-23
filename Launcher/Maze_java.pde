@@ -4,8 +4,8 @@ class Maze {
   Node left;
   Maze() {
     String[] lines = loadStrings("Map.txt");
-    for (int i = 0; i < lines.length; i = i + 1) {
-      for (int j = 0; j < lines[i].length(); j = j + 1) {
+    for (int i = 0; i < 18; i = i + 1) {
+      for (int j = 0; j < 32; j = j + 1) {
         boolean walk;
         if (lines[i].charAt(j) != ' ') {
           walk = true;
@@ -19,14 +19,13 @@ class Maze {
             start = n;
             up = n;
             left = n;
-          } else if (j != lines[i].length() - 1) {
+          } else if (j != 31) {
             n = new Node(null, null, left, null, walk);
             left.setRight(n);
             left = n;
           } else {
             n = new Node(null, null, left, null, walk);
             left.setRight(n);
-            left = null;
           }
         } else {
           if (j == 0) {
@@ -34,7 +33,7 @@ class Maze {
             up.setDown(n);
             up = up.right();
             left = n;
-          } else if (j != lines[i].length() - 1) {
+          } else if (j != 31) {
             n = new Node(up, null, left, null, walk);
             up.setDown(n);
             left.setRight(n);
@@ -49,7 +48,6 @@ class Maze {
               search = search.left();
             }
             up = search;
-            left = null;
           }
         }
         if (lines[i].charAt(j) != 'P' && lines[i].charAt(j) != ' ') {
