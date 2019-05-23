@@ -8,7 +8,7 @@ This game attempts to recreate the classic arcade Pac-Man game. The user uses ar
 
 **1. The Map File**
 
-The blueprint of the map that will be used in the game will be located in a text file titled "Map.txt". The file will contain letters that symbolizes what should be created.
+The blueprint of the map that will be used in the game will be located in a text file titled "Map.txt". The file will contain letters that symbolizes what should be created. The map will always have a width of 32 and height of 18.
 - P: Pac-Man
 - N: Nodes (spots where Pac-Man can move on)
 - D: Dots that can be consumed by Pac-Man to generate points for the player
