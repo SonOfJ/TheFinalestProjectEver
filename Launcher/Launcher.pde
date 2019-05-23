@@ -2,6 +2,8 @@ ArrayList<Displayable> thingsToDisplay;
 ArrayList<Moveable> thingsToMove;
 void setup() {
   size(1600, 900);
+  thingsToDisplay = new ArrayList<Displayable>();
+  thingsToMove = new ArrayList<Moveable>();
   Maze m = new Maze();
   Node index = m.start();
   Node begin = m.start();
@@ -13,9 +15,11 @@ void setup() {
         if (index.hasDot()) {
           thingsToDisplay.add(index.getDot());
         }
+        /*
         if (index.pacmanHere()) {
           thingsToDisplay.add(index.getPac());
         }
+        */
       }
       if (index.hasRight()) {
         index = index.right();
