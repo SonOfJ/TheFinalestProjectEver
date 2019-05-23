@@ -107,4 +107,7 @@ class Node implements Displayable {
   Dot getDot() {
     return d;
   }
+  Pacman getPac() {
+    return p;
+  }
 }
