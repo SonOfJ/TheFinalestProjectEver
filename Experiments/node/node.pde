@@ -1,11 +1,29 @@
 void setup(){
- size(600,600); 
+ size(1000,1000); 
 }
 
 int xcor = 100;
 int ycor = 100;
+Node node1;
+
+void link(){
+  node1 = new Node();
+  //node1.display();
+  Node node2 = new Node();
+  Node node3 = new Node();
+  Node node4 = new Node();
+  Node node5 = new Node();
+  Node node6 = new Node();
+  //Node node7 = new Node();
+  node1.setRight(node2);
+  node2.setRight(node3);
+  node3.setDown(node4);
+  node4.setDown(node5);
+  node5.setDown(node6);
+}
 
 void draw(){
+  /*
   Node node1 = new Node();
   //node1.display();
   Node node2 = new Node();
@@ -13,12 +31,16 @@ void draw(){
   Node node4 = new Node();
   Node node5 = new Node();
   Node node6 = new Node();
+  //Node node7 = new Node();
   node1.setRight(node2);
   node2.setRight(node3);
   node3.setDown(node4);
   node4.setDown(node5);
   node5.setDown(node6);
-  //node1.display(xcor, ycor);
+  //node1.setDown(node7);
+  */
+  link();
+  node1.display(xcor, ycor);
   //if(node1.hasRight()){
   //  node1.right().display(xcor + 200, ycor + 200);
   //}
@@ -28,18 +50,27 @@ void draw(){
       current = current.up();
       ycor -= 100;
       current.display(xcor, ycor);
+      fill(255,255,0);
+      current.dot.display(xcor + 50, ycor + 50);
+      fill(0,0,0);
     } else if(current.hasDown()){
       current = current.down();
       ycor += 100;
       current.display(xcor, ycor);
+      fill(255,255,0);
+      current.dot.display(xcor + 50, ycor + 50);
     } else if(current.hasRight()){
       current = current.right();
       xcor += 100;
       current.display(xcor, ycor);
+      fill(255,255,0);
+      current.dot.display(xcor + 50, ycor + 50);
     } else if(current.hasDown()){
       current = current.down();
       xcor -= 100;
       current.display(xcor, ycor);
+      fill(255,255,0);
+      current.dot.display(xcor + 50, ycor + 50);
     }
   }
 }
@@ -73,7 +104,7 @@ class Node {
     dot = new Dot(this);
   }
   Node(){
-    
+    dot = new Dot(this);
   }
   boolean hasDot(){
     return hasDot;
@@ -159,7 +190,7 @@ class Dot {
     return there;
   }
   void display(int x, int y) {
-    fill(255, 255, 0); //Set to yellow.
+    //fill(255, 255, 0); //Set to yellow.
     ellipse(x, y, 10, 10);
   }
 }
