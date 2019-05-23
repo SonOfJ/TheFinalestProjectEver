@@ -1,6 +1,7 @@
+ArrayList<Displayable> thingsToDisplay;
+ArrayList<Moveable> thingsToMove;
 void setup() {
   size(1600, 900);
-  background(0, 0, 150);
   Maze m = new Maze();
   Node index = m.start();
   Node begin = m.start();
@@ -8,12 +9,12 @@ void setup() {
     index = begin;
     for (int j = 0; j < 32; j = j + 1) {
       if (index.canWalk()) {
-        index.display();
+        thingsToDisplay.add(index);
         if (index.hasDot()) {
-          index.getDot().display();
+          thingsToDisplay.add(index.getDot());
         }
         if (index.pacmanHere()) {
-          index.getPac().display();
+          thingsToDisplay.add(index.getPac());
         }
       }
       if (index.hasRight()) {
@@ -33,11 +34,15 @@ void loadImgs(){
   ghost3img = loadImage("ghost1.png");
   ghost4img = loadImage("ghost1.png");
 }
-
-
-void draw(){
-  
-}
 */
+void draw() {
+  background(0, 0, 150);
+  for (Displayable thing : thingsToDisplay) {
+    thing.display();
+  }
+  for (Moveable thing : thingsToMove) {
+    thing.move();
+  }
+}
 
   
