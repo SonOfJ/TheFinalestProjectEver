@@ -73,3 +73,5 @@ The player will be controlling Pac-Man. The player will be able to move him in f
 
 
 ### May 23, 2019
+**Jason**
+- I've made dots displayable.
