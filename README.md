@@ -56,7 +56,11 @@ The player will be controlling Pac-Man. The player will be able to move him in f
 
 ### May 21, 2019
 **Christy**
-- During class time, I worked on methods for Ghost movement. I got the random movement of the Ghost, but I will need to work on writing a method where the Ghost chases PacMan once it is close enough.
+- During class time, I worked on methods for Ghost movement. I got the random movement of the Ghost, but I will need to work on writing a method where the Ghost chases PacMan once it is close enough. At home, I started working on the visuals of loading and displaying the different images. I also created 4 images of Pacman in the four directions.
 
 **Jason**
 - During the day, I made some changes to the constructors of all the classes. I also finished drafting the code for the layout of the map, dots, and entities. I should probably begin testing now that all the classes are in processing format and inside the "Launcher" directory.
+
+### May 22, 2019
+**Christy**
+- During class, I worked on experimenting with the visuals of the program. I learned how to use keyboard input in order to move an object around the screen. I also made copies of the Node and Dot classes in an attempt to display them. At home, I successfully created several Nodes and linked them together into a maze and displayed the Dot classes. However, when I tried to separate the classes into different tabs, I ran into a lot of errors with Processing and I wasted a lot of time with this. I will have to make a new sketch tomorrow and copy over any progress I made today.
