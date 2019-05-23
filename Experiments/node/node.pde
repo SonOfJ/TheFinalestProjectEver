@@ -2,6 +2,21 @@ void setup(){
  size(600,600); 
 }
 
+int xcor = 100;
+int ycor = 100;
+
+void draw(){
+  Node node1 = new Node();
+  //node1.display();
+  Node node2 = new Node();
+  node1.setRight(node2);
+  node1.display(xcor, ycor);
+  if(node1.hasRight()){
+    node1.right().display(xcor + 200, ycor + 200);
+  }
+  //Node current = node1;
+}
+
 
 
 class Node {
@@ -29,6 +44,9 @@ class Node {
     pacmanHere = false;
     ghostHere = false;
     dot = new Dot(this);
+  }
+  Node(){
+    
   }
   boolean hasDot(){
     return hasDot;
@@ -94,6 +112,10 @@ class Node {
   boolean canWalk() {
     return path;
   }
+  void display(int x, int y){
+    rect(x, y, 100, 100);
+  }
+  
 }
 
 class Dot {
