@@ -1,5 +1,3 @@
-import java.util.*;
-import java.io.*;
 class Maze {
   Node start; 
   Node up;
