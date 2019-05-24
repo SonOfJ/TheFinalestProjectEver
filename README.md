@@ -24,7 +24,7 @@ The player will be controlling Pac-Man. The player will be able to move him in f
 
 ## Development Log
 
-### May 16, 2019
+### DAY 1 - May 16, 2019
 **Christy**
 - During this in class work period, I created the PacMan file and wrote the skeleton for the methods to be completed. I also created the outline for the README file so that we can easily update it later.
 
@@ -33,7 +33,7 @@ The player will be controlling Pac-Man. The player will be able to move him in f
 
 
 
-### May 18, 2019
+### DAY 2 - May 18, 2019
 **Christy**
 - I worked on the PacMan and Ghost classes. I wrote the methods to load the images in and display the images, but I will need to update it later once we move from Java files to Processing. I also found PNG files for PacMan and the four ghosts. Lastly, I worked a little bit on the Maze class and wrote the constructor and the method to add a Node in each of the four directions.
 
@@ -45,7 +45,7 @@ The player will be controlling Pac-Man. The player will be able to move him in f
 
 
 
-### May 20, 2019
+### DAY 3 - May 20, 2019
 **Christy**
 - In class, I wrote the move and eat methods for Pacman and I also had to add extra methods to the Node class for this to work. I had a lot of trouble with merging branches, so I spent most of the class time trying to resolve the problems. I was unable to fix it, so at home, I had to delete the branch I was working in and rewrite the methods I was working on. 
 
@@ -54,7 +54,7 @@ The player will be controlling Pac-Man. The player will be able to move him in f
 
 
 
-### May 21, 2019
+### DAY 4 - May 21, 2019
 **Christy**
 - During class time, I worked on methods for Ghost movement. I got the random movement of the Ghost, but I will need to work on writing a method where the Ghost chases PacMan once it is close enough. At home, I started working on the visuals of loading and displaying the different images. I also created 4 images of Pacman in the four directions.
 
@@ -63,7 +63,7 @@ The player will be controlling Pac-Man. The player will be able to move him in f
 
 
 
-### May 22, 2019
+### DAY 5 - May 22, 2019
 **Christy**
 - During class, I worked on experimenting with the visuals of the program. I learned how to use keyboard input in order to move an object around the screen. I also made copies of the Node and Dot classes in an attempt to display them. At home, I successfully created several Nodes and linked them together into a maze and displayed the Dot classes. However, when I tried to separate the classes into different tabs, I ran into a lot of errors with Processing and I wasted a lot of time with this. I will have to make a new sketch tomorrow and copy over any progress I made today.
 
@@ -72,6 +72,6 @@ The player will be controlling Pac-Man. The player will be able to move him in f
 
 
 
-### May 23, 2019
+### DAY 6 - May 23, 2019
 **Jason**
 - I've made dots displayable. I made two interfaces: Displayable and Moveable. I thought that would spice things up a little bit. I had to add a display method and fields for the coordinates in Dot and Node because I realized that it was probably better to use just display in the launcher and do all the coordinate stuff in the classes. Yikes.
