@@ -15,11 +15,10 @@ void setup() {
         if (index.hasDot()) {
           thingsToDisplay.add(index.getDot());
         }
-        /*
         if (index.pacmanHere()) {
+          index.getPac().img = loadImage("pacmanRight.png");
           thingsToDisplay.add(index.getPac());
         }
-        */
       }
       if (index.hasRight()) {
         index = index.right();
