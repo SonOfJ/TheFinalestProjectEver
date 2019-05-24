@@ -32,28 +32,28 @@ class Pacman implements Displayable, Moveable {
       if(currentNode.hasUp()){
         currentNode.removePacman();
         currentNode = currentNode.up();
-        currentNode.addPacman();
+        //currentNode.addPacman();
       }
     }
     if(direction.equals("down")){
       if(currentNode.hasDown()){
         currentNode.removePacman();
         currentNode = currentNode.down();
-        currentNode.addPacman();
+        //currentNode.addPacman();
       }
     }
     if(direction.equals("left")){
       if(currentNode.hasLeft()){
         currentNode.removePacman();
         currentNode = currentNode.left();
-        currentNode.addPacman();
+        //currentNode.addPacman();
       }
     }
     if(direction.equals("right")){
       if(currentNode.hasRight()){
         currentNode.removePacman();
         currentNode = currentNode.right();
-        currentNode.addPacman();
+        //currentNode.addPacman();
       }
     }
   }
