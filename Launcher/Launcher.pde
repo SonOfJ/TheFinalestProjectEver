@@ -19,6 +19,10 @@ void setup() {
           index.getPac().img = loadImage("pacmanRight.png");
           thingsToDisplay.add(index.getPac());
         }
+        if (index.ghostHere()) {
+          index.getGhost().img = loadImage("ghost" + ((int)random(3) + 1) + ".png");
+          thingsToDisplay.add(index.getGhost());
+        }
       }
       if (index.hasRight()) {
         index = index.right();

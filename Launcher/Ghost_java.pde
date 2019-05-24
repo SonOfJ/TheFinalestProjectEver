@@ -1,10 +1,13 @@
-public class Ghost{
+class Ghost implements Displayable, Moveable {
+  PImage img;
   Node currentNode;
   String imageString;
-  
-  public Ghost(Node newCurrent, String imgString){
+  int x;
+  int y;
+  Ghost(Node newCurrent, int newX, int newY) {
     currentNode = newCurrent;
-    imageString = imgString;
+    x = newX;
+    y = newY;
   }
 
 /*  public void setup(){
@@ -16,11 +19,11 @@ public class Ghost{
     //will need to resize and reposition later
   }
 */
-
-  public void display(){
-
+  void display() {
+    image(img, x, y, 50, 50);
   }
-
+  void move() {
+  }
   public void move(String direction){
     if(direction.equals("up")){
       if(currentNode.hasUp()){

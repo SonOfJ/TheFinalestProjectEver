@@ -74,7 +74,7 @@ class Maze {
           n.addPacman(n, n.getX(), n.getY());
         }
         if (lines.length > i && lines[i].length() > j && lines[i].charAt(j) == 'G') {
-          Ghost g = new Ghost(n, "ghost" + ((int)random(4) + 1) + ".png");
+          n.addGhost(n, n.getX(), n.getY());
         }
       }
     }
