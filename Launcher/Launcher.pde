@@ -33,15 +33,6 @@ void setup() {
     }
   }
 }
-/*
-void loadImgs(){
-  pacImgs = loadImage("pacman.png");
-  ghost1img = loadImage("ghost1.png");
-  ghost2img = loadImage("ghost1.png");
-  ghost3img = loadImage("ghost1.png");
-  ghost4img = loadImage("ghost1.png");
-}
-*/
 void draw() {
   background(0, 0, 150);
   for (Displayable thing : thingsToDisplay) {
@@ -51,5 +42,3 @@ void draw() {
     thing.move();
   }
 }
-
-  
