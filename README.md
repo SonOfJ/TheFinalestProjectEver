@@ -75,3 +75,7 @@ The player will be controlling Pac-Man. The player will be able to move him in f
 ### DAY 6 - May 23, 2019
 **Jason**
 - I've made dots displayable. I made two interfaces: Displayable and Moveable. I thought that would spice things up a little bit. I had to add a display method and fields for the coordinates in Dot and Node because I realized that it was probably better to use just display in the launcher and do all the coordinate stuff in the classes. Yikes.
+
+### DAY 7 - May 24, 2019
+**Jason**
+- What can I say? Everything is now displayable. Movement for Pac-Man is next.
