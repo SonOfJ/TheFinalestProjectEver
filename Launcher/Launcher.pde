@@ -1,5 +1,6 @@
 ArrayList<Displayable> thingsToDisplay;
 ArrayList<Moveable> thingsToMove;
+Pacman p;
 void setup() {
   size(1600, 900);
   thingsToDisplay = new ArrayList<Displayable>();
