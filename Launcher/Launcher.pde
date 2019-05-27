@@ -42,4 +42,7 @@ void draw() {
   for (Moveable thing : thingsToMove) {
     thing.move();
   }
+  if (keyPressed) {
+    if (keyCode == UP) {
+      
 }

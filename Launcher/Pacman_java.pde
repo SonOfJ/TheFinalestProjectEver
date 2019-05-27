@@ -57,4 +57,7 @@ class Pacman implements Displayable, Moveable {
   int lives() {
     return lives;
   }
+  void setDir(String dir) {
+    direction = dir;
+  }
 }
