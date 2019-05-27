@@ -18,30 +18,30 @@ class Pacman implements Displayable, Moveable {
   void move() {
     if(direction.equals("UP")){
       if(currentNode.hasUp()){
+        currentNode.up().addPacman(currentNode.up(), currentNode.getPac().getX(), currentNode.getPac().getY() - 50);
         currentNode.removePacman();
         currentNode = currentNode.up();
-        //currentNode.addPacman();
       }
     }
     if(direction.equals("DOWN")){
       if(currentNode.hasDown()){
+        currentNode.down().addPacman(currentNode.down(), currentNode.getPac().getX(), currentNode.getPac().getY() + 50);
         currentNode.removePacman();
         currentNode = currentNode.down();
-        //currentNode.addPacman();
       }
     }
     if(direction.equals("LEFT")){
       if(currentNode.hasLeft()){
+        currentNode.left().addPacman(currentNode.left(), currentNode.getPac().getX() - 50, currentNode.getPac().getY());
         currentNode.removePacman();
         currentNode = currentNode.left();
-        //currentNode.addPacman();
       }
     }
     if(direction.equals("RIGHT")){
       if(currentNode.hasRight()){
+        currentNode.right().addPacman(currentNode.right(), currentNode.getPac().getX() + 50, currentNode.getPac().getY());
         currentNode.removePacman();
         currentNode = currentNode.right();
-        //currentNode.addPacman();
       }
     }
   }
@@ -59,5 +59,11 @@ class Pacman implements Displayable, Moveable {
   }
   void setDir(String dir) {
     direction = dir;
+  }
+  int getX() {
+    return x;
+  }
+  int getY() {
+    return y;
   }
 }
