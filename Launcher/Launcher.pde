@@ -43,16 +43,16 @@ void draw() {
     thing.move();
   }
   if (keyPressed) {
-    if (keyCode == UP) {
+    if (keyCode == 'w') {
       p.setDir("UP");
     }
-    if (keyCode == DOWN) {
+    if (keyCode == 's') {
       p.setDir("DOWN");
     }
-    if (keyCode == LEFT) {
+    if (keyCode == 'a') {
       p.setDir("LEFT");
     }
-    if (keyCode == RIGHT) {
+    if (keyCode == 'd') {
       p.setDir("RIGHT");
     }
   }
