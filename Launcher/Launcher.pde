@@ -44,5 +44,16 @@ void draw() {
   }
   if (keyPressed) {
     if (keyCode == UP) {
-      
+      p.setDir("UP");
+    }
+    if (keyCode == DOWN) {
+      p.setDir("DOWN");
+    }
+    if (keyCode == LEFT) {
+      p.setDir("LEFT");
+    }
+    if (keyCode == RIGHT) {
+      p.setDir("RIGHT");
+    }
+  }
 }
