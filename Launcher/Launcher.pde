@@ -4,6 +4,7 @@ Pacman p;
 PImage[] pImages;
 int points;
 int lives;
+boolean gamePlay;
 void setup() {
   size(1600, 900);
   thingsToDisplay = new ArrayList<Displayable>();
@@ -43,6 +44,7 @@ void setup() {
   pImages[1] = loadImage("pacmanDown.png");
   pImages[2] = loadImage("pacmanLeft.png");
   pImages[3] = loadImage("pacmanRight.png");
+  gamePlay = true;
 }
 void draw() {
   background(0, 0, 150);
@@ -61,6 +63,11 @@ void draw() {
   p.display();
   for (Moveable thing : thingsToMove) {
     thing.move();
+  }
+  if(!gamePlay){
+    textSize(100);
+    fill(255,0,0);
+    text("GAME OVER", 350, 300);
   }
 }
 void keyPressed() {
@@ -107,5 +114,8 @@ void keyPressed() {
   if(p.getNode().ghostHere()){
     //p.damage();
     lives -= 1;
+  }
+  if(lives < 0){
+    gamePlay = false;
   }
 }
