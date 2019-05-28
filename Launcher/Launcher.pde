@@ -44,16 +44,20 @@ void draw() {
   }
 }
 void keyPressed() {
-  if (key == 'w' && p.get) {
+  if (key == 'w') {
     p.setDir("UP");
+    p.move();
   }
   if (key == 's') {
     p.setDir("DOWN");
+    p.move();
   }
   if (key == 'a') {
     p.setDir("LEFT");
+    p.move();
   }
   if (key == 'd') {
     p.setDir("RIGHT");
+    p.move();
   }
 }
