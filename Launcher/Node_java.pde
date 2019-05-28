@@ -58,6 +58,7 @@ class Node implements Displayable {
     removeDot();
     pacmanHere = true;
     p = new Pacman(this, getX(), getY());
+    println("node x: " + getX() + "y: " + getY());
   }
   void removePacman(){
     pacmanHere = false;

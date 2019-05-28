@@ -50,6 +50,7 @@ void keyPressed() {
     println("going up");
     println(p.getX());
     println(p.getY());
+    p.eat();
   }
   if (key == 's') {
     p.setDir("DOWN");
@@ -57,6 +58,7 @@ void keyPressed() {
     println("going down");
     println(p.getX());
     println(p.getY());
+    p.eat();
   }
   if (key == 'a') {
     p.setDir("LEFT");
@@ -64,6 +66,7 @@ void keyPressed() {
     println("going left");
     println(p.getX());
     println(p.getY());
+    p.eat();
   }
   if (key == 'd') {
     p.setDir("RIGHT");
@@ -71,5 +74,6 @@ void keyPressed() {
     println("going right");
     println(p.getX());
     println(p.getY());
+    p.eat();
   }
 }

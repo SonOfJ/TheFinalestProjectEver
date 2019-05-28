@@ -19,30 +19,38 @@ class Pacman implements Displayable, Moveable {
     if(direction.equals("UP")){
       img = loadImage("pacmanUp.png");
       y -= 50;
-      currentNode.up().addPacman();
-      currentNode.removePacman();
-      currentNode = currentNode.up();
+      if(currentNode.hasUp()){
+        currentNode.up().addPacman();
+        currentNode.removePacman();
+        currentNode = currentNode.up();
+      }
     }
     if(direction.equals("DOWN")){
       img = loadImage("pacmanDown.png");
       y += 50;
-      currentNode.down().addPacman();
-      currentNode.removePacman();
-      currentNode = currentNode.down();
+      if(currentNode.hasDown()){
+        currentNode.down().addPacman();
+        currentNode.removePacman();
+        currentNode = currentNode.down();
+      }
     }
     if(direction.equals("LEFT")){
       img = loadImage("pacmanLeft.png");
       x -= 50;
-      currentNode.left().addPacman();
-      currentNode.removePacman();
-      currentNode = currentNode.left();
+      if(currentNode.hasLeft()){
+        currentNode.left().addPacman();
+        currentNode.removePacman();
+        currentNode = currentNode.left();
+      }
     }
     if(direction.equals("RIGHT")){
       img = loadImage("pacmanRight.png");
       y += 50;
-      currentNode.right().addPacman();
-      currentNode.removePacman();
-      currentNode = currentNode.right();
+      if(currentNode.hasRight()){
+        currentNode.right().addPacman();
+        currentNode.removePacman();
+        currentNode = currentNode.right();
+      }
     }
   }
 
