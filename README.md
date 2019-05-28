@@ -93,3 +93,7 @@ The player will be controlling Pac-Man. The player will be able to move him in f
 
 **Jason**
 - Finished controlled movement. The Pac-Man can move and will consume dots once he steps on them. Issues with ghosts.
+
+### DAY 9 - May 28, 2019
+**Christy**
+- In class, I added a point counter that displays how many dots PacMan has eaten. I referenced experimental code that I had before that tested out a counter that increased every time a key was pressed. 
