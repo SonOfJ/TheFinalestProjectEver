@@ -33,13 +33,10 @@ The player will be controlling Pac-Man. The player will be able to move him in f
 
 
 
-### DAY 2 - May 18, 2019
+### DAY 2 - May 18, 2019 - May 19, 2019
 **Christy**
 - I worked on the PacMan and Ghost classes. I wrote the methods to load the images in and display the images, but I will need to update it later once we move from Java files to Processing. I also found PNG files for PacMan and the four ghosts. Lastly, I worked a little bit on the Maze class and wrote the constructor and the method to add a Node in each of the four directions.
 
-
-
-### May 19, 2019
 **Jason**
 - I created the Dot class and also a launcher which will start up the game. I used scanner to attempt to create a map that can be displayed in processing. I created a test text file with special letters that symbolize what should be at the respective locations. I also started to work on the directions, specifically adding what each letter in the text file map symbolizes.
 
