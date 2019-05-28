@@ -77,6 +77,7 @@ The player will be controlling Pac-Man. The player will be able to move him in f
 - I've made dots displayable. I made two interfaces: Displayable and Moveable. I thought that would spice things up a little bit. I had to add a display method and fields for the coordinates in Dot and Node because I realized that it was probably better to use just display in the launcher and do all the coordinate stuff in the classes. Yikes.
 
 
+
 ### DAY 7 - May 24, 2019
 **Jason**
 - What can I say? Everything is now displayable. Movement for Pac-Man is next.
@@ -84,6 +85,11 @@ The player will be controlling Pac-Man. The player will be able to move him in f
 **Christy**
 - Worked on text display in the experiments folder. I experimented with different ways to update a counter. I ended up with a solution that didnt require clearing the whole screen. This text display will be used for points and lives counter
 
+
+
 ### DAY 8 - May 25, 2019 to May 27, 2019
 **Christy**
 - I worked on the visual movement of PacMan in a separate branch. I got PacMan to move up when you press W, but it doesn't work when you press another key. This was challenging to figure out because although the print messages I used for debugging showed that PacMan was moving around properly (the coordinates changed when you pressed the keys), you could not visually see it on the screen. 
+
+**Jason**
+- Finished controlled movement. The Pac-Man can move and will consume dots once he steps on them. Issues with ghosts.
