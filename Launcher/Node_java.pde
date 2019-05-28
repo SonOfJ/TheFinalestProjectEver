@@ -5,8 +5,8 @@ class Node implements Displayable {
   Node right;
   boolean path;
   boolean hasDot;
-  boolean pacmanHere;
   boolean ghostHere;
+  boolean pacmanHere;
   int x;
   int y;
   Dot d;
@@ -18,7 +18,6 @@ class Node implements Displayable {
     right = newRight;
     path = patState;
     hasDot = true;
-    pacmanHere = false;
     ghostHere = false;
   }
   boolean hasDot(){
@@ -50,17 +49,6 @@ class Node implements Displayable {
   }
   Node right() {
     return right;
-  }
-  boolean pacmanHere(){
-    return pacmanHere;
-  }
-  void addPacman() {
-    removeDot();
-    pacmanHere = true;
-    p = new Pacman(this, getX(), getY());
-  }
-  void removePacman(){
-    pacmanHere = false;
   }
   boolean ghostHere() {
     return ghostHere;
@@ -109,10 +97,13 @@ class Node implements Displayable {
   Dot getDot() {
     return d;
   }
-  Pacman getPac() {
-    return p;
-  }
   Ghost getGhost() {
     return g;
+  }
+  void addPacman() {
+    pacmanHere = true;
+  }
+  boolean pacmanHere() {
+    return pacmanHere;
   }
 }

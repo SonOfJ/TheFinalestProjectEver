@@ -17,8 +17,8 @@ void setup() {
           thingsToDisplay.add(index.getDot());
         }
         if (index.pacmanHere()) {
-          index.getPac().img = loadImage("pacmanRight.png");
-          thingsToDisplay.add(index.getPac());
+          p = new Pacman(index, index.getX(), index.getY());
+          p.img = loadImage("pacmanRight.png");
         }
         if (index.ghostHere()) {
           index.getGhost().img = loadImage("ghost" + ((int)random(3) + 1) + ".png");
@@ -39,21 +39,38 @@ void draw() {
   for (Displayable thing : thingsToDisplay) {
     thing.display();
   }
+  p.display();
   for (Moveable thing : thingsToMove) {
     thing.move();
   }
 }
 void keyPressed() {
-  if (key == 'w' && p.get) {
-    p.setDir("UP");
+  if (key == 'w') {
+    p.img = loadImage("pacmanUp.png");
+    if (p.currentNode.hasUp() && p.getNode().up().canWalk()) {
+      p.currentNode = p.currentNode.up();
+      p.y = p.y - 50;
+    }
   }
   if (key == 's') {
-    p.setDir("DOWN");
+    p.img = loadImage("pacmanDown.png");
+    if (p.currentNode.hasDown() && p.getNode().down().canWalk()) {
+      p.currentNode = p.currentNode.down();
+      p.y = p.y + 50;
+    }
   }
   if (key == 'a') {
-    p.setDir("LEFT");
+    p.img = loadImage("pacmanLeft.png");
+    if (p.currentNode.hasLeft() && p.getNode().left().canWalk()) {
+      p.currentNode = p.currentNode.left();
+      p.x = p.x - 50;
+    }
   }
   if (key == 'd') {
-    p.setDir("RIGHT");
+    p.img = loadImage("pacmanRight.png");
+    if (p.currentNode.hasRight() && p.getNode().right().canWalk()) {
+      p.currentNode = p.currentNode.right();
+      p.x = p.x + 50;
+    }
   }
 }
