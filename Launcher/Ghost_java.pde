@@ -31,7 +31,6 @@ class Ghost implements Displayable, Moveable {
     }
     char chosen = dir.get((int)random(dir.size())); 
     currentNode.removeGhost();
-    there = false;
     if (chosen == 'u') {
       y = y - 50;
       currentNode.up.addGhost(x, y);
