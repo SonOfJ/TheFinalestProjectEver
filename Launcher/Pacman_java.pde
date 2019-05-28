@@ -23,6 +23,7 @@ class Pacman implements Displayable, Moveable {
         currentNode.up().addPacman();
         currentNode.removePacman();
         currentNode = currentNode.up();
+        eat();
       }
     }
     if(direction.equals("DOWN")){
@@ -50,6 +51,7 @@ class Pacman implements Displayable, Moveable {
         currentNode.right().addPacman();
         currentNode.removePacman();
         currentNode = currentNode.right();
+        eat();
       }
     }
   }

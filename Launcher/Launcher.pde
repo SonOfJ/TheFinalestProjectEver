@@ -47,33 +47,29 @@ void keyPressed() {
   if (key == 'w') {
     p.setDir("UP");
     p.move();
-    println("going up");
-    println(p.getX());
-    println(p.getY());
-    p.eat();
+    //println("going up");
+    //println(p.getX());
+    //println(p.getY());
   }
   if (key == 's') {
     p.setDir("DOWN");
     p.move();
-    println("going down");
-    println(p.getX());
-    println(p.getY());
-    p.eat();
+    //println("going down");
+    //println(p.getX());
+    //println(p.getY());
   }
   if (key == 'a') {
     p.setDir("LEFT");
     p.move();
-    println("going left");
-    println(p.getX());
-    println(p.getY());
-    p.eat();
+    //println("going left");
+    //println(p.getX());
+    //println(p.getY());
   }
   if (key == 'd') {
     p.setDir("RIGHT");
     p.move();
-    println("going right");
-    println(p.getX());
-    println(p.getY());
-    p.eat();
+    //println("going right");
+    //println(p.getX());
+    //println(p.getY());
   }
 }
