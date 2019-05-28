@@ -3,6 +3,7 @@ ArrayList<Moveable> thingsToMove;
 Pacman p;
 PImage[] pImages;
 int points;
+int lives;
 void setup() {
   size(1600, 900);
   thingsToDisplay = new ArrayList<Displayable>();
@@ -36,6 +37,7 @@ void setup() {
       begin = begin.down();
     }
   }
+  lives = 3;
   pImages = new PImage[4];
   pImages[0] = loadImage("pacmanUp.png");
   pImages[1] = loadImage("pacmanDown.png");
@@ -51,6 +53,8 @@ void draw() {
   fill(255,255,255);
   text(points, 150, 150);
   text("points", 100, 100);
+  text(lives, 150, 250);
+  text("lives", 100, 200);
   for (Displayable thing : thingsToDisplay) {
     thing.display();
   }
@@ -99,5 +103,9 @@ void keyPressed() {
       }
       p.x = p.x + 50;
     }
+  }
+  if(p.getNode().ghostHere()){
+    //p.damage();
+    lives -= 1;
   }
 }
