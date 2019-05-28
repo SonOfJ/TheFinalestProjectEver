@@ -53,9 +53,9 @@ class Node implements Displayable {
   boolean ghostHere() {
     return ghostHere;
   }
-  void addGhost(Node n, int x, int y) {
+  void addGhost(int x, int y) {
     ghostHere = true;
-    g = new Ghost(n, x, y);
+    g = new Ghost(this, x, y);
   }
   void removeGhost() {
     ghostHere = false;

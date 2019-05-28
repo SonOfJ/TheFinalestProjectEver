@@ -1,72 +1,56 @@
 class Ghost implements Displayable, Moveable {
   PImage img;
   Node currentNode;
-  String imageString;
   int x;
   int y;
+  boolean there;
   Ghost(Node newCurrent, int newX, int newY) {
     currentNode = newCurrent;
     x = newX;
     y = newY;
+    there = true;
   }
-
-/*  public void setup(){
-    img = loadImage(imageString);//load image
-  }
-
-  public void draw(){
-    image(img, width/2, height/2, img.width/8, img.height/8);//displays image at point (0, height/2) at 1/8 of its size
-    //will need to resize and reposition later
-  }
-*/
   void display() {
-    image(img, x, y, 50, 50);
+    if (there) {
+      image(img, x, y, 50, 50);
+    }
   }
   void move() {
-  }
-  public void move(String direction){
-    if(direction.equals("up")){
-      if(currentNode.hasUp()){
-        currentNode = currentNode.up();
-      }
+    ArrayList<Character> dir = new ArrayList<Character>();
+    if (currentNode.hasUp() && currentNode.up.canWalk()) {
+      dir.add('u');
     }
-    if(direction.equals("down")){
-      if(currentNode.hasDown()){
-        currentNode = currentNode.down();
-      }
+    if (currentNode.hasDown() && currentNode.down.canWalk()) {
+      dir.add('d');
     }
-    if(direction.equals("left")){
-      if(currentNode.hasLeft()){
-        currentNode = currentNode.left();
-      }
+    if (currentNode.hasLeft() && currentNode.left.canWalk()) {
+      dir.add('l');
     }
-    if(direction.equals("right")){
-      if(currentNode.hasRight()){
-        currentNode = currentNode.right();
-      }
+    if (currentNode.hasRight() && currentNode.right.canWalk()) {
+      dir.add('r');
     }
-  }
-
-  public void randomMovement(){
-    int numSteps = (int) (Math.random() * 10);//random number of steps
-    int randDirection = (int) (Math.random() * 4);//random number from 0 to 4 to choose direction
-    String direction = "";
-    if(randDirection == 0){
-      direction = "up";
+    char chosen = dir.get((int)random(dir.size())); 
+    currentNode.removeGhost();
+    there = false;
+    if (chosen == 'u') {
+      y = y - 50;
+      currentNode.up.addGhost(x, y);
+      currentNode = currentNode.up;
     }
-    if(randDirection == 1){
-      direction = "down";
+    if (chosen == 'd') {
+      y = y + 50;
+      currentNode.down.addGhost(x, y);
+      currentNode = currentNode.down;
     }
-    if(randDirection == 2){
-      direction = "left";
+    if (chosen == 'l') {
+      x = x - 50;
+      currentNode.left.addGhost(x, y);
+      currentNode = currentNode.left;
     }
-    if(randDirection == 3){
-      direction = "right";
-    }
-    for(int i = 0; i < numSteps; i++){
-      move(direction);
+    if (chosen == 'r') {
+      x = x + 50;
+      currentNode.right.addGhost(x, y);
+      currentNode = currentNode.right;
     }
   }
-
-
 }

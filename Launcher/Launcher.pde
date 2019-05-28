@@ -23,6 +23,7 @@ void setup() {
         if (index.ghostHere()) {
           index.getGhost().img = loadImage("ghost" + ((int)random(3) + 1) + ".png");
           thingsToDisplay.add(index.getGhost());
+          thingsToMove.add(index.getGhost());
         }
       }
       if (index.hasRight()) {
