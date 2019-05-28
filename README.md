@@ -33,7 +33,7 @@ The player will be controlling Pac-Man. The player will be able to move him in f
 
 
 
-### DAY 2 - May 18, 2019 - May 19, 2019
+### DAY 2 - May 18, 2019 to May 19, 2019
 **Christy**
 - I worked on the PacMan and Ghost classes. I wrote the methods to load the images in and display the images, but I will need to update it later once we move from Java files to Processing. I also found PNG files for PacMan and the four ghosts. Lastly, I worked a little bit on the Maze class and wrote the constructor and the method to add a Node in each of the four directions.
 
