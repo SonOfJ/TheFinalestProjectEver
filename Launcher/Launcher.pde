@@ -49,6 +49,7 @@ void keyPressed() {
     p.img = loadImage("pacmanUp.png");
     if (p.currentNode.hasUp() && p.getNode().up().canWalk()) {
       p.currentNode = p.currentNode.up();
+      p.eat();
       p.y = p.y - 50;
     }
   }
@@ -56,6 +57,7 @@ void keyPressed() {
     p.img = loadImage("pacmanDown.png");
     if (p.currentNode.hasDown() && p.getNode().down().canWalk()) {
       p.currentNode = p.currentNode.down();
+      p.eat();
       p.y = p.y + 50;
     }
   }
@@ -63,6 +65,7 @@ void keyPressed() {
     p.img = loadImage("pacmanLeft.png");
     if (p.currentNode.hasLeft() && p.getNode().left().canWalk()) {
       p.currentNode = p.currentNode.left();
+      p.eat();
       p.x = p.x - 50;
     }
   }
@@ -70,6 +73,7 @@ void keyPressed() {
     p.img = loadImage("pacmanRight.png");
     if (p.currentNode.hasRight() && p.getNode().right().canWalk()) {
       p.currentNode = p.currentNode.right();
+      p.eat();
       p.x = p.x + 50;
     }
   }

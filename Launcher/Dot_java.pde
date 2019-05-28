@@ -6,6 +6,7 @@ class Dot implements Displayable {
   Dot(int newX, int newY) {
     x = newX;
     y = newY;
+    there = true;
   }
   void eat() {
     there = false;
@@ -14,7 +15,9 @@ class Dot implements Displayable {
     return there;
   }
   void display() {
-    fill(255, 255, 0);
-    ellipse(x, y, 15, 15);
+    if (there) {
+      fill(255, 255, 0);
+      ellipse(x, y, 15, 15);
+    }
   }
 }

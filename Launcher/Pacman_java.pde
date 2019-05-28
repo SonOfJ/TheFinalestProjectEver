@@ -13,10 +13,12 @@ class Pacman implements Displayable {
   void display() {
     image(img, x, y, 50, 50); 
   }
-
-  public void eat(){
-    if(currentNode.hasDot()){//if there is a Dot at the node
-      currentNode.removeDot();//remove the Dot
+  void eat() {
+    if (currentNode.hasDot()) { // If there is a dot at the node...
+      currentNode.d.eat();
+      currentNode.removeDot(); // Remove the dot.
+      fill(0);
+      rect(x, y, 50, 50);
     }
   }
   void damage() {
