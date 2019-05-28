@@ -17,32 +17,24 @@ class Pacman implements Displayable, Moveable {
   }
   void move() {
     if(direction.equals("UP")){
-      if(currentNode.hasUp()){
-        currentNode.up().addPacman(currentNode.up(), currentNode.getPac().getX(), currentNode.getPac().getY() - 50);
-        currentNode.removePacman();
-        currentNode = currentNode.up();
-      }
+      currentNode.up().addPacman();
+      currentNode.removePacman();
+      currentNode = currentNode.up();
     }
     if(direction.equals("DOWN")){
-      if(currentNode.hasDown()){
-        currentNode.down().addPacman(currentNode.down(), currentNode.getPac().getX(), currentNode.getPac().getY() + 50);
-        currentNode.removePacman();
-        currentNode = currentNode.down();
-      }
+      currentNode.down().addPacman();
+      currentNode.removePacman();
+      currentNode = currentNode.down();
     }
     if(direction.equals("LEFT")){
-      if(currentNode.hasLeft()){
-        currentNode.left().addPacman(currentNode.left(), currentNode.getPac().getX() - 50, currentNode.getPac().getY());
-        currentNode.removePacman();
-        currentNode = currentNode.left();
-      }
+      currentNode.left().addPacman();
+      currentNode.removePacman();
+      currentNode = currentNode.left();
     }
     if(direction.equals("RIGHT")){
-      if(currentNode.hasRight()){
-        currentNode.right().addPacman(currentNode.right(), currentNode.getPac().getX() + 50, currentNode.getPac().getY());
-        currentNode.removePacman();
-        currentNode = currentNode.right();
-      }
+      currentNode.right().addPacman();
+      currentNode.removePacman();
+      currentNode = currentNode.right();
     }
   }
 
@@ -65,5 +57,14 @@ class Pacman implements Displayable, Moveable {
   }
   int getY() {
     return y;
+  }
+  void setX(int newX) {
+    x = newX;
+  }
+  void setY(int newY) {
+    y = newY;
+  }
+  Node getNode() {
+    return currentNode;
   }
 }

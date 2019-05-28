@@ -42,18 +42,18 @@ void draw() {
   for (Moveable thing : thingsToMove) {
     thing.move();
   }
-  if (keyPressed) {
-    if (keyCode == 'w') {
-      p.setDir("UP");
-    }
-    if (keyCode == 's') {
-      p.setDir("DOWN");
-    }
-    if (keyCode == 'a') {
-      p.setDir("LEFT");
-    }
-    if (keyCode == 'd') {
-      p.setDir("RIGHT");
-    }
+}
+void keyPressed() {
+  if (key == 'w' && p.get) {
+    p.setDir("UP");
+  }
+  if (key == 's') {
+    p.setDir("DOWN");
+  }
+  if (key == 'a') {
+    p.setDir("LEFT");
+  }
+  if (key == 'd') {
+    p.setDir("RIGHT");
   }
 }
