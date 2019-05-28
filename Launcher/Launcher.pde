@@ -1,6 +1,7 @@
 ArrayList<Displayable> thingsToDisplay;
 ArrayList<Moveable> thingsToMove;
 Pacman p;
+PImage[] pImages;
 int points;
 void setup() {
   size(1600, 900);
@@ -35,6 +36,11 @@ void setup() {
       begin = begin.down();
     }
   }
+  pImages = new PImage[4];
+  pImages[0] = loadImage("pacmanUp.png");
+  pImages[1] = loadImage("pacmanDown.png");
+  pImages[2] = loadImage("pacmanLeft.png");
+  pImages[3] = loadImage("pacmanRight.png");
 }
 void draw() {
   background(0, 0, 150);
@@ -55,7 +61,7 @@ void draw() {
 }
 void keyPressed() {
   if (key == 'w') {
-    p.img = loadImage("pacmanUp.png");
+    p.img = pImages[0];
     if (p.currentNode.hasUp() && p.getNode().up().canWalk()) {
       p.currentNode = p.currentNode.up();
       if(p.eat()){
@@ -65,7 +71,7 @@ void keyPressed() {
     }
   }
   if (key == 's') {
-    p.img = loadImage("pacmanDown.png");
+    p.img = pImages[1];
     if (p.currentNode.hasDown() && p.getNode().down().canWalk()) {
       p.currentNode = p.currentNode.down();
       if(p.eat()){
@@ -75,7 +81,7 @@ void keyPressed() {
     }
   }
   if (key == 'a') {
-    p.img = loadImage("pacmanLeft.png");
+    p.img = pImages[2];
     if (p.currentNode.hasLeft() && p.getNode().left().canWalk()) {
       p.currentNode = p.currentNode.left();
       if(p.eat()){
@@ -85,7 +91,7 @@ void keyPressed() {
     }
   }
   if (key == 'd') {
-    p.img = loadImage("pacmanRight.png");
+    p.img = pImages[3];
     if (p.currentNode.hasRight() && p.getNode().right().canWalk()) {
       p.currentNode = p.currentNode.right();
       if(p.eat()){
