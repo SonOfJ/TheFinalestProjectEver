@@ -99,3 +99,7 @@ The player will be controlling Pac-Man. The player will be able to move him in f
 
 **Jason**
 - Placed limits on both the movement for Pac-Man and the movement of ghosts.
+
+### DAY 10 - May 29, 2019
+**Christy**
+- 
