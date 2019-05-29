@@ -5,6 +5,7 @@ class Pacman implements Displayable {
   int x;
   int y;
   Pacman(Node newCurrent, int newX, int newY) {
+    img = loadImage("pacmanRight.png");
     currentNode = newCurrent;
     lives = 3;
     x = newX;

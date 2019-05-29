@@ -23,11 +23,9 @@ void setup() {
         }
         if (index.pacmanHere()) {
           p = new Pacman(index, index.getX(), index.getY());
-          p.img = loadImage("pacmanRight.png");
         }
         if (index.ghostHere()) {
           Ghost g = new Ghost(index, index.x, index.y);
-          g.img = loadImage("ghost" + ((int)random(3) + 1) + ".png");
           thingsToDisplay.add(g);
           thingsToMove.add(g);
         }

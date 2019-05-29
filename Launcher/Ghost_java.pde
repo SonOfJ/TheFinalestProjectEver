@@ -5,6 +5,7 @@ class Ghost implements Displayable, Moveable {
   int y;
   boolean there;
   Ghost(Node newCurrent, int newX, int newY) {
+    img = loadImage("ghost" + ((int)random(3) + 1) + ".png");
     currentNode = newCurrent;
     x = newX;
     y = newY;
@@ -34,22 +35,22 @@ class Ghost implements Displayable, Moveable {
       currentNode.removeGhost();
       if (chosen == 'u') {
         y = y - 50;
-        currentNode.up.addGhost(x, y);
+        currentNode.up.addGhost();
         currentNode = currentNode.up;
       }
       if (chosen == 'd') {
         y = y + 50;
-        currentNode.down.addGhost(x, y);
+        currentNode.down.addGhost();
         currentNode = currentNode.down;
       }
       if (chosen == 'l') {
         x = x - 50;
-        currentNode.left.addGhost(x, y);
+        currentNode.left.addGhost();
         currentNode = currentNode.left;
       }
       if (chosen == 'r') {
         x = x + 50;
-        currentNode.right.addGhost(x, y);
+        currentNode.right.addGhost();
         currentNode = currentNode.right;
       }
     }
