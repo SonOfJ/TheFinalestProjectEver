@@ -49,16 +49,7 @@ void setup() {
   gamePlay = true;
 }
 void draw() {
-  background(0, 0, 150);
-  textSize(32);
-  fill(0, 0, 150);
-  noStroke();
-  rect(100, 100, 100, 100);
-  fill(255, 255, 255);
-  text(points, 150, 150);
-  text("points", 100, 100);
-  text(lives, 150, 250);
-  text("lives", 100, 200);
+  pointsLives();
   for (Displayable thing : thingsToDisplay) {
     thing.display();
   }
@@ -73,6 +64,19 @@ void draw() {
     fill(255, 0, 0);
     text("GAME OVER", 400, 300);
   }
+}
+
+void pointsLives(){
+ background(0, 0, 150);
+  textSize(32);
+  fill(0, 0, 150);
+  noStroke();
+  rect(100, 100, 100, 100);
+  fill(255, 255, 255);
+  text(points, 150, 150);
+  text("points", 100, 100);
+  text(lives, 150, 250);
+  text("lives", 100, 200); 
 }
 void keyPressed() {
   if (frameCount - lastFrame >= 10) {
