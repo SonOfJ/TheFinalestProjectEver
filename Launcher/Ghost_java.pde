@@ -16,7 +16,8 @@ class Ghost implements Displayable, Moveable {
     }
   }
   void move() {
-    ArrayList<Character> dir = new ArrayList<Character>();
+    if (frameCount % 10 == 0) {
+      ArrayList<Character> dir = new ArrayList<Character>();
     if (currentNode.hasUp() && currentNode.up.canWalk()) {
       dir.add('u');
     }
@@ -51,5 +52,6 @@ class Ghost implements Displayable, Moveable {
       currentNode.right.addGhost(x, y);
       currentNode = currentNode.right;
     }
+  }
   }
 }
