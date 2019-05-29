@@ -97,9 +97,6 @@ class Node implements Displayable {
   Dot getDot() {
     return d;
   }
-  Ghost getGhost() {
-    return g;
-  }
   void addPacman() {
     pacmanHere = true;
   }

@@ -75,7 +75,7 @@ class Maze {
           n.addPacman();
         }
         if (lines.length > i && lines[i].length() > j && lines[i].charAt(j) == 'G') {
-          n.addGhost(n.getX(), n.getY());
+          n.addGhost(n.x, n.y);
         }
       }
     }

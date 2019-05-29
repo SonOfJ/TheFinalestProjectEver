@@ -5,6 +5,7 @@ PImage[] pImages;
 int points;
 int lives;
 boolean gamePlay;
+int lastFrame;
 void setup() {
   size(1600, 900);
   thingsToDisplay = new ArrayList<Displayable>();
@@ -25,9 +26,10 @@ void setup() {
           p.img = loadImage("pacmanRight.png");
         }
         if (index.ghostHere()) {
-          index.getGhost().img = loadImage("ghost" + ((int)random(3) + 1) + ".png");
-          thingsToDisplay.add(index.getGhost());
-          thingsToMove.add(index.getGhost());
+          Ghost g = new Ghost(index, index.x, index.y);
+          g.img = loadImage("ghost" + ((int)random(3) + 1) + ".png");
+          thingsToDisplay.add(g);
+          thingsToMove.add(g);
         }
       }
       if (index.hasRight()) {
@@ -49,10 +51,10 @@ void setup() {
 void draw() {
   background(0, 0, 150);
   textSize(32);
-  fill(0,0,150);
+  fill(0, 0, 150);
   noStroke();
-  rect(100,100, 100, 100);
-  fill(255,255,255);
+  rect(100, 100, 100, 100);
+  fill(255, 255, 255);
   text(points, 150, 150);
   text("points", 100, 100);
   text(lives, 150, 250);
@@ -64,59 +66,65 @@ void draw() {
   for (Moveable thing : thingsToMove) {
     thing.move();
   }
-  if(!gamePlay){
+  if (!gamePlay) {
     //clear();
     textSize(100);
-    fill(255,0,0);
+    fill(255, 0, 0);
     text("GAME OVER", 350, 300);
   }
 }
 void keyPressed() {
-  if (key == 'w') {
-    p.img = pImages[0];
-    if (p.currentNode.hasUp() && p.getNode().up().canWalk()) {
-      p.currentNode = p.currentNode.up();
-      if(p.eat()){
-        points += 1;
+  if (frameCount - lastFrame >= 10) {
+    if (key == 'w') {
+      p.img = pImages[0];
+      if (p.currentNode.hasUp() && p.getNode().up().canWalk()) {
+        p.currentNode = p.currentNode.up();
+        if (p.eat()) {
+          points += 1;
+        }
+        p.y = p.y - 50;
       }
-      p.y = p.y - 50;
+      lastFrame = frameCount;
     }
-  }
-  if (key == 's') {
-    p.img = pImages[1];
-    if (p.currentNode.hasDown() && p.getNode().down().canWalk()) {
-      p.currentNode = p.currentNode.down();
-      if(p.eat()){
-        points += 1;
+    if (key == 's') {
+      p.img = pImages[1];
+      if (p.currentNode.hasDown() && p.getNode().down().canWalk()) {
+        p.currentNode = p.currentNode.down();
+        if (p.eat()) {
+          points += 1;
+        }
+        p.y = p.y + 50;
       }
-      p.y = p.y + 50;
+      lastFrame = frameCount;
     }
-  }
-  if (key == 'a') {
-    p.img = pImages[2];
-    if (p.currentNode.hasLeft() && p.getNode().left().canWalk()) {
-      p.currentNode = p.currentNode.left();
-      if(p.eat()){
-        points += 1;
+    if (key == 'a') {
+      p.img = pImages[2];
+      if (p.currentNode.hasLeft() && p.getNode().left().canWalk()) {
+        p.currentNode = p.currentNode.left();
+        if (p.eat()) {
+          points += 1;
+        }
+        p.x = p.x - 50;
       }
-      p.x = p.x - 50;
+      lastFrame = frameCount;
     }
-  }
-  if (key == 'd') {
-    p.img = pImages[3];
-    if (p.currentNode.hasRight() && p.getNode().right().canWalk()) {
-      p.currentNode = p.currentNode.right();
-      if(p.eat()){
-        points += 1;
+    if (key == 'd') {
+      p.img = pImages[3];
+      if (p.currentNode.hasRight() && p.getNode().right().canWalk()) {
+        p.currentNode = p.currentNode.right();
+        if (p.eat()) {
+          points += 1;
+        }
+        p.x = p.x + 50;
       }
-      p.x = p.x + 50;
+      lastFrame = frameCount;
     }
-  }
-  if(p.getNode().ghostHere()){
-    //p.damage();
-    lives -= 1;
-  }
-  if(lives < 0){
-    gamePlay = false;
+    if (p.getNode().ghostHere()) {
+      //p.damage();
+      lives -= 1;
+    }
+    if (lives < 0) {
+      gamePlay = false;
+    }
   }
 }

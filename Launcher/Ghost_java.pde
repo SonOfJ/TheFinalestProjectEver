@@ -11,7 +11,9 @@ class Ghost implements Displayable, Moveable {
     there = true;
   }
   void display() {
-    image(img, x, y, 50, 50);
+    if (there) {
+      image(img, x, y, 50, 50);
+    }
   }
   void move() {
     if (frameCount % 10 == 0) {
