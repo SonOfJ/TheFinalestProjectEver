@@ -67,10 +67,10 @@ void draw() {
     thing.move();
   }
   if (!gamePlay) {
-    //clear();
+    clear();
     textSize(100);
     fill(255, 0, 0);
-    text("GAME OVER", 350, 300);
+    text("GAME OVER", 400, 300);
   }
 }
 void keyPressed() {
