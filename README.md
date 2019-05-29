@@ -93,4 +93,4 @@ The player will be controlling Pac-Man. The player will be able to move him in f
 
 ### DAY 9 - May 28, 2019
 **Christy**
-- In class, I added a point counter that displays how many dots PacMan has eaten. I referenced experimental code that I had before that tested out a counter that increased every time a key was pressed. 
+- In class, I added a point counter that displays how many dots PacMan has eaten. I referenced experimental code that I had before that tested out a counter that increased every time a key was pressed. At home, I added a lives counter and a "game over" screen. I also loaded the 4 images of PacMan once in the setup, rather than loading the image each time PacMan changes direction in order to stop the game from freezing.
