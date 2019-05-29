@@ -64,11 +64,12 @@ void draw() {
   for (Moveable thing : thingsToMove) {
     thing.move();
   }
+  pacManDamage();
   if (!gamePlay) {
-    //clear();
+    clear();
     textSize(100);
     fill(255, 0, 0);
-    text("GAME OVER", 350, 300);
+    text("GAME OVER", 400, 300);
   }
 }
 void keyPressed() {
@@ -117,12 +118,18 @@ void keyPressed() {
       }
       lastFrame = frameCount;
     }
+  }
+}
+
+void pacManDamage(){
+  if (frameCount - lastFrame >= 10) {
     if (p.getNode().ghostHere()) {
-      //p.damage();
-      lives -= 1;
-    }
-    if (lives < 0) {
-      gamePlay = false;
-    }
+        //p.damage();
+        lives -= 1;
+        lastFrame = frameCount;
+      }
+     if (lives < 0) {
+       gamePlay = false;
+     }
   }
 }
