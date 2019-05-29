@@ -1,4 +1,5 @@
 ArrayList<Displayable> thingsToDisplay;
+ArrayList<Displayable> movingDisplay;
 ArrayList<Moveable> thingsToMove;
 Pacman p;
 PImage[] pImages;
@@ -26,7 +27,7 @@ void setup() {
         }
         if (index.ghostHere()) {
           Ghost g = new Ghost(index, index.x, index.y);
-          thingsToDisplay.add(g);
+          movingDisplay.add(g);
           thingsToMove.add(g);
         }
       }
@@ -58,6 +59,9 @@ void draw() {
   text(lives, 150, 250);
   text("lives", 100, 200);
   for (Displayable thing : thingsToDisplay) {
+    thing.display();
+  }
+  for (Displayable thing : movingDisplay) {
     thing.display();
   }
   p.display();
