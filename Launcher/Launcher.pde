@@ -65,6 +65,7 @@ void draw() {
     thing.move();
   }
   if(!gamePlay){
+    //clear();
     textSize(100);
     fill(255,0,0);
     text("GAME OVER", 350, 300);
