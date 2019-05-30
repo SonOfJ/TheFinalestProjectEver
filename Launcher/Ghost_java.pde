@@ -3,18 +3,14 @@ class Ghost implements Displayable, Moveable {
   Node currentNode;
   int x;
   int y;
-  boolean there;
   Ghost(Node newCurrent, int newX, int newY) {
     img = loadImage("ghost" + ((int)random(3) + 1) + ".png");
     currentNode = newCurrent;
     x = newX;
     y = newY;
-    there = true;
   }
   void display() {
-    if (there) {
-      image(img, x, y, 50, 50);
-    }
+    image(img, x, y, 50, 50);
   }
   void move() {
     if (frameCount % 10 == 0) {
