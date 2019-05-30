@@ -49,26 +49,33 @@ void setup() {
   pImages[2] = loadImage("pacmanLeft.png");
   pImages[3] = loadImage("pacmanRight.png");
   gamePlay = true;
+  startGame = false;
 }
 void draw() {
-  pointsLives();
-  for (Displayable thing : thingsToDisplay) {
-    thing.display();
-  }
-  for (Displayable thing : movingDisplay) {
-    thing.display();
-  }
-  p.display();
-  startScreen();
-  for (Moveable thing : thingsToMove) {
-    thing.move();
-  }
-  pacManDamage();
-  if (!gamePlay) {
+  print(startGame);
+  if(!startGame){
+    startScreen();
+  }else{
     clear();
-    textSize(100);
-    fill(255, 0, 0);
-    text("GAME OVER", 400, 300);
+    pointsLives();
+    for (Displayable thing : thingsToDisplay) {
+      thing.display();
+    }
+    for (Displayable thing : movingDisplay) {
+      thing.display();
+    }
+    p.display();
+    startScreen();
+    for (Moveable thing : thingsToMove) {
+      thing.move();
+    }
+    pacManDamage();
+    if (!gamePlay) {
+      clear();
+      textSize(100);
+      fill(255, 0, 0);
+      text("GAME OVER", 400, 300);
+    }
   }
 }
 
@@ -91,6 +98,9 @@ void pointsLives(){
   text("lives", 100, 200); 
 }
 void keyPressed() {
+  if(key == ' '){
+    startGame = true;
+  }
   if (frameCount - lastFrame >= 10) {
     if (key == 'w') {
       p.img = pImages[0];
