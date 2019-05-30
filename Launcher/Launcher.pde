@@ -1,33 +1,33 @@
-ArrayList<Displayable> thingsToDisplay;
-ArrayList<Displayable> movingDisplay;
-ArrayList<Moveable> thingsToMove;
+ArrayList<Displayable> thingsToDisplay; //This will contain the nodes and dots.
+ArrayList<Displayable> movingDisplay; //This special list will contain ghosts.
+ArrayList<Moveable> thingsToMove; //This will contain ghosts.
 Pacman p;
-PImage[] pImages;
-int points;
-int lives;
-boolean gamePlay;
+PImage[] pImages; //Images for the four different states of Pac-Man.
+int points; //Number of dots eaten by Pac-Man.
+int lives; //Number of hits Pac-Man can take.
 int lastFrame;
+boolean gamePlay; //If true, the game is still running.
 void setup() {
   size(1600, 900);
   thingsToDisplay = new ArrayList<Displayable>();
-  thingsToMove = new ArrayList<Moveable>();
   movingDisplay = new ArrayList<Displayable>();
-  Maze m = new Maze();
-  Node index = m.start();
+  thingsToMove = new ArrayList<Moveable>();
+  Maze m = new Maze(); //Add the nodes to ArrayList for display.
+  Node index = m.start(); 
   Node begin = m.start();
   for (int i = 0; i < 18; i = i + 1) {
     index = begin;
     for (int j = 0; j < 32; j = j + 1) {
-      if (index.canWalk()) {
+      if (index.canWalk()) { //Differentiate between nodes that are walkable and nodes that are not walkable.
         thingsToDisplay.add(index);
-        if (index.hasDot()) {
+        if (index.hasDot()) { //If the node has a dot, add that to the ArrayList for display too.
           thingsToDisplay.add(index.getDot());
         }
         if (index.pacmanHere()) {
-          p = new Pacman(index, index.getX(), index.getY());
+          p = new Pacman(index, index.getX(), index.getY()); //Create the Pac-Man.
         }
-        if (index.ghostHere()) {
-          Ghost g = new Ghost(index, index.x, index.y);
+        if (index.ghostHere()) { //Add ghosts to the special ArrayList for display and to the ArrayList for move.
+          Ghost g = new Ghost(index, index.x, index.y); //Create the ghost.
           movingDisplay.add(g);
           thingsToMove.add(g);
         }
@@ -40,24 +40,24 @@ void setup() {
       begin = begin.down();
     }
   }
-  lives = 3;
-  pImages = new PImage[4];
+  lives = 3; //Initial number of lives for Pac-Man.
+  pImages = new PImage[4]; //Array for containing the images for the states of Pac-Man.
   pImages[0] = loadImage("pacmanUp.png");
   pImages[1] = loadImage("pacmanDown.png");
   pImages[2] = loadImage("pacmanLeft.png");
   pImages[3] = loadImage("pacmanRight.png");
-  gamePlay = true;
+  gamePlay = true; //The game is running.
 }
 void draw() {
-  pointsLives();
-  for (Displayable thing : thingsToDisplay) {
+  pointsLives(); //Display the number of points and the number of lives.
+  for (Displayable thing : thingsToDisplay) { //Display what is displayable.
     thing.display();
   }
-  for (Displayable thing : movingDisplay) {
+  for (Displayable thing : movingDisplay) { //Display ghosts after nodes and dots.
     thing.display();
   }
-  p.display();
-  for (Moveable thing : thingsToMove) {
+  p.display(); //Display Pac-Man.
+  for (Moveable thing : thingsToMove) { //Move ghosts.
     thing.move();
   }
   pacManDamage();
@@ -69,8 +69,8 @@ void draw() {
   }
 }
 
-void pointsLives(){
- background(0, 0, 150);
+void pointsLives() {
+  background(0, 0, 150);
   textSize(32);
   fill(0, 0, 150);
   noStroke();
@@ -79,7 +79,7 @@ void pointsLives(){
   text(points, 150, 150);
   text("points", 100, 100);
   text(lives, 150, 250);
-  text("lives", 100, 200); 
+  text("lives", 100, 200);
 }
 void keyPressed() {
   if (frameCount - lastFrame >= 10) {
@@ -130,15 +130,15 @@ void keyPressed() {
   }
 }
 
-void pacManDamage(){
+void pacManDamage() {
   if (frameCount - lastFrame >= 10) {
     if (p.getNode().ghostHere()) {
-        //p.damage();
-        lives -= 1;
-        lastFrame = frameCount;
-      }
-     if (lives == 0) {
-       gamePlay = false;
-     }
+      //p.damage();
+      lives -= 1;
+      lastFrame = frameCount;
+    }
+    if (lives == 0) {
+      gamePlay = false;
+    }
   }
 }
