@@ -70,9 +70,6 @@ void draw() {
     pacManDamage();
     if (!gamePlay) {
       clear();
-      //textSize(100);
-      //fill(255, 0, 0);
-      //text("GAME OVER", 400, 300);
       gameOverScreen();
     }
   }
