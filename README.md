@@ -21,6 +21,7 @@ The player will be controlling Pac-Man. The player will be able to move him in f
 - S: Down
 - A: Left
 - D: Right
+Dodge: If a player and a ghost swap positions by moving past each other at the same time, the player can avoid taking damage.
 
 ## Development Log
 
