@@ -100,6 +100,11 @@ The player will be controlling Pac-Man. The player will be able to move him in f
 **Jason**
 - Placed limits on both the movement for Pac-Man and the movement of ghosts.
 
+
+
 ### DAY 10 - May 29, 2019
 **Christy**
 - In class, I made a "game over" screen that stops the game when PacMan loses all of his lives. I also continued working on PacMan damage so that he would lose a life if he was standing still and not only if a key (W,A,S,D) was pressed. Lastly, I moved the code for displaying the text into another method for code readability.
+
+**Jason**
+- I fixed the "blinking" problem for the ghosts by creating a new ArrayList separate from thingsToDisplay. This new ArrayList is only for ghosts and the objects inside are displayed before Pac-Man but after everything else. This ensures that ghosts will always be drawn on top of the nodes. I also moved loadImage calls into the constructors of the respective classes, but this doesn't really affect the speed of the program.
