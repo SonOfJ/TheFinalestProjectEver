@@ -137,7 +137,7 @@ void pacManDamage(){
         lives -= 1;
         lastFrame = frameCount;
       }
-     if (lives < 0) {
+     if (lives == 0) {
        gamePlay = false;
      }
   }
