@@ -70,9 +70,10 @@ void draw() {
     pacManDamage();
     if (!gamePlay) {
       clear();
-      textSize(100);
-      fill(255, 0, 0);
-      text("GAME OVER", 400, 300);
+      //textSize(100);
+      //fill(255, 0, 0);
+      //text("GAME OVER", 400, 300);
+      gameOverScreen();
     }
   }
 }
@@ -95,6 +96,14 @@ void pointsLives(){
   text(lives, 150, 250);
   text("lives", 100, 200); 
 }
+
+void gameOverScreen(){
+  background(0,0,0);
+  PImage img = loadImage("gameOver.png");
+  image(img, 350, 100);
+}
+
+
 void keyPressed() {
   if(key == ' '){
     startGame = true;
