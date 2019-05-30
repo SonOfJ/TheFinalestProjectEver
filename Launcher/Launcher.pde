@@ -11,6 +11,7 @@ void setup() {
   size(1600, 900);
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
+  movingDisplay = new ArrayList<Displayable>();
   Maze m = new Maze();
   Node index = m.start();
   Node begin = m.start();
