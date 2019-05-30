@@ -52,7 +52,7 @@ void setup() {
   startGame = false;
 }
 void draw() {
-  print(startGame);
+  //print(startGame);
   if(!startGame){
     startScreen();
   }else{
@@ -80,9 +80,12 @@ void draw() {
 }
 
 void startScreen(){
-  textSize(50);
-  fill(255, 255, 255);
-  text("CLICK HERE TO START GAME", 350, 300);
+  background(0,0,0);
+  PImage logoimg = loadImage("pacmanlogo.png");
+  image(logoimg, 100, 100);
+  //textSize(50);
+  //fill(255, 255, 255);
+  //text("CLICK HERE TO START GAME", 350, 300);
 }
 
 void pointsLives(){
