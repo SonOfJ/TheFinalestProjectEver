@@ -7,8 +7,10 @@ int points;
 int lives;
 boolean gamePlay;
 int lastFrame;
+boolean startGame;
 void setup() {
   size(1600, 900);
+  startGame = false;
   thingsToDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
   movingDisplay = new ArrayList<Displayable>();
@@ -57,6 +59,7 @@ void draw() {
     thing.display();
   }
   p.display();
+  startScreen();
   for (Moveable thing : thingsToMove) {
     thing.move();
   }
@@ -67,6 +70,12 @@ void draw() {
     fill(255, 0, 0);
     text("GAME OVER", 400, 300);
   }
+}
+
+void startScreen(){
+  textSize(50);
+  fill(255, 255, 255);
+  text("CLICK HERE TO START GAME", 350, 300);
 }
 
 void pointsLives(){
