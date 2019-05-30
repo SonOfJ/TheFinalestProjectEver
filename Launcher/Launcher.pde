@@ -64,7 +64,6 @@ void draw() {
       thing.display();
     }
     p.display();
-    startScreen();
     for (Moveable thing : thingsToMove) {
       thing.move();
     }
