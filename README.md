@@ -109,3 +109,8 @@ Dodge: If a player and a ghost swap positions by moving past each other at the s
 
 **Jason**
 - I fixed the "blinking" problem for the ghosts by creating a new ArrayList separate from thingsToDisplay. This new ArrayList is only for ghosts and the objects inside are displayed before Pac-Man but after everything else. This ensures that ghosts will always be drawn on top of the nodes. I also moved loadImage calls into the constructors of the respective classes, but this doesn't really affect the speed of the program.
+
+
+### DAY 11 - May 30, 2019
+**Christy**
+- In class, I worked on creating a start screen. I am displaying an image for the start scree and the user presses the space key to start the game.
