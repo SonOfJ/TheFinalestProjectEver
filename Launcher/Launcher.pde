@@ -6,6 +6,7 @@ PImage[] pImages; //Images for the four different states of Pac-Man.
 int points; //Number of dots eaten by Pac-Man.
 int lives; //Number of hits Pac-Man can take.
 int lastFrame;
+int totalDots;
 boolean gamePlay; //If true, the game is still running.
 boolean startGame;
 void setup() {
@@ -24,6 +25,7 @@ void setup() {
         thingsToDisplay.add(index);
         if (index.hasDot) { //If the node has a dot, add that to the ArrayList for display too.
           thingsToDisplay.add(index.d);
+          totalDots = totalDots + 1;
         }
         if (index.pacmanHere) {
           p = new Pacman(index, index.x, index.y); //Create the Pac-Man.
@@ -109,6 +111,9 @@ void keyPressed() { //Reads the input of keys.
         p.currentNode = p.currentNode.up; //Get a new node.
         if (p.eat()) { //If there is a dot, remove it.
           points = points + 1; //Gain points.
+          if (points == totalDots) {
+            winScreen();
+          }
         }
         p.y = p.y - 50; //Move the display coordinate.
       }
