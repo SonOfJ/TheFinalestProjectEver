@@ -1,30 +1,27 @@
 class Pacman implements Displayable {
-  PImage img;//pacman image
-  Node currentNode;//the Node that PacMan is currently on
-  int lives;//how many lives remaining
-  int x;//x cor
-  int y;//y cor
+  PImage img;
+  Node currentNode; //The Node that Pac-Man is currently on.
+  int lives; //How many lives remaining.
+  int x;
+  int y;
   Pacman(Node newCurrent, int newX, int newY) {
-    img = loadImage("pacmanRight.png");//start PacMan facing to the right
-    currentNode = newCurrent;//initialize value
-    lives = 3;//start with three lives
-    x = newX;//initialize value
-    y = newY;//initialize value
+    img = loadImage("pacmanRight.png"); //Start with Pac-Man facing to the right.
+    currentNode = newCurrent; //Initialize node.
+    lives = 3; //Start with three lives.
+    x = newX;
+    y = newY;
   }
   void display() {
     image(img, x, y, 50, 50);
   }
-  boolean eat() {//PacMan eats the Dot in the Node it is currently at
-    if (currentNode.hasDot) { // If there is a dot at the node...
+  boolean eat() { //Pac-Man eats the dot in the node it is currently at.
+    if (currentNode.hasDot) { //If there is a dot at the node...
       currentNode.d.eat();
-      currentNode.removeDot(); // Remove the dot.
-      fill(0);//visually remove the dot by drawing over it with a black dot
+      currentNode.removeDot(); //Remove the dot.
+      fill(0); //Visually remove the dot by drawing over it with a black node.
       rect(x, y, 50, 50);
-      return true;
-    }
+      return true; //Eaten.
+    } //There is no dot.
     return false;
-  }
-  Node getNode() {//accessor method
-    return currentNode;
   }
 }
