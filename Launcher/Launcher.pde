@@ -15,8 +15,8 @@ void setup() {
   movingDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
   Maze m = new Maze(); //Add the nodes to ArrayList for display.
-  Node index = m.start(); 
-  Node begin = m.start();
+  Node index = m.start; 
+  Node begin = m.start;
   for (int i = 0; i < 18; i = i + 1) {
     index = begin;
     for (int j = 0; j < 32; j = j + 1) {
