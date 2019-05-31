@@ -87,7 +87,7 @@ void pausedScreen() {
 void gameOverScreen() {
   background(0, 0, 0);
   PImage img = loadImage("gameOver.png");
-  image(img, 350, 100);
+  image(img, 0, 0, 1600, 900);
 }
 void keyPressed() { //Reads the input of keys.
   if (key == ' ') {
