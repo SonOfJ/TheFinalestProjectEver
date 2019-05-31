@@ -26,7 +26,7 @@ void setup() {
           thingsToDisplay.add(index.getDot());
         }
         if (index.pacmanHere()) {
-          p = new Pacman(index, index.getX(), index.getY()); //Create the Pac-Man.
+          p = new Pacman(index, index.x, index.y); //Create the Pac-Man.
         }
         if (index.ghostHere) { //Add ghosts to the special ArrayList for display and to the ArrayList for move.
           Ghost g = new Ghost(index, index.x, index.y); //Create the ghost.

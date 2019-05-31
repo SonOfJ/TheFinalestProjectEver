@@ -68,7 +68,7 @@ class Maze {
           }
         }
         if (lines.length > i && lines[i].length() > j && lines[i].charAt(j) != 'P' && lines[i].charAt(j) != ' ') { //If there isn't a Pac-Man and the node is walkable...
-          n.makeDot(n.getX() + 25, n.getY() + 25); //There should be a dot.
+          n.makeDot(n.x + 25, n.y + 25); //There should be a dot.
         }
         if (lines.length > i && lines[i].length() > j && lines[i].charAt(j) == 'P') { //If there is a Pac-Man...
           n.removeDot(); //There shouldn't be a dot.

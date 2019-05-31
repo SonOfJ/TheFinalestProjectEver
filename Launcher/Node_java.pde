@@ -48,20 +48,8 @@ class Node implements Displayable {
     right = other;
   }
   void display() {
-    fill(0);
+    fill(0); //Black.
     rect(x, y, 50, 50);
-  }
-  void setX(int newX) {
-    x = newX;
-  }
-  void setY(int newY) {
-    y = newY;
-  }
-  int getX() {
-    return x;
-  }
-  int getY() {
-    return y;
   }
   void makeDot(int newX, int newY) {
     d = new Dot(newX, newY);
@@ -74,5 +62,11 @@ class Node implements Displayable {
   }
   boolean pacmanHere() {
     return pacmanHere;
+  }
+  void setX(int newX) {
+    x = newX;
+  }
+  void setY(int newY) {
+    y = newY;
   }
 }
