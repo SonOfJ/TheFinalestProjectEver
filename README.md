@@ -113,4 +113,4 @@ Dodge: If a player and a ghost swap positions by moving past each other at the s
 
 ### DAY 11 - May 30, 2019
 **Christy**
-- In class, I worked on creating a start screen. I am displaying an image for the start scree and the user presses the space key to start the game.
+- In class, I worked on creating a start screen. I am displaying an image for the start scree and the user presses the space key to start the game. At home, I created a game over screen that shows up when PacMan has lost all three lives.
