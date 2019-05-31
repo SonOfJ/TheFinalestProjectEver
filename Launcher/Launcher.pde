@@ -22,13 +22,13 @@ void setup() {
     for (int j = 0; j < 32; j = j + 1) {
       if (index.canWalk()) { //Differentiate between nodes that are walkable and nodes that are not walkable.
         thingsToDisplay.add(index);
-        if (index.hasDot()) { //If the node has a dot, add that to the ArrayList for display too.
+        if (index.hasDot) { //If the node has a dot, add that to the ArrayList for display too.
           thingsToDisplay.add(index.getDot());
         }
         if (index.pacmanHere()) {
           p = new Pacman(index, index.getX(), index.getY()); //Create the Pac-Man.
         }
-        if (index.ghostHere()) { //Add ghosts to the special ArrayList for display and to the ArrayList for move.
+        if (index.ghostHere) { //Add ghosts to the special ArrayList for display and to the ArrayList for move.
           Ghost g = new Ghost(index, index.x, index.y); //Create the ghost.
           movingDisplay.add(g);
           thingsToMove.add(g);
@@ -148,7 +148,7 @@ void pointsLives() { //Function for displaying points and lives.
 }
 void pacManDamage() { //Function for processing damage taken by Pac-Man.
   if (frameCount - lastFrame >= 10) {
-    if (p.getNode().ghostHere()) {
+    if (p.getNode().ghostHere) {
       lives = lives - 1;
       lastFrame = frameCount;
     }

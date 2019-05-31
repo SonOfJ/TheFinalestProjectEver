@@ -39,7 +39,7 @@ class Maze {
           if (j == 0) { //First column.
             n = new Node(up, null, null, null, walk);
             up.setDown(n);
-            up = up.right();
+            up = up.right;
             left = n;
             n.setY(y);
             x = x + 50;
@@ -47,7 +47,7 @@ class Maze {
             n = new Node(up, null, left, null, walk);
             up.setDown(n);
             left.setRight(n);
-            up = up.right();
+            up = up.right;
             left = n;
             n.setX(x);
             n.setY(y);
@@ -60,9 +60,9 @@ class Maze {
             n.setY(y);
             x = 0;
             y = y + 50;
-            Node search = n.left(); //Goes back to the first column when a whole row is made.
+            Node search = n.left; //Goes back to the first column when a whole row is made.
             while (search.hasLeft()) {
-              search = search.left();
+              search = search.left;
             }
             up = search;
           }

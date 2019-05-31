@@ -15,7 +15,7 @@ class Pacman implements Displayable {
     image(img, x, y, 50, 50); 
   }
   boolean eat() {//PacMan eats the Dot in the Node it is currently at
-    if (currentNode.hasDot()) { // If there is a dot at the node...
+    if (currentNode.hasDot) { // If there is a dot at the node...
       currentNode.d.eat();
       currentNode.removeDot(); // Remove the dot.
       fill(0);//visually remove the dot by drawing over it with a black dot
