@@ -101,7 +101,7 @@ void keyPressed() { //Reads the input of keys.
       loop();
     }
   }
-  if (frameCount - lastFrame >= 10) { //This limits Pac-Man's movement speed and maintains game balance.
+  if (frameCount - lastFrame >= 5) { //This limits Pac-Man's movement speed and maintains game balance.
     if (key == 'w') {
       p.img = pImages[0]; //Load the image for facing up.
       if (p.currentNode.hasUp() && p.currentNode.up.path) { //If there is a node and it is walkable...
@@ -109,7 +109,10 @@ void keyPressed() { //Reads the input of keys.
         if (p.eat()) { //If there is a dot, remove it.
           points = points + 1; //Gain points.
         }
-        p.y = p.y - 50; //Move the display coordinate.
+        //p.y = p.y - 50; //Move the display coordinate.
+        for(int i = 0; i < 5; i++){
+         p.y = p.y - 10;
+        }
       }
       lastFrame = frameCount;
     }
@@ -120,7 +123,10 @@ void keyPressed() { //Reads the input of keys.
         if (p.eat()) { //If there is a dot, remove it.
           points = points + 1; //Gain points.
         }
-        p.y = p.y + 50; //Move the display coordinate.
+        //p.y = p.y + 50; //Move the display coordinate.
+        for(int i = 0; i < 5; i++){
+         p.y = p.y + 10;
+        }
       }
       lastFrame = frameCount;
     }
@@ -131,7 +137,10 @@ void keyPressed() { //Reads the input of keys.
         if (p.eat()) { //If there is a dot, remove it.
           points = points + 1; //Gain points.
         }
-        p.x = p.x - 50; //Move the display coordinate.
+        //p.x = p.x - 50; //Move the display coordinate.
+        for(int i = 0; i < 5; i++){
+         p.x = p.x - 10;
+        }
       }
       lastFrame = frameCount;
     }
@@ -142,7 +151,10 @@ void keyPressed() { //Reads the input of keys.
         if (p.eat()) { //If there is a dot, remove it.
           points = points + 1; //Gain points.
         }
-        p.x = p.x + 50; //Move the display coordinate.
+        //p.x = p.x + 50; //Move the display coordinate.
+        for(int i = 0; i < 5; i++){
+         p.x = p.x + 10;
+        }
       }
       lastFrame = frameCount;
     }
