@@ -1,10 +1,10 @@
 class Node implements Displayable {
-  Node up;
+  Node up; 
   Node down;
   Node left;
   Node right;
-  boolean path;
-  boolean hasDot;
+  boolean path; //Response to whether or not the node can be stepped on.
+  boolean hasDot; 
   boolean ghostHere;
   boolean pacmanHere;
   int x;
@@ -17,41 +17,23 @@ class Node implements Displayable {
     left = newLeft;
     right = newRight;
     path = patState;
-    hasDot = true;
-    ghostHere = false;
+    hasDot = true; //There is a dot by default. It won't matter if the node cannot be stepped on.
+    ghostHere = false; //There is no ghost by default.
   }
-  boolean hasDot(){
-    return hasDot;
-  }
-  void removeDot(){
+  void removeDot() {
     hasDot = false;
   }
-  boolean hasUp() {
+  boolean hasUp() { //Is there a node above?
     return up != null;
   }
-  boolean hasDown() {
+  boolean hasDown() { //Is there a node below?
     return down != null;
   }
-  boolean hasLeft() {
+  boolean hasLeft() { //Is there a node to the left?
     return left != null;
   }
-  boolean hasRight() {
+  boolean hasRight() { //Is there a node to the right?
     return right != null;
-  }
-  Node up() {
-    return up;
-  }
-  Node down() {
-    return down;
-  }
-  Node left() {
-    return left;
-  }
-  Node right() {
-    return right;
-  }
-  boolean ghostHere() {
-    return ghostHere;
   }
   void addGhost() {
     ghostHere = true;
@@ -59,47 +41,26 @@ class Node implements Displayable {
   void removeGhost() {
     ghostHere = false;
   }
-  void setUp(Node other) {
-    up = other;
-  }
-  void setDown(Node other) {
+  void setDown(Node other) { //Used for building the nodes.
     down = other;
   }
-  void setLeft(Node other) {
-    left = other;
-  }
-  void setRight(Node other) {
+  void setRight(Node other) { //Used for building the nodes.
     right = other;
   }
-  boolean canWalk() {
-    return path;
-  }
   void display() {
-    fill(0);
+    fill(0); //Black.
     rect(x, y, 50, 50);
+  }
+  void makeDot(int newX, int newY) {
+    d = new Dot(newX, newY);
+  }
+  void addPacman() {
+    pacmanHere = true;
   }
   void setX(int newX) {
     x = newX;
   }
   void setY(int newY) {
     y = newY;
-  }
-  int getX() {
-    return x;
-  }
-  int getY() {
-    return y;
-  }
-  void makeDot(int newX, int newY) {
-    d = new Dot(newX, newY);
-  }
-  Dot getDot() {
-    return d;
-  }
-  void addPacman() {
-    pacmanHere = true;
-  }
-  boolean pacmanHere() {
-    return pacmanHere;
   }
 }

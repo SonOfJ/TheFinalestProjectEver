@@ -16,14 +16,19 @@ The blueprint of the map that will be used in the game will be located in a text
 
 **2. Controls**
 
-The player will be controlling Pac-Man. The player will be able to move him in four different directions.
+- Esc: Exit program
+- P: Pause
 - W: Up
 - S: Down
 - A: Left
 - D: Right
-Dodge: If a player and a ghost swap positions by moving past each other at the same time, the player can avoid taking damage.
+
+Dodging 
+If a player and a ghost swap positions by moving past each other at the same time, the player can avoid taking damage.
 
 ## Development Log
+
+
 
 ### DAY 1 - May 16, 2019
 **Christy**
@@ -111,6 +116,10 @@ Dodge: If a player and a ghost swap positions by moving past each other at the s
 - I fixed the "blinking" problem for the ghosts by creating a new ArrayList separate from thingsToDisplay. This new ArrayList is only for ghosts and the objects inside are displayed before Pac-Man but after everything else. This ensures that ghosts will always be drawn on top of the nodes. I also moved loadImage calls into the constructors of the respective classes, but this doesn't really affect the speed of the program.
 
 
+
 ### DAY 11 - May 30, 2019
 **Christy**
-- In class, I worked on creating a start screen. I am displaying an image for the start scree and the user presses the space key to start the game.
+- In class, I worked on creating a start screen. I am displaying an image for the start screen and the user presses the space key to start the game. At home, I created a game over screen that shows up when PacMan has lost all three lives. I also started adding comments to the code to explain what it does.
+
+**Jason** 
+- I added comments and sorted the code. I also removed some useless methods, most of which were accessor methods with fields that can be accessed directly. I added a pause function as well.
