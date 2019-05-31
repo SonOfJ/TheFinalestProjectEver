@@ -35,11 +35,11 @@ void setup() {
         }
       }
       if (index.hasRight()) {
-        index = index.right();
+        index = index.right;
       }
     }
     if (begin.hasDown()) {
-      begin = begin.down();
+      begin = begin.down;
     }
   }
   lives = 3; //Initial number of lives for Pac-Man.
@@ -51,9 +51,9 @@ void setup() {
   gamePlay = true; //The game is running.
 }
 void draw() {
-  if(!startGame){
+  if (!startGame) {
     startScreen();
-  } else{
+  } else {
     clear();
     pointsLives(); //Display the number of points and the number of lives.
     for (Displayable thing : thingsToDisplay) { //Display what is displayable.
@@ -73,30 +73,25 @@ void draw() {
     }
   }
 }
-
-
-void startScreen(){
-  background(0,0,0);
+void startScreen() {
+  background(0, 0, 0);
   PImage logoimg = loadImage("pacmanlogo.png");
   image(logoimg, 400, 100, 820, 222);
 }
-
-void gameOverScreen(){
-  background(0,0,0);
+void gameOverScreen() {
+  background(0, 0, 0);
   PImage img = loadImage("gameOver.png");
   image(img, 350, 100);
 }
-
-
 void keyPressed() { //Reads the input of keys.
-  if(key == ' '){
+  if (key == ' ') {
     startGame = true;
   }
   if (frameCount - lastFrame >= 10) { //This limits Pac-Man's movement speed and maintains game balance.
     if (key == 'w') {
       p.img = pImages[0]; //Load the image for facing up.
-      if (p.currentNode.hasUp() && p.getNode().up().canWalk()) { //If there is a node and it is walkable...
-        p.currentNode = p.currentNode.up(); //Get a new node.
+      if (p.currentNode.hasUp() && p.getNode().up.canWalk()) { //If there is a node and it is walkable...
+        p.currentNode = p.currentNode.up; //Get a new node.
         if (p.eat()) { //If there is a dot, remove it.
           points = points + 1; //Gain points.
         }
@@ -106,8 +101,8 @@ void keyPressed() { //Reads the input of keys.
     }
     if (key == 's') {
       p.img = pImages[1]; //Load the image for facing down.
-      if (p.currentNode.hasDown() && p.getNode().down().canWalk()) { //If there is a node and it is walkable...
-        p.currentNode = p.currentNode.down(); //Get a new node.
+      if (p.currentNode.hasDown() && p.getNode().down.canWalk()) { //If there is a node and it is walkable...
+        p.currentNode = p.currentNode.down; //Get a new node.
         if (p.eat()) { //If there is a dot, remove it.
           points = points + 1; //Gain points.
         }
@@ -117,8 +112,8 @@ void keyPressed() { //Reads the input of keys.
     }
     if (key == 'a') {
       p.img = pImages[2]; //Load the image for facing left.
-      if (p.currentNode.hasLeft() && p.getNode().left().canWalk()) { //If there is a node and it is walkable...
-        p.currentNode = p.currentNode.left(); //Get a new node.
+      if (p.currentNode.hasLeft() && p.getNode().left.canWalk()) { //If there is a node and it is walkable...
+        p.currentNode = p.currentNode.left; //Get a new node.
         if (p.eat()) { //If there is a dot, remove it.
           points = points + 1; //Gain points.
         }
@@ -128,8 +123,8 @@ void keyPressed() { //Reads the input of keys.
     }
     if (key == 'd') { 
       p.img = pImages[3]; //Load the image for facing right.
-      if (p.currentNode.hasRight() && p.getNode().right().canWalk()) { //If there is a node and it is walkable...
-        p.currentNode = p.currentNode.right(); //Get a new node.
+      if (p.currentNode.hasRight() && p.getNode().right.canWalk()) { //If there is a node and it is walkable...
+        p.currentNode = p.currentNode.right; //Get a new node.
         if (p.eat()) { //If there is a dot, remove it.
           points = points + 1; //Gain points.
         }
@@ -154,8 +149,7 @@ void pointsLives() { //Function for displaying points and lives.
 void pacManDamage() { //Function for processing damage taken by Pac-Man.
   if (frameCount - lastFrame >= 10) {
     if (p.getNode().ghostHere()) {
-      //p.damage();
-      lives -= 1;
+      lives = lives - 1;
       lastFrame = frameCount;
     }
     if (lives == 0) {

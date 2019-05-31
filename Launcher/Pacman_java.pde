@@ -24,9 +24,6 @@ class Pacman implements Displayable {
     }
     return false;
   }
-  void damage() {//lose a life by touching a Ghost
-    lives = lives - 1;
-  }
   Node getNode() {//accessor method
     return currentNode;
   }
