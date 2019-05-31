@@ -4,7 +4,7 @@
 
 This game attempts to recreate the classic arcade Pac-Man game. The user uses arrow keys to guide Pac-Man through a maze to eat Pac-Dots, while avoiding the four ghosts roaming around the maze. If Pac-Man touches a ghost, the user loses a life and when all lives are lost, the game is over.
 
-## How to Run Program
+# Project Features
 
 **1. The Map File**
 
@@ -14,7 +14,12 @@ The blueprint of the map that will be used in the game will be located in a text
 - D: Dots that can be consumed by Pac-Man to generate points for the player
 - G: Ghosts
 
-**2. Controls**
+**2. Node Data Structure**
+This project utilized a Node-based data structure to build out a maze and control interactions among PacMan, the Dots, and the Ghosts.
+
+## How to Run Program
+
+**1. Controls**
 
 - Esc: Exit program
 - P: Pause
