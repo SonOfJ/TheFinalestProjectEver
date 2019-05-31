@@ -54,9 +54,6 @@ class Node implements Displayable {
   void makeDot(int newX, int newY) {
     d = new Dot(newX, newY);
   }
-  Dot getDot() {
-    return d;
-  }
   void addPacman() {
     pacmanHere = true;
   }

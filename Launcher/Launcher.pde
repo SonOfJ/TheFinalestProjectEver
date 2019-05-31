@@ -23,7 +23,7 @@ void setup() {
       if (index.path) { //Differentiate between nodes that are walkable and nodes that are not walkable.
         thingsToDisplay.add(index);
         if (index.hasDot) { //If the node has a dot, add that to the ArrayList for display too.
-          thingsToDisplay.add(index.getDot());
+          thingsToDisplay.add(index.d);
         }
         if (index.pacmanHere()) {
           p = new Pacman(index, index.x, index.y); //Create the Pac-Man.
