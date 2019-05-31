@@ -87,6 +87,13 @@ void keyPressed() { //Reads the input of keys.
   if (key == ' ') {
     startGame = true;
   }
+  if (key == 'p' && startGame) {
+    if (looping) {
+      noLoop();
+    } else {
+      loop();
+    }
+  }
   if (frameCount - lastFrame >= 10) { //This limits Pac-Man's movement speed and maintains game balance.
     if (key == 'w') {
       p.img = pImages[0]; //Load the image for facing up.
