@@ -1,13 +1,13 @@
 class Ghost implements Displayable, Moveable {
-  PImage img;
-  Node currentNode;
-  int x;
-  int y;
+  PImage img;//image displayed
+  Node currentNode;//Node the Ghost is on
+  int x;//x cor
+  int y;//y cor
   Ghost(Node newCurrent, int newX, int newY) {
-    img = loadImage("ghost" + ((int)random(3) + 1) + ".png");
-    currentNode = newCurrent;
-    x = newX;
-    y = newY;
+    img = loadImage("ghost" + ((int)random(3) + 1) + ".png");//randomly choose ghost image
+    currentNode = newCurrent;//initalize value
+    x = newX;//initialize value
+    y = newY;//initialize value
   }
   void display() {
     image(img, x, y, 50, 50);
