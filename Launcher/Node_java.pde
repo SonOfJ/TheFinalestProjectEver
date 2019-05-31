@@ -41,20 +41,11 @@ class Node implements Displayable {
   void removeGhost() {
     ghostHere = false;
   }
-  void setUp(Node other) {
-    up = other;
-  }
   void setDown(Node other) {
     down = other;
   }
-  void setLeft(Node other) {
-    left = other;
-  }
   void setRight(Node other) {
     right = other;
-  }
-  boolean canWalk() {
-    return path;
   }
   void display() {
     fill(0);

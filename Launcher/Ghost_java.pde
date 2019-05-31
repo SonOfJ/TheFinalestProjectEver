@@ -15,16 +15,16 @@ class Ghost implements Displayable, Moveable {
   void move() {
     if (frameCount % 10 == 0) { //Limits movement speed of ghosts.
       ArrayList<Character> dir = new ArrayList<Character>(); //This ArrayList will contain all the possible directions the ghost can move in.
-      if (currentNode.hasUp() && currentNode.up.canWalk()) {
+      if (currentNode.hasUp() && currentNode.up.path) {
         dir.add('w');
       }
-      if (currentNode.hasDown() && currentNode.down.canWalk()) {
+      if (currentNode.hasDown() && currentNode.down.path) {
         dir.add('s');
       }
-      if (currentNode.hasLeft() && currentNode.left.canWalk()) {
+      if (currentNode.hasLeft() && currentNode.left.path) {
         dir.add('a');
       }
-      if (currentNode.hasRight() && currentNode.right.canWalk()) {
+      if (currentNode.hasRight() && currentNode.right.path) {
         dir.add('d');
       }
       char chosen = dir.get((int)random(dir.size())); //Randomly choose a direction out of the ArrayList of possible directions.

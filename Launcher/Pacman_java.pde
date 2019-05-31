@@ -12,7 +12,7 @@ class Pacman implements Displayable {
     y = newY;//initialize value
   }
   void display() {
-    image(img, x, y, 50, 50); 
+    image(img, x, y, 50, 50);
   }
   boolean eat() {//PacMan eats the Dot in the Node it is currently at
     if (currentNode.hasDot) { // If there is a dot at the node...
