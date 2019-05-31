@@ -76,7 +76,7 @@ void draw() {
 void startScreen() {
   background(0, 0, 0);
   PImage logoimg = loadImage("pacmanlogo.png");
-  image(logoimg, 400, 100, 820, 222);
+  image(logoimg, 390, 100, 820, 222);
 }
 void pausedScreen() {
   textSize(150);
