@@ -82,7 +82,8 @@ void pausedScreen() {
   textSize(150);
   noStroke();
   fill(255, 255, 255);
-  text("PAUSED", 525, 500);
+  textAlign(CENTER);
+  text("PAUSED", 800, 450);
 }
 void gameOverScreen() {
   background(0, 0, 0);
