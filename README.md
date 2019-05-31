@@ -23,12 +23,12 @@ This project utilized a Node-based data structure to build out a maze and contro
 2. Open Launcher.pde in Processing
 3. Press spacebar to start game
 4. Use the following controls
-  - Esc: Exit program
-  - P: Pause
-  - W: Up
-  - S: Down
-  - A: Left
-  - D: Right
+      - Esc: Exit program
+      - P: Pause
+      - W: Up
+      - S: Down
+      - A: Left
+      - D: Right
 
 Dodging 
 If a player and a ghost swap positions by moving past each other at the same time, the player can avoid taking damage.
