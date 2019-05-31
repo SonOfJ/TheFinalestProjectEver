@@ -78,6 +78,12 @@ void startScreen() {
   PImage logoimg = loadImage("pacmanlogo.png");
   image(logoimg, 400, 100, 820, 222);
 }
+void pausedScreen() {
+  textSize(150);
+  noStroke();
+  fill(255, 255, 255);
+  text("PAUSED", 525, 500);
+}
 void gameOverScreen() {
   background(0, 0, 0);
   PImage img = loadImage("gameOver.png");
@@ -87,9 +93,10 @@ void keyPressed() { //Reads the input of keys.
   if (key == ' ') {
     startGame = true;
   }
-  if (key == 'p' && startGame) {
+  if (key == 'p' && startGame && gamePlay) {
     if (looping) {
       noLoop();
+      pausedScreen();
     } else {
       loop();
     }
