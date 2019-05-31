@@ -23,16 +23,16 @@ class Node implements Displayable {
   void removeDot() {
     hasDot = false;
   }
-  boolean hasUp() {
+  boolean hasUp() { //Is there a node above?
     return up != null;
   }
-  boolean hasDown() {
+  boolean hasDown() { //Is there a node below?
     return down != null;
   }
-  boolean hasLeft() {
+  boolean hasLeft() { //Is there a node to the left?
     return left != null;
   }
-  boolean hasRight() {
+  boolean hasRight() { //Is there a node to the right?
     return right != null;
   }
   void addGhost() {
@@ -41,10 +41,10 @@ class Node implements Displayable {
   void removeGhost() {
     ghostHere = false;
   }
-  void setDown(Node other) {
+  void setDown(Node other) { //Used for building the nodes.
     down = other;
   }
-  void setRight(Node other) {
+  void setRight(Node other) { //Used for building the nodes.
     right = other;
   }
   void display() {
