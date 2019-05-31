@@ -25,7 +25,7 @@ void setup() {
         if (index.hasDot) { //If the node has a dot, add that to the ArrayList for display too.
           thingsToDisplay.add(index.d);
         }
-        if (index.pacmanHere()) {
+        if (index.pacmanHere) {
           p = new Pacman(index, index.x, index.y); //Create the Pac-Man.
         }
         if (index.ghostHere) { //Add ghosts to the special ArrayList for display and to the ArrayList for move.

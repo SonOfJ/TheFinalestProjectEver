@@ -57,9 +57,6 @@ class Node implements Displayable {
   void addPacman() {
     pacmanHere = true;
   }
-  boolean pacmanHere() {
-    return pacmanHere;
-  }
   void setX(int newX) {
     x = newX;
   }
