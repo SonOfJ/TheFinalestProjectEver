@@ -7,8 +7,10 @@ int points; //Number of dots eaten by Pac-Man.
 int lives; //Number of hits Pac-Man can take.
 int lastFrame;
 boolean gamePlay; //If true, the game is still running.
+boolean startGame;
 void setup() {
   size(1600, 900);
+  startGame = false;
   thingsToDisplay = new ArrayList<Displayable>();
   movingDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
@@ -49,26 +51,47 @@ void setup() {
   gamePlay = true; //The game is running.
 }
 void draw() {
-  pointsLives(); //Display the number of points and the number of lives.
-  for (Displayable thing : thingsToDisplay) { //Display what is displayable.
-    thing.display();
-  }
-  for (Displayable thing : movingDisplay) { //Display ghosts after nodes and dots.
-    thing.display();
-  }
-  p.display(); //Display Pac-Man.
-  for (Moveable thing : thingsToMove) { 
-    thing.move();
-  }
-  pacManDamage(); //Update damage.
-  if (!gamePlay) { //If the game is no longer running...
+  if(!startGame){
+    startScreen();
+  } else{
     clear();
-    textSize(100);
-    fill(255, 0, 0);
-    text("GAME OVER", 400, 300);
+    pointsLives(); //Display the number of points and the number of lives.
+    for (Displayable thing : thingsToDisplay) { //Display what is displayable.
+      thing.display();
+    }
+    for (Displayable thing : movingDisplay) { //Display ghosts after nodes and dots.
+      thing.display();
+    }
+    p.display(); //Display Pac-Man.
+    for (Moveable thing : thingsToMove) { 
+      thing.move();
+    }
+    pacManDamage(); //Update damage.
+    if (!gamePlay) { //If the game is no longer running...
+      clear();
+      gameOverScreen();
+    }
   }
 }
+
+
+void startScreen(){
+  background(0,0,0);
+  PImage logoimg = loadImage("pacmanlogo.png");
+  image(logoimg, 400, 100, 820, 222);
+}
+
+void gameOverScreen(){
+  background(0,0,0);
+  PImage img = loadImage("gameOver.png");
+  image(img, 350, 100);
+}
+
+
 void keyPressed() { //Reads the input of keys.
+  if(key == ' '){
+    startGame = true;
+  }
   if (frameCount - lastFrame >= 10) { //This limits Pac-Man's movement speed and maintains game balance.
     if (key == 'w') {
       p.img = pImages[0]; //Load the image for facing up.
