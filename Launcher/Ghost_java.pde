@@ -1,16 +1,16 @@
 class Ghost implements Displayable, Moveable {
   PImage img;
   Node currentNode; //Node the Ghost is on.
-  int x;
-  int y;
-  Ghost(Node newCurrent, int newX, int newY) {
+  float x;
+  float y;
+  Ghost(Node newCurrent, float newX, float newY) {
     img = loadImage("ghost" + ((int)random(3) + 1) + ".png"); //Randomly choose ghost image.
     currentNode = newCurrent;
     x = newX;
     y = newY;
   }
   void display() {
-    image(img, x, y, 50, 50);
+    image(img, x, y, 37.5, 37.5);
   }
   void move() {
     if (frameCount % 10 == 0) { //Limits movement speed of ghosts.
@@ -30,22 +30,22 @@ class Ghost implements Displayable, Moveable {
       char chosen = dir.get((int)random(dir.size())); //Randomly choose a direction out of the ArrayList of possible directions.
       currentNode.removeGhost(); //The current node should no longer have a ghost.
       if (chosen == 'w') {
-        y = y - 50; //Move upwards.
+        y = y - 37.5; //Move upwards.
         currentNode.up.addGhost(); //The node on top should have a ghost.
         currentNode = currentNode.up; //Get new node.
       }
       if (chosen == 's') {
-        y = y + 50; //Move downwards.
+        y = y + 37.5; //Move downwards.
         currentNode.down.addGhost(); //The node on bottom should have a ghost.
         currentNode = currentNode.down; //Get new node.
       }
       if (chosen == 'a') {
-        x = x - 50; //Move to the left.
+        x = x - 37.5; //Move to the left.
         currentNode.left.addGhost(); //The node on the left should have a ghost.
         currentNode = currentNode.left; //Get new node.
       }
       if (chosen == 'd') {
-        x = x + 50; //Move to the right.
+        x = x + 37.5; //Move to the right.
         currentNode.right.addGhost(); //The node on the right should have a ghost.
         currentNode = currentNode.right; //Get new node.
       }

@@ -7,8 +7,8 @@ class Node implements Displayable {
   boolean hasDot; 
   boolean ghostHere;
   boolean pacmanHere;
-  int x;
-  int y;
+  float x;
+  float y;
   Dot d;
   Ghost g;
   Node(Node newUp, Node newDown, Node newLeft, Node newRight, boolean patState) {
@@ -49,18 +49,18 @@ class Node implements Displayable {
   }
   void display() {
     fill(0); //Black.
-    rect(x, y, 50, 50);
+    rect(x, y, 37.5, 37.5);
   }
-  void makeDot(int newX, int newY) {
+  void makeDot(float newX, float newY) {
     d = new Dot(newX, newY);
   }
   void addPacman() {
     pacmanHere = true;
   }
-  void setX(int newX) {
+  void setX(float newX) {
     x = newX;
   }
-  void setY(int newY) {
+  void setY(float newY) {
     y = newY;
   }
 }

@@ -10,7 +10,7 @@ int totalDots;
 boolean gamePlay; //If true, the game is still running.
 boolean startGame;
 void setup() {
-  size(1600, 900);
+  size(1200, 675);
   startGame = false;
   thingsToDisplay = new ArrayList<Displayable>();
   movingDisplay = new ArrayList<Displayable>();
@@ -57,7 +57,7 @@ void draw() {
     startScreen();
   } else {
     clear();
-    pointsLives(); //Display the number of points and the number of lives.
+    background(0, 0, 150);
     for (Displayable thing : thingsToDisplay) { //Display what is displayable.
       thing.display();
     }
@@ -68,6 +68,7 @@ void draw() {
     for (Moveable thing : thingsToMove) { 
       thing.move();
     }
+    //pointsLives(); //Display the number of points and the number of lives.
     pacManDamage(); //Update damage.
     if (!gamePlay) { //If the game is no longer running...
       clear();
@@ -86,6 +87,11 @@ void pausedScreen() {
   fill(255, 255, 255);
   textAlign(CENTER);
   text("PAUSED", 800, 450);
+}
+void winScreen() {
+  background(0, 0, 0);
+  PImage img = loadImage("win.png");
+  image(img, 160, 0);
 }
 void gameOverScreen() {
   background(0, 0, 0);
@@ -115,7 +121,7 @@ void keyPressed() { //Reads the input of keys.
             winScreen();
           }
         }
-        p.y = p.y - 50; //Move the display coordinate.
+        p.y = p.y - 37.5; //Move the display coordinate.
       }
       lastFrame = frameCount;
     }
@@ -126,7 +132,7 @@ void keyPressed() { //Reads the input of keys.
         if (p.eat()) { //If there is a dot, remove it.
           points = points + 1; //Gain points.
         }
-        p.y = p.y + 50; //Move the display coordinate.
+        p.y = p.y + 37.5; //Move the display coordinate.
       }
       lastFrame = frameCount;
     }
@@ -137,7 +143,7 @@ void keyPressed() { //Reads the input of keys.
         if (p.eat()) { //If there is a dot, remove it.
           points = points + 1; //Gain points.
         }
-        p.x = p.x - 50; //Move the display coordinate.
+        p.x = p.x - 37.5; //Move the display coordinate.
       }
       lastFrame = frameCount;
     }
@@ -148,14 +154,13 @@ void keyPressed() { //Reads the input of keys.
         if (p.eat()) { //If there is a dot, remove it.
           points = points + 1; //Gain points.
         }
-        p.x = p.x + 50; //Move the display coordinate.
+        p.x = p.x + 37.5; //Move the display coordinate.
       }
       lastFrame = frameCount;
     }
   }
 }
 void pointsLives() { //Function for displaying points and lives. 
-  background(0, 0, 150);
   textSize(32);
   fill(0, 0, 150);
   noStroke();
