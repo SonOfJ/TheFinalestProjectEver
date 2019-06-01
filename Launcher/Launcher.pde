@@ -68,7 +68,7 @@ void draw() {
     for (Moveable thing : thingsToMove) { 
       thing.move();
     }
-    //pointsLives(); //Display the number of points and the number of lives.
+    pointsLives(); //Display the number of points and the number of lives.
     pacManDamage(); //Update damage.
     if (!gamePlay) { //If the game is no longer running...
       clear();
@@ -162,9 +162,6 @@ void keyPressed() { //Reads the input of keys.
 }
 void pointsLives() { //Function for displaying points and lives. 
   textSize(32);
-  fill(0, 0, 150);
-  noStroke();
-  rect(100, 100, 100, 100);
   fill(255, 255, 255);
   text(points, 150, 150);
   text("points", 100, 100);
