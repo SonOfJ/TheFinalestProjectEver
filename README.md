@@ -131,6 +131,11 @@ If a player and a ghost swap positions by moving past each other at the same tim
 **Jason** 
 - I added comments and sorted the code. I also removed some useless methods, most of which were accessor methods with fields that can be accessed directly. I added a pause function as well.
 
+
+
 ### DAY 12 - May 31, 2019
 **Christy**
 - In class, Mr. K gave suggestions on how to improve the game beyond the MVP. Some of these suggestions include better visuals (smooth gliding movement of PacMan and the Ghosts), different Ghost behavior (chasing PacMan from different directions), and resizing the screen so that the game is not full screen. I began to attempt to work on the smooth gliding motion of PacMan. I also updated the README with instructions on how to run the program.
+
+**Jason**
+- I centered some of the text (but that doesn't really matter because I did resizing afterwards so they have to be centered again). I added a way to win the game as well as a victory screen (this hasn't been tested yet because I haven't won a game yet). I also fixed an issue with displaying points and lives by moving the background call and deleting some lines of code. I changed the type for the coordinates from int to float to allow for more flexibility.
