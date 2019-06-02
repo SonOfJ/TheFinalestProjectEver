@@ -80,14 +80,15 @@ void startScreen() {
   background(0, 0, 0);
   PImage logoimg = loadImage("pacmanlogo.png");
   image(logoimg, 0, 0, 1200, 324.344112264);
-  textSize(100);
+  rectMode(CENTER);
+  fill(120, 0, 120);
+  rect(600, 390, 605, 100);
+  rect(600, 540, 605, 100);
+  textSize(80);
   fill(255, 255, 255);
   textAlign(CENTER);
-  text("INSTRUCTIONS", 600, 400);
-  /*
-  fill(0, 0, 120);
-  rect(450, 400, 300, 100);
-  */
+  text("START", 600, 420);
+  text("INSTRUCTIONS", 600, 570);
 }
 void pausedScreen() {
   textSize(150);
