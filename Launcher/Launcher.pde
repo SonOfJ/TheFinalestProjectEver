@@ -7,11 +7,14 @@ int points; //Number of dots eaten by Pac-Man.
 int lives; //Number of hits Pac-Man can take.
 int lastFrame;
 int totalDots;
-boolean gamePlay; //If true, the game is still running.
-boolean startGame;
+boolean startingScreen;
+boolean instructionScreen;
+boolean playingScreen; //If true, the game is still running.
+boolean pausingScreen;
+boolean gameOverScreen;
 void setup() {
   size(1200, 675);
-  startGame = false;
+  startingScreen = true;
   thingsToDisplay = new ArrayList<Displayable>();
   movingDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
@@ -53,7 +56,7 @@ void setup() {
   gamePlay = true; //The game is running.
 }
 void draw() {
-  if (!startGame) {
+  if (startingScreen) {
     startScreen();
   } else {
     clear();
@@ -89,7 +92,7 @@ void startScreen() {
   if (mouseX >= 295 && mouseX <= 905 && mouseY >= 340 && mouseY <= 440) {
     fill(255, 255, 255);
   } else {
-    fill (0, 0, 0);
+    fill(0, 0, 0);
   }
   text("START", 600, 420);
   if (mouseX >= 295 && mouseX <= 905 && mouseY >= 490 && mouseY <= 590) {
@@ -99,6 +102,8 @@ void startScreen() {
   }
   text("INSTRUCTIONS", 600, 570);
 }
+void instructionScreen() {
+  
 void pausedScreen() {
   textSize(150);
   noStroke();
@@ -120,6 +125,9 @@ void mousePressed() {
   if (!startGame) {
     if (mouseX >= 295 && mouseX <= 905 && mouseY >= 340 && mouseY <= 440) {
       startGame = true;
+    }
+    if (mouseX >= 295 && mouseX <= 905 && mouseY >= 490 && mouseY <= 590) {
+      instructions = true;
     }
   }
 }
