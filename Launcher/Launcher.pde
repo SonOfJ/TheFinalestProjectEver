@@ -82,12 +82,21 @@ void startScreen() {
   image(logoimg, 0, 0, 1200, 324.344112264);
   rectMode(CENTER);
   fill(120, 0, 120);
-  rect(600, 390, 605, 100);
-  rect(600, 540, 605, 100);
+  rect(600, 390, 610, 100);
+  rect(600, 540, 610, 100);
   textSize(80);
-  fill(255, 255, 255);
   textAlign(CENTER);
+  if (mouseX >= 295 && mouseX <= 905 && mouseY >= 340 && mouseY <= 440) {
+    fill(255, 255, 255);
+  } else {
+    fill (0, 0, 0);
+  }
   text("START", 600, 420);
+  if (mouseX >= 295 && mouseX <= 905 && mouseY >= 490 && mouseY <= 590) {
+    fill(255, 255, 255);
+  } else {
+    fill (0, 0, 0);
+  }
   text("INSTRUCTIONS", 600, 570);
 }
 void pausedScreen() {
@@ -107,10 +116,14 @@ void gameOverScreen() {
   PImage img = loadImage("gameOver.png");
   image(img, 0, 0, 1600, 900);
 }
-void keyPressed() { //Reads the input of keys.
-  if (key == ' ') {
-    startGame = true;
+void mousePressed() {
+  if (!startGame) {
+    if (mouseX >= 295 && mouseX <= 905 && mouseY >= 340 && mouseY <= 440) {
+      startGame = true;
+    }
   }
+}
+void keyPressed() { //Reads the input of keys.
   if (key == 'p' && startGame && gamePlay) {
     if (looping) {
       noLoop();
