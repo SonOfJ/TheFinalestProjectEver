@@ -7,16 +7,9 @@ int points; //Number of dots eaten by Pac-Man.
 int lives; //Number of hits Pac-Man can take.
 int lastFrame;
 int totalDots;
-boolean starting;
-boolean toPlay;
-boolean controls;
 boolean playing; //If true, the game is still running.
-boolean pausing;
-boolean gameOver;
-boolean winning;
 void setup() {
   size(1200, 675);
-  playing = true;
   thingsToDisplay = new ArrayList<Displayable>();
   movingDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
@@ -57,14 +50,6 @@ void setup() {
   pImages[3] = loadImage("pacmanRight.png");
 }
 void draw() {
-  /*
-  if (starting) {
-    startingScreen();
-  }
-  if (toPlay) {
-    toPlayScreen();
-  }
-  */
   if (playing) {
     background(0, 0, 150);
     for (Displayable thing : thingsToDisplay) { //Display what is displayable.
@@ -79,18 +64,13 @@ void draw() {
     }
     pointsLives(); //Display the number of points and the number of lives.
     pacManDamage(); //Update damage.
-  }
-  /*
-  if (pausing) {
-    pausingScreen();
-  }
-  if (gameOver) { //If the game is no longer running...
+  } else if (lives != 0 && points != totalDots) {
+    startingScreen();
+  } else if (lives != 0) {
+    winningScreen();
+  } else {
     gameOverScreen();
   }
-  if (winning) {
-    winningScreen();
-  }
-  */
 }
 void startingScreen() {
   background(0, 0, 0);
@@ -122,14 +102,6 @@ void toPlayScreen() {
   textSize(80);
   fill(0, 0, 0);
 }
-void pausingScreen() {
-  noLoop();
-  textSize(150);
-  noStroke();
-  fill(255, 255, 255);
-  textAlign(CENTER);
-  text("PAUSED", 800, 450);
-}
 void winScreen() {
   background(0, 0, 0);
   PImage img = loadImage("win.png");
@@ -140,22 +112,20 @@ void gameOverScreen() {
   PImage img = loadImage("gameOver.png");
   image(img, 0, 0, 1600, 900);
 }
-void winningScreen() {
-}
-void mousePressed() {
-  if (starting) {
-    if (mouseX >= 295 && mouseX <= 905 && mouseY >= 340 && mouseY <= 440) {
-      playing = true;
-    }
-    if (mouseX >= 295 && mouseX <= 905 && mouseY >= 490 && mouseY <= 590) {
-      toPlay = true;
-    }
-  }
-}
 void keyPressed() { //Reads the input of keys.
+  if (key == ' ' && !playing && lives != 0 && points != totalDots) {
+    playing = true;
+  }
   if (key == 'p' && playing) {
-    playing = false;
-    pausing = true;
+    if (looping) {
+      noLoop();
+      textSize(150);
+      fill(0, 0, 0);
+      textAlign(CENTER);
+      text("PAUSED", 600, 300);
+    } else {
+      loop();
+    }
   }
   if (frameCount - lastFrame >= 10) { //This limits Pac-Man's movement speed and maintains game balance.
     if (key == 'w') {
