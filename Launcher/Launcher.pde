@@ -118,7 +118,6 @@ void toPlayScreen() {
   rect(600, 0, 600, 50);
   textSize(80);
   fill(0, 0, 0);
-  
 }
 void pausingScreen() {
   noLoop();
@@ -138,20 +137,22 @@ void gameOverScreen() {
   PImage img = loadImage("gameOver.png");
   image(img, 0, 0, 1600, 900);
 }
+void winningScreen() {
+}
 void mousePressed() {
-  if (startingScreen) {
+  if (starting) {
     if (mouseX >= 295 && mouseX <= 905 && mouseY >= 340 && mouseY <= 440) {
-      startingScreen = true;
+      starting = true;
     }
     if (mouseX >= 295 && mouseX <= 905 && mouseY >= 490 && mouseY <= 590) {
-      instructionsScreen = true;
+      toPlay = true;
     }
   }
 }
 void keyPressed() { //Reads the input of keys.
-  if (key == 'p' && playingScreen) {
-    playingScreen = false;
-    pausingScreen = true;
+  if (key == 'p' && playing) {
+    playing = false;
+    pausing = true;
   }
   if (frameCount - lastFrame >= 10) { //This limits Pac-Man's movement speed and maintains game balance.
     if (key == 'w') {
@@ -218,8 +219,8 @@ void pacManDamage() { //Function for processing damage taken by Pac-Man.
       lastFrame = frameCount;
     }
     if (lives == 0) {
-      playingScreen = false;
-      gameOverScreen = true;
+      playing = false;
+      gameOver = true;
     }
   }
 }
