@@ -7,15 +7,16 @@ int points; //Number of dots eaten by Pac-Man.
 int lives; //Number of hits Pac-Man can take.
 int lastFrame;
 int totalDots;
-boolean startingScreen;
-boolean instructionsScreen;
-boolean playingScreen; //If true, the game is still running.
-boolean pausingScreen;
-boolean gameOverScreen;
-boolean winningScreen;
+boolean starting;
+boolean toPlay;
+boolean controls;
+boolean playing; //If true, the game is still running.
+boolean pausing;
+boolean gameOver;
+boolean winning;
 void setup() {
   size(1200, 675);
-  startingScreen = true;
+  starting = true;
   thingsToDisplay = new ArrayList<Displayable>();
   movingDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
@@ -54,16 +55,16 @@ void setup() {
   pImages[1] = loadImage("pacmanDown.png");
   pImages[2] = loadImage("pacmanLeft.png");
   pImages[3] = loadImage("pacmanRight.png");
-  playingScreen = true; //The game is running.
+  playing = true; //The game is running.
 }
 void draw() {
-  if (startingScreen) {
+  if (starting) {
     startingScreen();
   }
-  if (instructionsScreen) {
-    instructionsScreen();
+  if (toPlay) {
+    toPlayScreen();
   }
-  if (playingScreen) {
+  if (playing) {
     background(0, 0, 150);
     for (Displayable thing : thingsToDisplay) { //Display what is displayable.
       thing.display();
@@ -78,13 +79,13 @@ void draw() {
     pointsLives(); //Display the number of points and the number of lives.
     pacManDamage(); //Update damage.
   }
-  if (pausingScreen) {
+  if (pausing) {
     pausingScreen();
   }
-  if (gameOverScreen) { //If the game is no longer running...
+  if (gameOver) { //If the game is no longer running...
     gameOverScreen();
   }
-  if (winningScreen) {
+  if (winning) {
     winningScreen();
   }
 }
@@ -111,14 +112,16 @@ void startingScreen() {
   }
   text("INSTRUCTIONS", 600, 570);
 }
-void instructionsScreen() {
+void toPlayScreen() {
+  rectMode(CORNER);
+  fill(120, 0, 120);
+  rect(600, 0, 600, 50);
+  textSize(80);
+  fill(0, 0, 0);
+  
 }
 void pausingScreen() {
-  if (looping) {
-    noLoop();
-  } else {
-    loop();
-  }
+  noLoop();
   textSize(150);
   noStroke();
   fill(255, 255, 255);
