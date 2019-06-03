@@ -16,7 +16,7 @@ boolean gameOver;
 boolean winning;
 void setup() {
   size(1200, 675);
-  starting = true;
+  playing = true;
   thingsToDisplay = new ArrayList<Displayable>();
   movingDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
@@ -55,15 +55,16 @@ void setup() {
   pImages[1] = loadImage("pacmanDown.png");
   pImages[2] = loadImage("pacmanLeft.png");
   pImages[3] = loadImage("pacmanRight.png");
-  playing = true; //The game is running.
 }
 void draw() {
+  /*
   if (starting) {
     startingScreen();
   }
   if (toPlay) {
     toPlayScreen();
   }
+  */
   if (playing) {
     background(0, 0, 150);
     for (Displayable thing : thingsToDisplay) { //Display what is displayable.
@@ -79,6 +80,7 @@ void draw() {
     pointsLives(); //Display the number of points and the number of lives.
     pacManDamage(); //Update damage.
   }
+  /*
   if (pausing) {
     pausingScreen();
   }
@@ -88,6 +90,7 @@ void draw() {
   if (winning) {
     winningScreen();
   }
+  */
 }
 void startingScreen() {
   background(0, 0, 0);
@@ -142,7 +145,7 @@ void winningScreen() {
 void mousePressed() {
   if (starting) {
     if (mouseX >= 295 && mouseX <= 905 && mouseY >= 340 && mouseY <= 440) {
-      starting = true;
+      playing = true;
     }
     if (mouseX >= 295 && mouseX <= 905 && mouseY >= 490 && mouseY <= 590) {
       toPlay = true;
@@ -161,9 +164,6 @@ void keyPressed() { //Reads the input of keys.
         p.currentNode = p.currentNode.up; //Get a new node.
         if (p.eat()) { //If there is a dot, remove it.
           points = points + 1; //Gain points.
-          if (points == totalDots) {
-            winScreen();
-          }
         }
         p.y = p.y - 37.5; //Move the display coordinate.
       }
@@ -202,6 +202,9 @@ void keyPressed() { //Reads the input of keys.
       }
       lastFrame = frameCount;
     }
+  }
+  if (points == totalDots) {
+    winScreen();
   }
 }
 void pointsLives() { //Function for displaying points and lives. 
