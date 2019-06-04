@@ -86,11 +86,13 @@ void winningScreen() {
   background(0, 0, 0);
   PImage img = loadImage("win.png");
   image(img, 160, 0);
+  text("PRESS SPACE TO PLAY AGAIN", 600, 450);
 }
 void gameOverScreen() {
   background(0, 0, 0);
   PImage img = loadImage("gameOver.png");
   image(img, 0, 0, 1600, 900);
+  text("PRESS SPACE TO TRY AGAIN", 600, 450);
 }
 void keyPressed() { //Reads the input of keys.
   if (key == ' ' && !playing && lives != 0 && points != totalDots) {
