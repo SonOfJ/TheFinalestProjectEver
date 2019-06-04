@@ -10,9 +10,6 @@ int lastFrame;
 boolean playing; //If true, the game is still running.
 void setup() {
   size(1200, 700);
-  thingsToDisplay = new ArrayList<Displayable>();
-  movingDisplay = new ArrayList<Displayable>();
-  thingsToMove = new ArrayList<Moveable>();
   pImages = new PImage[4]; //Array for containing the images for the states of Pac-Man.
   pImages[0] = loadImage("pacmanUp.png");
   pImages[1] = loadImage("pacmanDown.png");
@@ -21,6 +18,10 @@ void setup() {
   load();
 }
 void load() {
+  totPoints = 0;
+  thingsToDisplay = new ArrayList<Displayable>();
+  movingDisplay = new ArrayList<Displayable>();
+  thingsToMove = new ArrayList<Moveable>();
   Maze m = new Maze(); //Add the nodes to ArrayList for display.
   Node index = m.start; 
   Node begin = m.start;
@@ -54,9 +55,7 @@ void load() {
   points = 0;
 }
 void draw() {
-  if (!playing) {
-    startingScreen();
-  } else {
+  if (playing) {
     background(0, 0, 150);
     for (Displayable thing : thingsToDisplay) { //Display what is displayable.
       thing.display();
@@ -75,10 +74,15 @@ void draw() {
     fill(0, 0, 0);
     text("POINTS: " + points, 0, 700);
     text("LIVES: " + lives, 400, 700);
-    pacManDamage(); //Update damage.
-    if (points == totPoints) {
-      winningScreen();
-    }
+    text(totPoints, 800, 700);
+    pacManDamage(); 
+    pacManPoints();
+  } else if (lives != 0 && points != totPoints) {
+    startingScreen();
+  } else if (lives == 0) {
+    gameOverScreen();
+  } else {
+    winningScreen();
   }
 }
 void startingScreen() {
@@ -163,7 +167,6 @@ void pacManDamage() { //Function for processing damage taken by Pac-Man.
     }
     if (lives == 0) {
       playing = false;
-      
     }
   }
 }
@@ -173,9 +176,8 @@ void pacManPoints() {
       points = points + 1;
       lastFrame = frameCount;
     }
-    if (points == totPoints) {
+    if (points == 1) {
       playing = false;
-      winningScreen();
     }
   }
 }

@@ -2,6 +2,8 @@ class Maze {
   Node start; //Need a starting point to begin displaying.
   Node up; //Check the nodes before.
   Node left; //Check the nodes before.
+  boolean pacValid;
+  boolean dotValid;
   Maze() {
     String[] lines = loadStrings("Map.txt");
     float x = 0;   
@@ -11,6 +13,12 @@ class Maze {
         boolean walk; //Change according to whether or not the node is walkable.
         if (lines.length > i && lines[i].length() > j && lines[i].charAt(j) != ' ') { //As long as there is a letter...
           walk = true; //The node is walkable.
+          if (lines[i].charAt(j) == 'P') {
+            pacValid = true;
+          }
+          if (lines[i].charAt(j) == 'N' || lines[i].charAt(j) == 'G') {
+            dotValid = true;
+          }
         } else { //If not...
           walk = false; //It isn't.
         }
