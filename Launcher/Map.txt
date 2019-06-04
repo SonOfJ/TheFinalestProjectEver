@@ -1,3 +1,18 @@
-            
-
-        NP
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+N       G      NN          G   N
+NNNNNNNNNNNNNNNNN              N
+N              NNNNNNNNN      GN
+NNNNNNN        N             NNN
+      N     NNNNNNNNNPNNNN   N
+NNNNNNN     N        N   N   NNN
+N     NG    N        N   N     N
+N     NNNNNNNNNNN    N  NNNNNNNN
+NNN             N    N  N
+  NNNNNNNNN     NNNNNN  NNNNNNNN
+NNN       NN        N          N
+N          NG       NNNNNNN    N
+N       NNNN              NNNNNN
+NNN     N                NN
+  NNNNNNNNNNNNNNNNNNNNNNNNNNNNG
+NNN         NNN              NN
+  NNNNNNNNNNNNNNNNNNNNNNNNNNNN

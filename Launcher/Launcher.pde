@@ -7,8 +7,10 @@ int points;
 int totPoints; //Number of dots needed to be eaten.
 int lives; //Number of hits Pac-Man can take.
 int lastFrame;
+int ticks;
 boolean playing; //If true, the game is still running.
 boolean validMap;
+char dir;
 void setup() {
   size(1200, 700);
   pImages = new PImage[4]; //Array for containing the images for the states of Pac-Man.
@@ -57,6 +59,8 @@ void load() {
   }
   lives = 3; //Initial number of lives for Pac-Man.
   points = 0;
+  ticks = 0;
+  dir = '\u0000';
 }
 void draw() {
   if (validMap) {
@@ -81,6 +85,21 @@ void draw() {
       text("LIVES: " + lives, 400, 700);
       pacManDamage(); 
       pacManPoints();
+      if (ticks > 0) {
+        if (dir == 'w') {
+          p.y = p.y - 3.75;
+        }
+        if (dir == 's') {
+          p.y = p.y + 3.75;
+        }
+        if (dir == 'a') {
+          p.x = p.x - 3.75;
+        }
+        if (dir == 'd') {
+          p.x = p.x + 3.75;
+        }
+        ticks = ticks - 1;
+      }
     } else if (lives != 0 && points != totPoints) {
       startingScreen();
     } else if (lives == 0) {
@@ -155,7 +174,8 @@ void keyPressed() { //Reads the input of keys.
       p.img = pImages[0]; //Load the image for facing up.
       if (p.currentNode.hasUp() && p.currentNode.up.path) { //If there is a node and it is walkable...
         p.currentNode = p.currentNode.up; //Get a new node.
-        p.y = p.y - 37.5; //Move the display coordinate.
+        dir = 'w';
+        ticks = 10;
       }
       lastFrame = frameCount;
     }
@@ -163,7 +183,8 @@ void keyPressed() { //Reads the input of keys.
       p.img = pImages[1]; //Load the image for facing down.
       if (p.currentNode.hasDown() && p.currentNode.down.path) { //If there is a node and it is walkable...
         p.currentNode = p.currentNode.down; //Get a new node.
-        p.y = p.y + 37.5; //Move the display coordinate.
+        dir = 's';
+        ticks = 10;
       }
       lastFrame = frameCount;
     }
@@ -171,7 +192,8 @@ void keyPressed() { //Reads the input of keys.
       p.img = pImages[2]; //Load the image for facing left.
       if (p.currentNode.hasLeft() && p.currentNode.left.path) { //If there is a node and it is walkable...
         p.currentNode = p.currentNode.left; //Get a new node.
-        p.x = p.x - 37.5; //Move the display coordinate.
+        dir = 'a';
+        ticks = 10;
       }
       lastFrame = frameCount;
     }
@@ -179,7 +201,8 @@ void keyPressed() { //Reads the input of keys.
       p.img = pImages[3]; //Load the image for facing right.
       if (p.currentNode.hasRight() && p.currentNode.right.path) { //If there is a node and it is walkable...
         p.currentNode = p.currentNode.right; //Get a new node.
-        p.x = p.x + 37.5; //Move the display coordinate.
+        dir = 'd';
+        ticks = 10;
       }
       lastFrame = frameCount;
     }
@@ -202,7 +225,7 @@ void pacManPoints() {
       points = points + 1;
       lastFrame = frameCount;
     }
-    if (points == 1) {
+    if (points == totPoints) {
       playing = false;
     }
   }
