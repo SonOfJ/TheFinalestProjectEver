@@ -69,12 +69,8 @@ void draw() {
     text("POINTS: " + points, 0, 675);
     text("LIVES: " + lives, 200, 675);
     pacManDamage(); //Update damage.
-  } else if (lives != 0 && points != totalDots) {
-    startingScreen();
-  } else if (lives != 0) {
-    winningScreen();
   } else {
-    gameOverScreen();
+    startingScreen();
   }
 }
 void startingScreen() {
@@ -160,14 +156,6 @@ void keyPressed() { //Reads the input of keys.
   if (points == totalDots) {
     winScreen();
   }
-}
-void pointsLives() { //Function for displaying points and lives. 
-  textSize(32);
-  fill(255, 255, 255);
-  text(points, 150, 150);
-  text("points", 100, 100);
-  text(lives, 150, 250);
-  text("lives", 100, 200);
 }
 void pacManDamage() { //Function for processing damage taken by Pac-Man.
   if (frameCount - lastFrame >= 10) {
