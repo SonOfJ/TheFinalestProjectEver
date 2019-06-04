@@ -80,10 +80,10 @@ void startingScreen() {
   background(0, 0, 0);
   PImage logoimg = loadImage("pacmanlogo.png");
   image(logoimg, 0, 0, 1200, 324.344112264);
-  textSize(100);
+  textSize(50);
   textAlign(CENTER);
   fill(255, 255, 255);
-  text("PRESS SPACE TO START", 600, 450);
+  text("PRESS SPACE TO START", 600, 470);
 }
 void winningScreen() {
   background(0, 0, 0);
