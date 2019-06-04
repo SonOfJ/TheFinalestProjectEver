@@ -116,8 +116,11 @@ void pausingScreen() {
 void winningScreen() {
   background(0, 0, 0);
   PImage img = loadImage("win.png");
-  image(img, 160, 0);
-  text("PRESS SPACE TO PLAY AGAIN", 600, 450);
+  image(img, 0, 100, 1200, 382.5);
+  textSize(50);
+  textAlign(CENTER);
+  fill(255, 255, 255);
+  text("PRESS SPACE TO PLAY AGAIN", 600, 600);
 }
 void gameOverScreen() {
   background(0, 0, 0);
