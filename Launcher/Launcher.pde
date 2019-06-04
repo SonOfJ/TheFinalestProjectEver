@@ -67,12 +67,13 @@ void draw() {
     for (Moveable thing : thingsToMove) { 
       thing.move();
     }
-    fill(255, 255, 255); //Display the number of points and the number of lives.
+    fill(0, 0, 0); //Display the number of points and the number of lives.
     rect(0, 675, 1200, 25);
+    textAlign(LEFT);
     textSize(25);
-    fill(0, 0, 0);
-    text("POINTS: " + points, 0, 675);
-    text("LIVES: " + lives, 200, 675);
+    fill(255, 255, 255);
+    text("POINTS: " + points, 0, 700);
+    text("LIVES: " + lives, 200, 700);
     pacManDamage(); //Update damage.
   }
 }
