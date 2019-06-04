@@ -125,9 +125,6 @@ void keyPressed() { //Reads the input of keys.
       p.img = pImages[0]; //Load the image for facing up.
       if (p.currentNode.hasUp() && p.currentNode.up.path) { //If there is a node and it is walkable...
         p.currentNode = p.currentNode.up; //Get a new node.
-        if (p.eat()) { //If there is a dot, remove it.
-          points = points + 1; //Gain points.
-        }
         p.y = p.y - 37.5; //Move the display coordinate.
       }
       lastFrame = frameCount;
@@ -136,9 +133,6 @@ void keyPressed() { //Reads the input of keys.
       p.img = pImages[1]; //Load the image for facing down.
       if (p.currentNode.hasDown() && p.currentNode.down.path) { //If there is a node and it is walkable...
         p.currentNode = p.currentNode.down; //Get a new node.
-        if (p.eat()) { //If there is a dot, remove it.
-          points = points + 1; //Gain points.
-        }
         p.y = p.y + 37.5; //Move the display coordinate.
       }
       lastFrame = frameCount;
@@ -147,9 +141,6 @@ void keyPressed() { //Reads the input of keys.
       p.img = pImages[2]; //Load the image for facing left.
       if (p.currentNode.hasLeft() && p.currentNode.left.path) { //If there is a node and it is walkable...
         p.currentNode = p.currentNode.left; //Get a new node.
-        if (p.eat()) { //If there is a dot, remove it.
-          points = points + 1; //Gain points.
-        }
         p.x = p.x - 37.5; //Move the display coordinate.
       }
       lastFrame = frameCount;
@@ -158,9 +149,6 @@ void keyPressed() { //Reads the input of keys.
       p.img = pImages[3]; //Load the image for facing right.
       if (p.currentNode.hasRight() && p.currentNode.right.path) { //If there is a node and it is walkable...
         p.currentNode = p.currentNode.right; //Get a new node.
-        if (p.eat()) { //If there is a dot, remove it.
-          points = points + 1; //Gain points.
-        }
         p.x = p.x + 37.5; //Move the display coordinate.
       }
       lastFrame = frameCount;
@@ -175,6 +163,19 @@ void pacManDamage() { //Function for processing damage taken by Pac-Man.
     }
     if (lives == 0) {
       playing = false;
+      
+    }
+  }
+}
+void pacManPoints() {
+  if (frameCount - lastFrame >= 10) {
+    if (p.eat()) {
+      points = points + 1;
+      lastFrame = frameCount;
+    }
+    if (points == totPoints) {
+      playing = false;
+      winningScreen();
     }
   }
 }
