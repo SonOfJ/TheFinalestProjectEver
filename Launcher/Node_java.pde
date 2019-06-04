@@ -48,7 +48,8 @@ class Node implements Displayable {
     right = other;
   }
   void display() {
-    fill(0); //Black.
+    fill(0, 0, 0); //Black.
+    rectMode(CORNER);
     rect(x, y, 37.5, 37.5);
   }
   void makeDot(float newX, float newY) {

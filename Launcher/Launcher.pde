@@ -3,20 +3,33 @@ ArrayList<Displayable> movingDisplay; //This special list will contain ghosts.
 ArrayList<Moveable> thingsToMove; //This will contain ghosts.
 Pacman p;
 PImage[] pImages; //Images for the four different states of Pac-Man.
-int points; //Number of dots eaten by Pac-Man.
+int points;
+int totPoints; //Number of dots needed to be eaten.
 int lives; //Number of hits Pac-Man can take.
 int lastFrame;
-int totalDots;
-boolean gamePlay; //If true, the game is still running.
-boolean startGame;
+int ticks;
+boolean playing; //If true, the game is still running.
+boolean validMap;
+char dir;
 void setup() {
-  size(1200, 675);
-  startGame = false;
+  size(1200, 700);
+  pImages = new PImage[4]; //Array for containing the images for the states of Pac-Man.
+  pImages[0] = loadImage("pacmanUp.png");
+  pImages[1] = loadImage("pacmanDown.png");
+  pImages[2] = loadImage("pacmanLeft.png");
+  pImages[3] = loadImage("pacmanRight.png");
+  load();
+}
+void load() {
+  totPoints = 0;
   thingsToDisplay = new ArrayList<Displayable>();
   movingDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
   Maze m = new Maze(); //Add the nodes to ArrayList for display.
-  Node index = m.start; 
+  if (m.pacValid && m.dotValid) {
+    validMap = true;
+  }
+  Node index = m.start;
   Node begin = m.start;
   for (int i = 0; i < 18; i = i + 1) {
     index = begin;
@@ -25,7 +38,7 @@ void setup() {
         thingsToDisplay.add(index);
         if (index.hasDot) { //If the node has a dot, add that to the ArrayList for display too.
           thingsToDisplay.add(index.d);
-          totalDots = totalDots + 1;
+          totPoints = totPoints + 1;
         }
         if (index.pacmanHere) {
           p = new Pacman(index, index.x, index.y); //Create the Pac-Man.
@@ -45,79 +58,113 @@ void setup() {
     }
   }
   lives = 3; //Initial number of lives for Pac-Man.
-  pImages = new PImage[4]; //Array for containing the images for the states of Pac-Man.
-  pImages[0] = loadImage("pacmanUp.png");
-  pImages[1] = loadImage("pacmanDown.png");
-  pImages[2] = loadImage("pacmanLeft.png");
-  pImages[3] = loadImage("pacmanRight.png");
-  gamePlay = true; //The game is running.
+  points = 0;
+  ticks = 0;
+  dir = '\u0000';
 }
 void draw() {
-  if (!startGame) {
-    startScreen();
-  } else {
-    clear();
-    background(0, 0, 150);
-    for (Displayable thing : thingsToDisplay) { //Display what is displayable.
-      thing.display();
-    }
-    for (Displayable thing : movingDisplay) { //Display ghosts after nodes and dots.
-      thing.display();
-    }
-    p.display(); //Display Pac-Man.
-    for (Moveable thing : thingsToMove) { 
-      thing.move();
-    }
-    pointsLives(); //Display the number of points and the number of lives.
-    pacManDamage(); //Update damage.
-    if (!gamePlay) { //If the game is no longer running...
-      clear();
+  if (validMap) {
+    if (playing) {
+      background(0, 0, 150);
+      for (Displayable thing : thingsToDisplay) { //Display what is displayable.
+        thing.display();
+      }
+      for (Displayable thing : movingDisplay) { //Display ghosts after nodes and dots.
+        thing.display();
+      }
+      p.display(); //Display Pac-Man.
+      for (Moveable thing : thingsToMove) {
+        thing.move();
+      }
+      fill(255, 255, 255); //Display the number of points and the number of lives.
+      rect(0, 675, 1200, 25);
+      textAlign(LEFT);
+      textSize(33);
+      fill(0, 0, 0);
+      text("POINTS: " + points, 0, 700);
+      text("LIVES: " + lives, 400, 700);
+      pacManDamage();
+      pacManPoints();
+      if (ticks > 0) {
+        if (dir == 'w') {
+          p.y = p.y - 3.75;
+        }
+        if (dir == 's') {
+          p.y = p.y + 3.75;
+        }
+        if (dir == 'a') {
+          p.x = p.x - 3.75;
+        }
+        if (dir == 'd') {
+          p.x = p.x + 3.75;
+        }
+        ticks = ticks - 1;
+      }
+    } else if (lives != 0 && points != totPoints) {
+      startingScreen();
+    } else if (lives == 0) {
       gameOverScreen();
+    } else {
+      winningScreen();
     }
+  } else {
+    background(0, 0, 0);
+    textSize(100);
+    textAlign(CENTER);
+    fill(255, 255, 255);
+    text("INVALID MAP", 600, 370);
   }
 }
-void startScreen() {
+void startingScreen() {
   background(0, 0, 0);
   PImage logoimg = loadImage("pacmanlogo.png");
   image(logoimg, 0, 0, 1200, 324.344112264);
-  rectMode(CENTER);
-  fill(120, 0, 120);
-  rect(600, 390, 300, 100);
-  textSize(80);
-  fill(255, 255, 255); 
+  textSize(50);
   textAlign(CENTER);
-  text("START", 600, 420);
-  text("INSTRUCTIONS", 600, 570);
-  /*
-  fill(0, 0, 120);
-  rect(450, 400, 300, 100);
-  */
+  fill(255, 255, 255);
+  text("PRESS SPACE TO START", 600, 470);
 }
-void pausedScreen() {
+void pausingScreen() {
   textSize(150);
-  noStroke();
   fill(255, 255, 255);
   textAlign(CENTER);
-  text("PAUSED", 800, 450);
+  text("PAUSED", 600, 300);
+  textSize(50);
+  text("PRESS SPACE TO RESTART", 600, 450);
 }
-void winScreen() {
+void winningScreen() {
   background(0, 0, 0);
   PImage img = loadImage("win.png");
-  image(img, 160, 0);
+  image(img, 0, 100, 1200, 382.5);
+  textSize(50);
+  textAlign(CENTER);
+  fill(255, 255, 255);
+  text("PRESS SPACE TO PLAY AGAIN", 600, 600);
 }
 void gameOverScreen() {
   background(0, 0, 0);
   PImage img = loadImage("gameOver.png");
-  image(img, 0, 0, 1600, 900);
+  image(img, 100, 0, 1000, 562.5);
+  textSize(50);
+  textAlign(CENTER);
+  fill(255, 255, 255);
+  text("PRESS SPACE TO TRY AGAIN", 600, 625);
 }
 void keyPressed() { //Reads the input of keys.
   if (key == ' ') {
-    startGame = true;
+    if (!playing) {
+      playing = true;
+      load();
+    }
+    if (!looping) {
+      loop();
+      load();
+    }
   }
-  if (key == 'p' && startGame && gamePlay) {
+  if (key == 'p' && playing && validMap) {
     if (looping) {
       noLoop();
-      pausedScreen();
+      pausingScreen();
     } else {
       loop();
     }
@@ -127,13 +174,8 @@ void keyPressed() { //Reads the input of keys.
       p.img = pImages[0]; //Load the image for facing up.
       if (p.currentNode.hasUp() && p.currentNode.up.path) { //If there is a node and it is walkable...
         p.currentNode = p.currentNode.up; //Get a new node.
-        if (p.eat()) { //If there is a dot, remove it.
-          points = points + 1; //Gain points.
-          if (points == totalDots) {
-            winScreen();
-          }
-        }
-        p.y = p.y - 37.5; //Move the display coordinate.
+        dir = 'w';
+        ticks = 10;
       }
       lastFrame = frameCount;
     }
@@ -141,10 +183,8 @@ void keyPressed() { //Reads the input of keys.
       p.img = pImages[1]; //Load the image for facing down.
       if (p.currentNode.hasDown() && p.currentNode.down.path) { //If there is a node and it is walkable...
         p.currentNode = p.currentNode.down; //Get a new node.
-        if (p.eat()) { //If there is a dot, remove it.
-          points = points + 1; //Gain points.
-        }
-        p.y = p.y + 37.5; //Move the display coordinate.
+        dir = 's';
+        ticks = 10;
       }
       lastFrame = frameCount;
     }
@@ -152,33 +192,21 @@ void keyPressed() { //Reads the input of keys.
       p.img = pImages[2]; //Load the image for facing left.
       if (p.currentNode.hasLeft() && p.currentNode.left.path) { //If there is a node and it is walkable...
         p.currentNode = p.currentNode.left; //Get a new node.
-        if (p.eat()) { //If there is a dot, remove it.
-          points = points + 1; //Gain points.
-        }
-        p.x = p.x - 37.5; //Move the display coordinate.
+        dir = 'a';
+        ticks = 10;
       }
       lastFrame = frameCount;
     }
-    if (key == 'd') { 
+    if (key == 'd') {
       p.img = pImages[3]; //Load the image for facing right.
       if (p.currentNode.hasRight() && p.currentNode.right.path) { //If there is a node and it is walkable...
         p.currentNode = p.currentNode.right; //Get a new node.
-        if (p.eat()) { //If there is a dot, remove it.
-          points = points + 1; //Gain points.
-        }
-        p.x = p.x + 37.5; //Move the display coordinate.
+        dir = 'd';
+        ticks = 10;
       }
       lastFrame = frameCount;
     }
   }
-}
-void pointsLives() { //Function for displaying points and lives. 
-  textSize(32);
-  fill(255, 255, 255);
-  text(points, 150, 150);
-  text("points", 100, 100);
-  text(lives, 150, 250);
-  text("lives", 100, 200);
 }
 void pacManDamage() { //Function for processing damage taken by Pac-Man.
   if (frameCount - lastFrame >= 10) {
@@ -187,7 +215,18 @@ void pacManDamage() { //Function for processing damage taken by Pac-Man.
       lastFrame = frameCount;
     }
     if (lives == 0) {
-      gamePlay = false;
+      playing = false;
+    }
+  }
+}
+void pacManPoints() {
+  if (frameCount - lastFrame >= 10) {
+    if (p.eat()) {
+      points = points + 1;
+      lastFrame = frameCount;
+    }
+    if (points == totPoints) {
+      playing = false;
     }
   }
 }
