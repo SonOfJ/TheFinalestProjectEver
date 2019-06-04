@@ -1,35 +1,35 @@
 ArrayList<Displayable> thingsToDisplay; //This will contain the nodes and dots.
 ArrayList<Displayable> movingDisplay; //This special list will contain ghosts.
 ArrayList<Moveable> thingsToMove; //This will contain ghosts.
-Pacman p;
+Pacman p;//PacMan object
 PImage[] pImages; //Images for the four different states of Pac-Man.
-int points;
+int points;//number of dots eaten
 int totPoints; //Number of dots needed to be eaten.
 int lives; //Number of hits Pac-Man can take.
-int lastFrame;
-int ticks;
+int lastFrame;//used to control speed of game
+int ticks;//used to control speed of game
 boolean playing; //If true, the game is still running.
-boolean validMap;
-char dir;
-void setup() {
+boolean validMap;//checks if map is valid
+char dir;//keeps track of direction (WASD)
+void setup() {//set screen size and load images
   size(1200, 700);
   pImages = new PImage[4]; //Array for containing the images for the states of Pac-Man.
-  pImages[0] = loadImage("pacmanUp.png");
-  pImages[1] = loadImage("pacmanDown.png");
-  pImages[2] = loadImage("pacmanLeft.png");
-  pImages[3] = loadImage("pacmanRight.png");
+  pImages[0] = loadImage("pacmanUp.png");//PacMan facing up
+  pImages[1] = loadImage("pacmanDown.png");//PacMan facing down
+  pImages[2] = loadImage("pacmanLeft.png");//PacMan facing left
+  pImages[3] = loadImage("pacmanRight.png");//PacMan facing right
   load();
 }
 void load() {
   totPoints = 0;
-  thingsToDisplay = new ArrayList<Displayable>();
-  movingDisplay = new ArrayList<Displayable>();
-  thingsToMove = new ArrayList<Moveable>();
+  thingsToDisplay = new ArrayList<Displayable>();//PacMan, Ghosts, Dots
+  movingDisplay = new ArrayList<Displayable>();//separate ArrayLists for Ghosts
+  thingsToMove = new ArrayList<Moveable>();//separate ArrayLists for Ghosts
   Maze m = new Maze(); //Add the nodes to ArrayList for display.
-  if (m.pacValid && m.dotValid) {
-    validMap = true;
+  if (m.pacValid && m.dotValid) {//checks if PacMan and Dots are valid
+    validMap = true;//set boolean to true
   }
-  Node index = m.start;
+  Node index = m.start;//Keep track of start of map
   Node begin = m.start;
   for (int i = 0; i < 18; i = i + 1) {
     index = begin;
@@ -58,14 +58,14 @@ void load() {
     }
   }
   lives = 3; //Initial number of lives for Pac-Man.
-  points = 0;
-  ticks = 0;
+  points = 0;//start out with 0 points
+  ticks = 0;//will start ticking once game starts
   dir = '\u0000';
 }
-void draw() {
-  if (validMap) {
-    if (playing) {
-      background(0, 0, 150);
+void draw() {//create the visuals of the game
+  if (validMap) {//only display the maze for a valid map
+    if (playing) {//game is still being played. game is not over yet
+      background(0, 0, 150);//royal blue background
       for (Displayable thing : thingsToDisplay) { //Display what is displayable.
         thing.display();
       }
@@ -81,34 +81,34 @@ void draw() {
       textAlign(LEFT);
       textSize(33);
       fill(0, 0, 0);
-      text("POINTS: " + points, 0, 700);
-      text("LIVES: " + lives, 400, 700);
-      pacManDamage();
-      pacManPoints();
+      text("POINTS: " + points, 0, 700);//points counter
+      text("LIVES: " + lives, 400, 700);//lives counter
+      pacManDamage();//PacMan takes damage from ghost
+      pacManPoints();//points counter
       if (ticks > 0) {
-        if (dir == 'w') {
+        if (dir == 'w') {//up
           p.y = p.y - 3.75;
         }
-        if (dir == 's') {
+        if (dir == 's') {//down
           p.y = p.y + 3.75;
         }
-        if (dir == 'a') {
+        if (dir == 'a') {//left
           p.x = p.x - 3.75;
         }
-        if (dir == 'd') {
+        if (dir == 'd') {//right
           p.x = p.x + 3.75;
         }
         ticks = ticks - 1;
       }
-    } else if (lives != 0 && points != totPoints) {
+    } else if (lives != 0 && points != totPoints) {//continue gameplay
       startingScreen();
-    } else if (lives == 0) {
-      gameOverScreen();
+    } else if (lives == 0) {//no lives left
+      gameOverScreen();//game over
     } else {
-      winningScreen();
+      winningScreen();//won the game
     }
-  } else {
-    background(0, 0, 0);
+  } else {//not a valid map
+    background(0, 0, 0);//black background
     textSize(100);
     textAlign(CENTER);
     fill(255, 255, 255);
@@ -117,33 +117,33 @@ void draw() {
 }
 void startingScreen() {
   background(0, 0, 0);
-  PImage logoimg = loadImage("pacmanlogo.png");
+  PImage logoimg = loadImage("pacmanlogo.png");//load PacMan logo image
   image(logoimg, 0, 0, 1200, 324.344112264);
   textSize(50);
-  textAlign(CENTER);
+  textAlign(CENTER);//center instructions
   fill(255, 255, 255);
-  text("PRESS SPACE TO START", 600, 470);
+  text("PRESS SPACE TO START", 600, 470);//instructions on how to start game
 }
-void pausingScreen() {
+void pausingScreen() {//game is paused
   textSize(150);
   fill(255, 255, 255);
   textAlign(CENTER);
   text("PAUSED", 600, 300);
   textSize(50);
-  text("PRESS SPACE TO RESTART", 600, 450);
+  text("PRESS SPACE TO RESTART", 600, 450);//instructions on how to resume game
 }
-void winningScreen() {
+void winningScreen() {//winning screen
   background(0, 0, 0);
-  PImage img = loadImage("win.png");
+  PImage img = loadImage("win.png");//image to display
   image(img, 0, 100, 1200, 382.5);
   textSize(50);
   textAlign(CENTER);
   fill(255, 255, 255);
-  text("PRESS SPACE TO PLAY AGAIN", 600, 600);
+  text("PRESS SPACE TO PLAY AGAIN", 600, 600);//can play game again
 }
-void gameOverScreen() {
+void gameOverScreen() {//game over screen
   background(0, 0, 0);
-  PImage img = loadImage("gameOver.png");
+  PImage img = loadImage("gameOver.png");//image to be displayed
   image(img, 100, 0, 1000, 562.5);
   textSize(50);
   textAlign(CENTER);
@@ -151,10 +151,10 @@ void gameOverScreen() {
   text("PRESS SPACE TO TRY AGAIN", 600, 625);
 }
 void keyPressed() { //Reads the input of keys.
-  if (key == ' ') {
+  if (key == ' ') {//space bar
     if (!playing) {
       playing = true;
-      load();
+      load();//loads the map and starts game
     }
     if (!looping) {
       loop();
@@ -209,9 +209,9 @@ void keyPressed() { //Reads the input of keys.
   }
 }
 void pacManDamage() { //Function for processing damage taken by Pac-Man.
-  if (frameCount - lastFrame >= 10) {
-    if (p.currentNode.ghostHere) {
-      lives = lives - 1;
+  if (frameCount - lastFrame >= 10) {//controls speed of game
+    if (p.currentNode.ghostHere) {//touches ghost
+      lives = lives - 1;//take damage. lose one life
       lastFrame = frameCount;
     }
     if (lives == 0) {
@@ -219,7 +219,7 @@ void pacManDamage() { //Function for processing damage taken by Pac-Man.
     }
   }
 }
-void pacManPoints() {
+void pacManPoints() {//PacMan eats Dots
   if (frameCount - lastFrame >= 10) {
     if (p.eat()) {
       points = points + 1;
