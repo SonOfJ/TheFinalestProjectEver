@@ -104,12 +104,14 @@ void keyPressed() { //Reads the input of keys.
   if (key == 'p' && playing) {
     if (looping) {
       noLoop();
+      playing = false;
       textSize(150);
       fill(0, 0, 0);
       textAlign(CENTER);
       text("PAUSED", 600, 300);
     } else {
       loop();
+      playing = true;
     }
   }
   if (frameCount - lastFrame >= 10) { //This limits Pac-Man's movement speed and maintains game balance.
@@ -158,8 +160,8 @@ void keyPressed() { //Reads the input of keys.
       lastFrame = frameCount;
     }
   }
-  if (points == totalDots) {
-    winScreen();
+  if (points == totPoints) {
+    winningScreen();
   }
 }
 void pacManDamage() { //Function for processing damage taken by Pac-Man.
