@@ -79,7 +79,6 @@ void draw() {
       fill(0, 0, 0);
       text("POINTS: " + points, 0, 700);
       text("LIVES: " + lives, 400, 700);
-      text(totPoints, 800, 700);
       pacManDamage(); 
       pacManPoints();
     } else if (lives != 0 && points != totPoints) {
@@ -106,6 +105,14 @@ void startingScreen() {
   fill(255, 255, 255);
   text("PRESS SPACE TO START", 600, 470);
 }
+void pausingScreen() {
+  textSize(150);
+  fill(255, 255, 255);
+  textAlign(CENTER);
+  text("PAUSED", 600, 300);
+  textSize(75);
+  text("PRESS SPACE TO RESTART", 600, 400);
+}
 void winningScreen() {
   background(0, 0, 0);
   PImage img = loadImage("win.png");
@@ -119,21 +126,22 @@ void gameOverScreen() {
   text("PRESS SPACE TO TRY AGAIN", 600, 450);
 }
 void keyPressed() { //Reads the input of keys.
-  if (key == ' ' && !playing) {
-    playing = true;
-    load();
+  if (key == ' ') {
+    if (!playing) {
+      playing = true;
+      load();
+    }
+    if (!looping) {
+      loop();
+      load();
+    }
   }
   if (key == 'p' && playing && validMap) {
     if (looping) {
       noLoop();
-      playing = false;
-      textSize(150);
-      fill(0, 0, 0);
-      textAlign(CENTER);
-      text("PAUSED", 600, 300);
+      pausingScreen();
     } else {
       loop();
-      playing = true;
     }
   }
   if (frameCount - lastFrame >= 10) { //This limits Pac-Man's movement speed and maintains game balance.
