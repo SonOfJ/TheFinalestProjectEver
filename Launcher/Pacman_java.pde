@@ -1,15 +1,15 @@
 class Pacman implements Displayable {
-  PImage img;
+  PImage img;//image to be displayed
   Node currentNode; //The Node that Pac-Man is currently on.
-  float x;
-  float y;
+  float x;//x cor
+  float y;//y cor
   Pacman(Node newCurrent, float newX, float newY) {
     img = loadImage("pacmanRight.png"); //Start with Pac-Man facing to the right.
     currentNode = newCurrent; //Initialize node.
-    x = newX;
-    y = newY;
+    x = newX;//set x
+    y = newY;//set y
   }
-  void display() {
+  void display() {//display for visuals
     image(img, x, y, 37.5, 37.5);
   }
   boolean eat() { //Pac-Man eats the dot in the node it is currently at.
