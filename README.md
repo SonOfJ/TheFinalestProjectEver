@@ -139,3 +139,9 @@ If a player and a ghost swap positions by moving past each other at the same tim
 
 **Jason**
 - I centered some of the text (but that doesn't really matter because I did resizing afterwards so they have to be centered again). I added a way to win the game as well as a victory screen (this hasn't been tested yet because I haven't won a game yet). I also fixed an issue with displaying points and lives by moving the background call and deleting some lines of code. I changed the type for the coordinates from int to float to allow for more flexibility.
+
+
+
+### DAY 13 - June 1, 2019 to June 4, 2019
+**Jason**
+- I worked on user interface. I added two buttons to the start screen that light up when the mouse is put over them. One starts the game and the other one tells the player how to play it. 
