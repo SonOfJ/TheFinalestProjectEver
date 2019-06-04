@@ -53,7 +53,9 @@ void load() {
   lives = 3; //Initial number of lives for Pac-Man.
 }
 void draw() {
-  if (playing) {
+  if (!playing) {
+    startingScreen();
+  } else {
     background(0, 0, 150);
     for (Displayable thing : thingsToDisplay) { //Display what is displayable.
       thing.display();
@@ -72,8 +74,6 @@ void draw() {
     text("POINTS: " + points, 0, 675);
     text("LIVES: " + lives, 200, 675);
     pacManDamage(); //Update damage.
-  } else {
-    startingScreen();
   }
 }
 void startingScreen() {
@@ -82,7 +82,7 @@ void startingScreen() {
   image(logoimg, 0, 0, 1200, 324.344112264);
   textSize(100);
   textAlign(CENTER);
-  fill(0, 0, 0);
+  fill(255, 255, 255);
   text("PRESS SPACE TO START", 600, 450);
 }
 void winningScreen() {
