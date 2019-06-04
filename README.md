@@ -15,14 +15,16 @@ The blueprint of the map that will be used in the game will be located in a text
 - G: Ghosts
 
 **2. Node Data Structure**
+
 This project utilized a Node-based data structure to build out a maze and control interactions among PacMan, the Dots, and the Ghosts.
 
 ## How to Run Program
 
 1. Clone into repo
 2. Open Launcher.pde in Processing
-3. Press spacebar to start game
-4. Use the following controls
+3. Run the program
+4. Press spacebar to start game
+5. Use the following controls
       - Esc: Exit program
       - P: Pause
       - W: Up
@@ -145,3 +147,6 @@ If a player and a ghost swap positions by moving past each other at the same tim
 ### DAY 13 - June 1, 2019 to June 4, 2019
 **Jason**
 - I worked on user interface. I added two buttons to the start screen that light up when the mouse is put over them. One starts the game and the other one tells the player how to play it. 
+
+**Christy**
+- I added comments to all the classes and updated the README
