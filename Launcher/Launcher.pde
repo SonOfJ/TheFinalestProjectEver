@@ -22,7 +22,7 @@ void setup() {//set screen size and load images
 }
 void load() {
   totPoints = 0;
-  thingsToDisplay = new ArrayList<Displayable>();//PacMan, Ghosts, Dots
+  thingsToDisplay = new ArrayList<Displayable>();//PacMan, Ghosts, Dots, Nodes
   movingDisplay = new ArrayList<Displayable>();//separate ArrayLists for Ghosts
   thingsToMove = new ArrayList<Moveable>();//separate ArrayLists for Ghosts
   Maze m = new Maze(); //Add the nodes to ArrayList for display.
