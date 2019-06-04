@@ -2,21 +2,21 @@ class Maze {
   Node start; //Need a starting point to begin displaying.
   Node up; //Check the nodes before.
   Node left; //Check the nodes before.
-  boolean pacValid;
-  boolean dotValid;
+  boolean pacValid;//Check if there is a PacMan ('P')
+  boolean dotValid;//Check if there are Nodes ('N') and Ghosts ('G')
   Maze() {
-    String[] lines = loadStrings("Map.txt");
-    float x = 0;   
-    float y = 0;
+    String[] lines = loadStrings("Map.txt");//load Map.txt file
+    float x = 0;//keep track of xcor   
+    float y = 0;//keep track of ycor
     for (int i = 0; i < 18; i = i + 1) {
       for (int j = 0; j < 32; j = j + 1) {
         boolean walk; //Change according to whether or not the node is walkable.
         if (lines.length > i && lines[i].length() > j && lines[i].charAt(j) != ' ') { //As long as there is a letter...
           walk = true; //The node is walkable.
-          if (lines[i].charAt(j) == 'P') {
+          if (lines[i].charAt(j) == 'P') {//'P' represents PacMan
             pacValid = true;
           }
-          if (lines[i].charAt(j) == 'N' || lines[i].charAt(j) == 'G') {
+          if (lines[i].charAt(j) == 'N' || lines[i].charAt(j) == 'G') {//'N' represents Node. 'G' represents Ghost
             dotValid = true;
           }
         } else { //If not...
