@@ -8,6 +8,7 @@ int totPoints; //Number of dots needed to be eaten.
 int lives; //Number of hits Pac-Man can take.
 int lastFrame;
 boolean playing; //If true, the game is still running.
+boolean validMap;
 void setup() {
   size(1200, 700);
   pImages = new PImage[4]; //Array for containing the images for the states of Pac-Man.
@@ -23,6 +24,9 @@ void load() {
   movingDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
   Maze m = new Maze(); //Add the nodes to ArrayList for display.
+  if (m.pacValid && m.dotValid) {
+    validMap = true;
+  }
   Node index = m.start; 
   Node begin = m.start;
   for (int i = 0; i < 18; i = i + 1) {
@@ -55,34 +59,42 @@ void load() {
   points = 0;
 }
 void draw() {
-  if (playing) {
-    background(0, 0, 150);
-    for (Displayable thing : thingsToDisplay) { //Display what is displayable.
-      thing.display();
+  if (validMap) {
+    if (playing) {
+      background(0, 0, 150);
+      for (Displayable thing : thingsToDisplay) { //Display what is displayable.
+        thing.display();
+      }
+      for (Displayable thing : movingDisplay) { //Display ghosts after nodes and dots.
+        thing.display();
+      }
+      p.display(); //Display Pac-Man.
+      for (Moveable thing : thingsToMove) { 
+        thing.move();
+      }
+      fill(255, 255, 255); //Display the number of points and the number of lives.
+      rect(0, 675, 1200, 25);
+      textAlign(LEFT);
+      textSize(33);
+      fill(0, 0, 0);
+      text("POINTS: " + points, 0, 700);
+      text("LIVES: " + lives, 400, 700);
+      text(totPoints, 800, 700);
+      pacManDamage(); 
+      pacManPoints();
+    } else if (lives != 0 && points != totPoints) {
+      startingScreen();
+    } else if (lives == 0) {
+      gameOverScreen();
+    } else {
+      winningScreen();
     }
-    for (Displayable thing : movingDisplay) { //Display ghosts after nodes and dots.
-      thing.display();
-    }
-    p.display(); //Display Pac-Man.
-    for (Moveable thing : thingsToMove) { 
-      thing.move();
-    }
-    fill(255, 255, 255); //Display the number of points and the number of lives.
-    rect(0, 675, 1200, 25);
-    textAlign(LEFT);
-    textSize(33);
-    fill(0, 0, 0);
-    text("POINTS: " + points, 0, 700);
-    text("LIVES: " + lives, 400, 700);
-    text(totPoints, 800, 700);
-    pacManDamage(); 
-    pacManPoints();
-  } else if (lives != 0 && points != totPoints) {
-    startingScreen();
-  } else if (lives == 0) {
-    gameOverScreen();
   } else {
-    winningScreen();
+    background(0, 0, 0);
+    textSize(100);
+    textAlign(CENTER);
+    fill(255, 255, 255);
+    text("INVALID MAP", 600, 370);
   }
 }
 void startingScreen() {
@@ -111,7 +123,7 @@ void keyPressed() { //Reads the input of keys.
     playing = true;
     load();
   }
-  if (key == 'p' && playing) {
+  if (key == 'p' && playing && validMap) {
     if (looping) {
       noLoop();
       playing = false;
