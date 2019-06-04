@@ -18,6 +18,7 @@ void setup() {
   pImages[1] = loadImage("pacmanDown.png");
   pImages[2] = loadImage("pacmanLeft.png");
   pImages[3] = loadImage("pacmanRight.png");
+  load();
 }
 void load() {
   Maze m = new Maze(); //Add the nodes to ArrayList for display.
