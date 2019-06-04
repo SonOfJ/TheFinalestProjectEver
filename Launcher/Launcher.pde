@@ -3,13 +3,13 @@ ArrayList<Displayable> movingDisplay; //This special list will contain ghosts.
 ArrayList<Moveable> thingsToMove; //This will contain ghosts.
 Pacman p;
 PImage[] pImages; //Images for the four different states of Pac-Man.
-int points; //Number of dots eaten by Pac-Man.
+int points;
+int totPoints; //Number of dots needed to be eaten.
 int lives; //Number of hits Pac-Man can take.
 int lastFrame;
-int totalDots;
 boolean playing; //If true, the game is still running.
 void setup() {
-  size(1200, 675);
+  size(1200, 700);
   thingsToDisplay = new ArrayList<Displayable>();
   movingDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
@@ -23,7 +23,7 @@ void setup() {
         thingsToDisplay.add(index);
         if (index.hasDot) { //If the node has a dot, add that to the ArrayList for display too.
           thingsToDisplay.add(index.d);
-          totalDots = totalDots + 1;
+          totPoints = totPoints + 1;
         }
         if (index.pacmanHere) {
           p = new Pacman(index, index.x, index.y); //Create the Pac-Man.
@@ -62,7 +62,12 @@ void draw() {
     for (Moveable thing : thingsToMove) { 
       thing.move();
     }
-    pointsLives(); //Display the number of points and the number of lives.
+    fill(255, 255, 255); //Display the number of points and the number of lives.
+    rect(0, 675, 1200, 25);
+    textSize(25);
+    fill(0, 0, 0);
+    text("POINTS: " + points, 0, 675);
+    text("LIVES: " + lives, 200, 675);
     pacManDamage(); //Update damage.
   } else if (lives != 0 && points != totalDots) {
     startingScreen();
@@ -76,33 +81,12 @@ void startingScreen() {
   background(0, 0, 0);
   PImage logoimg = loadImage("pacmanlogo.png");
   image(logoimg, 0, 0, 1200, 324.344112264);
-  rectMode(CENTER);
-  fill(120, 0, 120);
-  rect(600, 390, 610, 100);
-  rect(600, 540, 610, 100);
-  textSize(80);
+  textSize(100);
   textAlign(CENTER);
-  if (mouseX >= 295 && mouseX <= 905 && mouseY >= 340 && mouseY <= 440) {
-    fill(255, 255, 255);
-  } else {
-    fill(0, 0, 0);
-  }
-  text("START", 600, 420);
-  if (mouseX >= 295 && mouseX <= 905 && mouseY >= 490 && mouseY <= 590) {
-    fill(255, 255, 255);
-  } else {
-    fill (0, 0, 0);
-  }
-  text("INSTRUCTIONS", 600, 570);
-}
-void toPlayScreen() {
-  rectMode(CORNER);
-  fill(120, 0, 120);
-  rect(600, 0, 600, 50);
-  textSize(80);
   fill(0, 0, 0);
+  text("PRESS SPACE TO START", 600, 450);
 }
-void winScreen() {
+void winningScreen() {
   background(0, 0, 0);
   PImage img = loadImage("win.png");
   image(img, 160, 0);
