@@ -73,7 +73,7 @@ void draw() {
         thing.display();
       }
       p.display(); //Display Pac-Man.
-      for (Moveable thing : thingsToMove) { 
+      for (Moveable thing : thingsToMove) {
         thing.move();
       }
       fill(255, 255, 255); //Display the number of points and the number of lives.
