@@ -73,7 +73,7 @@ void draw() {
     textSize(33);
     fill(0, 0, 0);
     text("POINTS: " + points, 0, 700);
-    text("LIVES: " + lives, 200, 700);
+    text("LIVES: " + lives, 400, 700);
     pacManDamage(); //Update damage.
   }
 }
