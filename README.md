@@ -146,7 +146,7 @@ If a player and a ghost swap positions by moving past each other at the same tim
 
 ### DAY 13 - June 1, 2019 to June 4, 2019
 **Jason**
-- I worked on user interface. I added two buttons to the start screen that light up when the mouse is put over them. One starts the game and the other one tells the player how to play it. 
+- I made some final changes to the project that included improving user interface by changing the start, pause, end, and win screens. I also smoothed out the movements of the ghosts and Pac-Man. Some changes could not be implemented because it would slow down the program to an unacceptable degree (calculating all the distances for the chase function of the ghosts and the if statements that come with adding too many buttons to the start screen and screens). I also added a replay function and difficulty selection to control ghost speed (meant to make up for the fact that they don't chase you).
 
 **Christy**
 - I added comments to all the classes and updated the README
