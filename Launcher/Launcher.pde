@@ -110,8 +110,8 @@ void pausingScreen() {
   fill(255, 255, 255);
   textAlign(CENTER);
   text("PAUSED", 600, 300);
-  textSize(75);
-  text("PRESS SPACE TO RESTART", 600, 400);
+  textSize(50);
+  text("PRESS SPACE TO RESTART", 600, 450);
 }
 void winningScreen() {
   background(0, 0, 0);
@@ -122,8 +122,11 @@ void winningScreen() {
 void gameOverScreen() {
   background(0, 0, 0);
   PImage img = loadImage("gameOver.png");
-  image(img, 0, 0, 1600, 900);
-  text("PRESS SPACE TO TRY AGAIN", 600, 450);
+  image(img, 100, 0, 1000, 562.5);
+  textSize(50);
+  textAlign(CENTER);
+  fill(255, 255, 255);
+  text("PRESS SPACE TO TRY AGAIN", 600, 625);
 }
 void keyPressed() { //Reads the input of keys.
   if (key == ' ') {
