@@ -13,6 +13,13 @@ void setup() {
   thingsToDisplay = new ArrayList<Displayable>();
   movingDisplay = new ArrayList<Displayable>();
   thingsToMove = new ArrayList<Moveable>();
+  pImages = new PImage[4]; //Array for containing the images for the states of Pac-Man.
+  pImages[0] = loadImage("pacmanUp.png");
+  pImages[1] = loadImage("pacmanDown.png");
+  pImages[2] = loadImage("pacmanLeft.png");
+  pImages[3] = loadImage("pacmanRight.png");
+}
+void load() {
   Maze m = new Maze(); //Add the nodes to ArrayList for display.
   Node index = m.start; 
   Node begin = m.start;
@@ -43,11 +50,6 @@ void setup() {
     }
   }
   lives = 3; //Initial number of lives for Pac-Man.
-  pImages = new PImage[4]; //Array for containing the images for the states of Pac-Man.
-  pImages[0] = loadImage("pacmanUp.png");
-  pImages[1] = loadImage("pacmanDown.png");
-  pImages[2] = loadImage("pacmanLeft.png");
-  pImages[3] = loadImage("pacmanRight.png");
 }
 void draw() {
   if (playing) {
@@ -95,8 +97,9 @@ void gameOverScreen() {
   text("PRESS SPACE TO TRY AGAIN", 600, 450);
 }
 void keyPressed() { //Reads the input of keys.
-  if (key == ' ' && !playing && lives != 0 && points != totalDots) {
+  if (key == ' ' && !playing) {
     playing = true;
+    load();
   }
   if (key == 'p' && playing) {
     if (looping) {
