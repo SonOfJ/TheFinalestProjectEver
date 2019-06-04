@@ -4,6 +4,7 @@ class Maze {
   Node left; //Check the nodes before.
   boolean pacValid;//Check if there is a PacMan ('P')
   boolean dotValid;//Check if there are Nodes ('N') and Ghosts ('G')
+  int numPac;
   Maze() {
     String[] lines = loadStrings("Map.txt");//load Map.txt file
     float x = 0;//keep track of xcor   
@@ -14,7 +15,7 @@ class Maze {
         if (lines.length > i && lines[i].length() > j && lines[i].charAt(j) != ' ') { //As long as there is a letter...
           walk = true; //The node is walkable.
           if (lines[i].charAt(j) == 'P') {//'P' represents PacMan
-            pacValid = true;
+            numPac = numPac + 1;
           }
           if (lines[i].charAt(j) == 'N' || lines[i].charAt(j) == 'G') {//'N' represents Node. 'G' represents Ghost
             dotValid = true;
@@ -86,6 +87,9 @@ class Maze {
           n.addGhost(); //There should be a ghost.
         }
       }
+    }
+    if (numPac == 1) {
+      pacValid = true;
     }
   }
 }

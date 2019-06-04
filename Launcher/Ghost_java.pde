@@ -16,7 +16,7 @@ class Ghost implements Displayable, Moveable {
     image(img, x, y, 37.5, 37.5);
   }
   void move() {//ghost movement
-    if (frameCount - lastFrame == 20) {
+    if (frameCount - lastFrame >= 20) {
       ArrayList<Character> dir = new ArrayList<Character>(); //This ArrayList will contain all the possible directions the ghost can move in.
       if (currentNode.hasUp() && currentNode.up.path) {
         dir.add('w');//up
