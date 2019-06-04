@@ -1,27 +1,27 @@
 class Node implements Displayable {
-  Node up; 
-  Node down;
-  Node left;
-  Node right;
+  Node up; //Node on the top
+  Node down;//Node on the bottom
+  Node left;//Node to the left
+  Node right;//Node to the right
   boolean path; //Response to whether or not the node can be stepped on.
-  boolean hasDot; 
-  boolean ghostHere;
-  boolean pacmanHere;
-  float x;
-  float y;
-  Dot d;
-  Ghost g;
+  boolean hasDot; //keeps track if there is Dot there
+  boolean ghostHere;//is there a Ghost here
+  boolean pacmanHere;//is PacMan here
+  float x;//x cor
+  float y;//y cor
+  Dot d;//holds a Dot
+  Ghost g;//Hold a Ghost
   Node(Node newUp, Node newDown, Node newLeft, Node newRight, boolean patState) {
-    up = newUp;
-    down = newDown;
-    left = newLeft;
-    right = newRight;
+    up = newUp;//set Node on top
+    down = newDown;//set Node to the bottom
+    left = newLeft;//set Node to the left
+    right = newRight;//set Node to the right
     path = patState;
     hasDot = true; //There is a dot by default. It won't matter if the node cannot be stepped on.
     ghostHere = false; //There is no ghost by default.
   }
-  void removeDot() {
-    hasDot = false;
+  void removeDot() {//remove the Dot. Dot no longer there
+    hasDot = false;//set boolean to false
   }
   boolean hasUp() { //Is there a node above?
     return up != null;
@@ -35,11 +35,11 @@ class Node implements Displayable {
   boolean hasRight() { //Is there a node to the right?
     return right != null;
   }
-  void addGhost() {
-    ghostHere = true;
+  void addGhost() {//Ghost is now at this Node
+    ghostHere = true;//set boolean to true
   }
-  void removeGhost() {
-    ghostHere = false;
+  void removeGhost() {//Ghost is no longer at this Node
+    ghostHere = false;//set boolean to false
   }
   void setDown(Node other) { //Used for building the nodes.
     down = other;
@@ -52,16 +52,16 @@ class Node implements Displayable {
     rectMode(CORNER);
     rect(x, y, 37.5, 37.5);
   }
-  void makeDot(float newX, float newY) {
-    d = new Dot(newX, newY);
+  void makeDot(float newX, float newY) {//make a new Dot at x and y coordinates specified
+    d = new Dot(newX, newY);//create new object
   }
-  void addPacman() {
-    pacmanHere = true;
+  void addPacman() {//PacMan is at this Node
+    pacmanHere = true;//set boolean to true
   }
-  void setX(float newX) {
+  void setX(float newX) {//change x cor
     x = newX;
   }
-  void setY(float newY) {
+  void setY(float newY) {//change y cor
     y = newY;
   }
 }
