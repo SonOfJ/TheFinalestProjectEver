@@ -172,7 +172,6 @@ void pacManDamage() { //Function for processing damage taken by Pac-Man.
     }
     if (lives == 0) {
       playing = false;
-      gameOver = true;
     }
   }
 }
