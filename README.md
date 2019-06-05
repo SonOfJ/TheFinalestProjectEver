@@ -2,7 +2,7 @@
 
 ## Project Description
 
-This game attempts to recreate the classic arcade Pac-Man game. The user uses arrow keys to guide Pac-Man through a maze to eat Pac-Dots, while avoiding the four ghosts roaming around the maze. If Pac-Man touches a ghost, the user loses a life and when all lives are lost, the game is over.
+This game attempts to recreate the classic arcade Pac-Man game. The user uses arrow keys to guide Pac-Man through a maze to eat Pac-Dots, while avoiding the ghosts roaming around the maze. If Pac-Man touches a ghost, the user loses a life and when all lives are lost, the game is over. In order to win the game, the Pac-Man must eat all the Dots. To create this game, we used a series of nodes to represent the tunnels and the intersections that Pac-Man can travel through. 
 
 ## Project Features
 
@@ -14,17 +14,20 @@ The blueprint of the map that will be used in the game will be located in a text
 - D: Dots that can be consumed by Pac-Man to generate points for the player
 - G: Ghosts
 
-**2. Node Data Structure**
+**3. Node Data Structure**
 
 This project utilized a Node-based data structure to build out a maze and control interactions among PacMan, the Dots, and the Ghosts.
+
+
 
 ## How to Run Program
 
 1. Clone into repo
 2. Open Launcher.pde in Processing
 3. Run the program
-4. Press spacebar to start game
-5. Use the following controls
+4. Select difficulty level (easy, medium, or hard)
+5. Press spacebar to start game
+6. Use the following controls
       - Esc: Exit program
       - P: Pause
       - W: Up
