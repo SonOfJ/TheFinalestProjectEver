@@ -127,23 +127,23 @@ void startingScreen() {
   text("PRESS SPACE TO START", 600, 470);//instructions on how to start game
   textSize(25);
   fill(153);
-  if (mode == 'e') {
-    text("MEDIUM", 600, 610);
-    text("HARD", 900, 610);
-    fill(255, 255, 255);
-    text("EASY", 300, 610);
+  if (mode == 'e') {//easy difficulty level
+    text("MEDIUM", 600, 610);//visuals
+    text("HARD", 900, 610);//visuals
+    fill(255, 255, 255);//visuals
+    text("EASY", 300, 610);//visuals
   }
-  if (mode == 'm') {
-    text("EASY", 300, 610);
-    text("HARD", 900, 610);
-    fill(255, 255, 255);
-    text("MEDIUM", 600, 610);
+  if (mode == 'm') {//medium difficulty level
+    text("EASY", 300, 610);//visuals
+    text("HARD", 900, 610);//visuals
+    fill(255, 255, 255);//visuals
+    text("MEDIUM", 600, 610);//visuals
   }
-  if (mode == 'h') {
-    text("EASY", 300, 610);
-    text("MEDIUM", 600, 610);
-    fill(255, 255, 255);
-    text("HARD", 900, 610);
+  if (mode == 'h') {//hard difficulty level
+    text("EASY", 300, 610);//visuals
+    text("MEDIUM", 600, 610);//visuals
+    fill(255, 255, 255);//visuals
+    text("HARD", 900, 610);//visuals
   }
 }
 void pausingScreen() {//game is paused
@@ -196,7 +196,7 @@ void keyPressed() { //Reads the input of keys.
     }
   }
   if (frameCount - lastFrame >= 10) { //This limits Pac-Man's movement speed and maintains game balance.
-    if (key == 'w') {
+    if (key == 'w') {//up direction
       p.img = pImages[0]; //Load the image for facing up.
       if (p.currentNode.hasUp() && p.currentNode.up.path) { //If there is a node and it is walkable...
         p.currentNode = p.currentNode.up; //Get a new node.
@@ -205,7 +205,7 @@ void keyPressed() { //Reads the input of keys.
       }
       lastFrame = frameCount;
     }
-    if (key == 's') {
+    if (key == 's') {//down direction
       p.img = pImages[1]; //Load the image for facing down.
       if (p.currentNode.hasDown() && p.currentNode.down.path) { //If there is a node and it is walkable...
         p.currentNode = p.currentNode.down; //Get a new node.
@@ -214,7 +214,7 @@ void keyPressed() { //Reads the input of keys.
       }
       lastFrame = frameCount;
     }
-    if (key == 'a') {
+    if (key == 'a') {//left direction
       p.img = pImages[2]; //Load the image for facing left.
       if (p.currentNode.hasLeft() && p.currentNode.left.path) { //If there is a node and it is walkable...
         p.currentNode = p.currentNode.left; //Get a new node.
@@ -223,7 +223,7 @@ void keyPressed() { //Reads the input of keys.
       }
       lastFrame = frameCount;
     }
-    if (key == 'd') {
+    if (key == 'd') {//right direction
       p.img = pImages[3]; //Load the image for facing right.
       if (p.currentNode.hasRight() && p.currentNode.right.path) { //If there is a node and it is walkable...
         p.currentNode = p.currentNode.right; //Get a new node.
@@ -234,17 +234,17 @@ void keyPressed() { //Reads the input of keys.
     }
   }
 }
-void mousePressed() {
+void mousePressed() {//user clicks on difficulty level
   if (!playing && lives != 0 && points != totPoints) {
     if (mouseY >= 575 && mouseY <= 625) {
-      if (mouseX >= 225 && mouseX <= 375) {
-        mode = 'e';
+      if (mouseX >= 225 && mouseX <= 375) {//use mouse coordinates to determine which difficulty the user chose
+        mode = 'e';//easy
       }
-      if (mouseX >= 525 && mouseX <= 675) {
-        mode = 'm';
+      if (mouseX >= 525 && mouseX <= 675) {//use mouse coordinates to determine which difficulty the user chose
+        mode = 'm';//medium
       }
-      if (mouseX >= 825 && mouseX <= 975) {
-        mode = 'h';
+      if (mouseX >= 825 && mouseX <= 975) {//use mouse coordinates to determine which difficulty the user chose
+        mode = 'h';//hard
       }
     }
   }
@@ -255,19 +255,19 @@ void pacManDamage() { //Function for processing damage taken by Pac-Man.
       lives = lives - 1;//take damage. lose one life
       lastFrame = frameCount;
     }
-    if (lives == 0) {
-      playing = false;
+    if (lives == 0) {//lost all lives
+      playing = false;//game is over. no longer playing
     }
   }
 }
 void pacManPoints() {//PacMan eats Dots
   if (frameCount - lastFrame >= 10) {
-    if (p.eat()) {
-      points = points + 1;
+    if (p.eat()) {//eat dot
+      points = points + 1;//points counter increases by one
       lastFrame = frameCount;
     }
-    if (points == totPoints) {
-      playing = false;
+    if (points == totPoints) {//check if player has eaten all the dots...
+      playing = false;//...if so, game is over
     }
   }
 }
