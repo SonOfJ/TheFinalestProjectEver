@@ -8,6 +8,7 @@ int totPoints; //Number of dots needed to be eaten.
 int lives; //Number of hits Pac-Man can take.
 int lastFrame;//used to control speed of game
 int ticks;//used to control speed of game
+int frameDiff; //Control damage update.
 boolean playing; //If true, the game is still running.
 boolean validMap;//checks if map is valid
 char dir;//keeps track of direction (WASD)
@@ -250,7 +251,12 @@ void mousePressed() {//user clicks on difficulty level
   }
 }
 void pacManDamage() { //Function for processing damage taken by Pac-Man.
-  if (frameCount - lastFrame >= 10) {//controls speed of game
+  if (mode == 'h') {
+    frameDiff = 5;
+  } else {
+    frameDiff = 10;
+  }
+  if (frameCount - lastFrame >= frameDiff) {//controls speed of game
     if (p.currentNode.ghostHere) {//touches ghost
       lives = lives - 1;//take damage. lose one life
       lastFrame = frameCount;

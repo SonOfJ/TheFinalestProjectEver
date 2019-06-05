@@ -15,7 +15,7 @@ class Maze {
     float x = 0;//keep track of xcor   
     float y = 0;//keep track of ycor
     for (int i = 0; i < 18; i = i + 1) {
-      if (lines[i].length() > 32) { //Tests for compliance with horizontal limits.
+      if (i < lines.length && lines[i].length() > 32) { //Tests for compliance with horizontal limits.
         sizeValid = false;
       }
       for (int j = 0; j < 32; j = j + 1) {
