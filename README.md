@@ -28,6 +28,10 @@ The user chooses from three different difficulty levels (easy, medium, and hard)
 
 In addition to allowing the user to select the level of difficulty, the movement of Pac-Man makes the game more difficult. When Pac-Man eats a Dot, he slows down, making him vulnerable to taking damage from Ghosts. 
 
+**5. User Interface**
+
+The program features a start screen, game over screen, and a win screen. To improve user experience, the player is able to pause the game in order to restart. Directions on how to interact with the program are displayed so the user has no difficulty in navigating the program.
+
 ## How to Run Program
 
 1. Clone into repo
