@@ -13,17 +13,17 @@ class Ghost implements Displayable, Moveable {
     currentNode = newCurrent;//set currentNode
     x = newX;//set x
     y = newY;//set y
-    if (mode == 'e') {
-      frameDiff = 20;
-      dist = 3.75 / 2;
+    if (mode == 'e') {//easy difficulty level
+      frameDiff = 20;//slow movement
+      dist = 3.75 / 2;//slow movement
     }
-    if (mode == 'm') {
-      frameDiff = 10;
-      dist = 3.75;
+    if (mode == 'm') {//medium difficulty level
+      frameDiff = 10;//slightly faster movement
+      dist = 3.75;//slightly faster movement
     }
-    if (mode == 'h') {
-      frameDiff = 5;
-      dist = 3.75 * 2;
+    if (mode == 'h') {//hard difficulty level
+      frameDiff = 5;//moving very fast
+      dist = 3.75 * 2;//moving very fast
     }
   }
   void display() {//display the ghost
