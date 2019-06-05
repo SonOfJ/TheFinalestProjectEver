@@ -16,7 +16,7 @@ The blueprint of the map that will be used in the game will be located in a text
 
 **2. Valid Map Check**
 
-The game automatically checks if the Map.txt file contains a valid map. The map must follow the dimension guidelines (width of 32 and a height of 18) and contain the characters to represent Pac-Man, Nodes, Dots, and Ghosts.
+The game automatically checks if the Map.txt file contains a valid map. The map must follow the dimension guidelines (width of 32 and a height of 18) and contain the characters to represent Pac-Man, Nodes, Dots, and Ghosts. There must be exaclty one Pac-Man and at least one empty Node or Ghost. In addition, the program does not allow oversized maps and the Map.txt file may not contain any more than 18 lines (this is a strict requirement!).
 
 **3. Node Data Structure**
 
