@@ -11,6 +11,7 @@ int ticks;//used to control speed of game
 boolean playing; //If true, the game is still running.
 boolean validMap;//checks if map is valid
 char dir;//keeps track of direction (WASD)
+char mode;
 void setup() {//set screen size and load images
   size(1200, 700);
   pImages = new PImage[4]; //Array for containing the images for the states of Pac-Man.
@@ -61,6 +62,7 @@ void load() {
   points = 0;//start out with 0 points
   ticks = 0;//will start ticking once game starts
   dir = '\u0000';
+  mode = 'e';
 }
 void draw() {//create the visuals of the game
   if (validMap) {//only display the maze for a valid map
@@ -123,6 +125,26 @@ void startingScreen() {
   textAlign(CENTER);//center instructions
   fill(255, 255, 255);
   text("PRESS SPACE TO START", 600, 470);//instructions on how to start game
+  textSize(25);
+  fill(153);
+  if (mode == 'e') {
+    text("MEDIUM", 600, 610);
+    text("HARD", 900, 610);
+    fill(255, 255, 255);
+    text("EASY", 300, 610);
+  }
+  if (mode == 'm') {
+    text("EASY", 300, 610);
+    text("HARD", 900, 610);
+    fill(255, 255, 255);
+    text("MEDIUM", 600, 610);
+  }
+  if (mode == 'h') {
+    text("EASY", 300, 610);
+    text("MEDIUM", 600, 610);
+    fill(255, 255, 255);
+    text("HARD", 900, 610);
+  }
 }
 void pausingScreen() {//game is paused
   textSize(150);
@@ -153,11 +175,15 @@ void gameOverScreen() {//game over screen
 void keyPressed() { //Reads the input of keys.
   if (key == ' ') {//space bar
     if (!playing) {
-      playing = true;
-      load();//loads the map and starts game
-    }
-    if (!looping) {
+      if (lives != 0 && points != totPoints) {
+        playing = true;
+        load();//loads the map and starts game
+      } else {
+        load();
+      }
+    } else if (!looping) {
       loop();
+      playing = false;
       load();
     }
   }
@@ -205,6 +231,21 @@ void keyPressed() { //Reads the input of keys.
         ticks = 10;
       }
       lastFrame = frameCount;
+    }
+  }
+}
+void mousePressed() {
+  if (!playing && lives != 0 && points != totPoints) {
+    if (mouseY >= 575 && mouseY <= 625) {
+      if (mouseX >= 225 && mouseX <= 375) {
+        mode = 'e';
+      }
+      if (mouseX >= 525 && mouseX <= 675) {
+        mode = 'm';
+      }
+      if (mouseX >= 825 && mouseX <= 975) {
+        mode = 'h';
+      }
     }
   }
 }
