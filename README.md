@@ -14,18 +14,26 @@ The blueprint of the map that will be used in the game will be located in a text
 - D: Dots that can be consumed by Pac-Man to generate points for the player
 - G: Ghosts
 
+**2. Valid Map Check**
+
+The game automatically checks if the Map.txt file contains a valid map. The map must follow the dimension guidelines (width of 32 and a height of 18) and contain the characters to represent Pac-Man, Nodes, Dots, and Ghosts.
+
 **3. Node Data Structure**
 
 This project utilized a Node-based data structure to build out a maze and control interactions among PacMan, the Dots, and the Ghosts.
 
+**4. Game Difficulty**
 
+The user chooses from three different difficulty levels (easy, medium, and hard). When the difficulty is set to easy, the Ghosts move at half the normal speed of Pac-Man. When the difficulty is medium, the ghosts move at Pac-Man's speed. When the difficulty is hard, the ghosts move at double Pac-Man's speed.
+
+In addition to allowing the user to select the level of difficulty, the movement of Pac-Man makes the game more difficult. When Pac-Man eats a Dot, he slows down, making him vulnerable to taking damage from Ghosts. 
 
 ## How to Run Program
 
 1. Clone into repo
 2. Open Launcher.pde in Processing
 3. Run the program
-4. Select difficulty level (easy, medium, or hard)
+4. Select difficulty level (easy, medium, or hard) using the mouse
 5. Press spacebar to start game
 6. Use the following controls
       - Esc: Exit program
@@ -35,11 +43,8 @@ This project utilized a Node-based data structure to build out a maze and contro
       - A: Left
       - D: Right
 
-Dodging 
-If a player and a ghost swap positions by moving past each other at the same time, the player can avoid taking damage.
 
 ## Development Log
-
 
 
 ### DAY 1 - May 16, 2019
@@ -152,4 +157,4 @@ If a player and a ghost swap positions by moving past each other at the same tim
 - I made some final changes to the project that included improving user interface by changing the start, pause, end, and win screens. I also smoothed out the movements of the ghosts and Pac-Man. Some changes could not be implemented because it would slow down the program to an unacceptable degree (calculating all the distances for the chase function of the ghosts and the if statements that come with adding too many buttons to the start screen and screens). I also added a replay function and difficulty selection to control ghost speed (meant to make up for the fact that they don't chase you).
 
 **Christy**
-- I added comments to all the classes and updated the README
+- I added comments to all the classes and updated the README with a more detailed project description, more project features, and specific instructions on how to run the program.
