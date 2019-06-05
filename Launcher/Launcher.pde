@@ -27,7 +27,7 @@ void load() {
   movingDisplay = new ArrayList<Displayable>();//separate ArrayLists for Ghosts
   thingsToMove = new ArrayList<Moveable>();//separate ArrayLists for Ghosts
   Maze m = new Maze(); //Add the nodes to ArrayList for display.
-  if (m.pacValid && m.dotValid) {//checks if PacMan and Dots are valid
+  if (m.pacValid && m.dotValid && m.sizeValid) {//checks if PacMan and Dots are valid
     validMap = true;//set boolean to true
   }
   Node index = m.start;//Keep track of start of map

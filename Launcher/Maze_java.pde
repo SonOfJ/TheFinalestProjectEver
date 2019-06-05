@@ -4,12 +4,20 @@ class Maze {
   Node left; //Check the nodes before.
   boolean pacValid;//Check if there is a PacMan ('P')
   boolean dotValid;//Check if there are Nodes ('N') and Ghosts ('G')
+  boolean sizeValid;//Check to see if the dimensions are acceptable.
   int numPac;
   Maze() {
+    sizeValid = true;
     String[] lines = loadStrings("Map.txt");//load Map.txt file
+    if (lines.length > 18) { //Tests for compliance with vertical limits.
+      sizeValid = false;
+    }
     float x = 0;//keep track of xcor   
     float y = 0;//keep track of ycor
     for (int i = 0; i < 18; i = i + 1) {
+      if (lines[i].length() > 32) { //Tests for compliance with horizontal limits.
+        sizeValid = false;
+      }
       for (int j = 0; j < 32; j = j + 1) {
         boolean walk; //Change according to whether or not the node is walkable.
         if (lines.length > i && lines[i].length() > j && lines[i].charAt(j) != ' ') { //As long as there is a letter...
